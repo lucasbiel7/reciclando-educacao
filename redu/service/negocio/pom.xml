@@ -7,8 +7,12 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	
+	<name>Négocio</name>
+	
 	<groupId>br.com.unibh.redu.service</groupId>
 	<artifactId>negocio</artifactId>
 	<packaging>jar</packaging>
-	<name>Négocio</name>
+	
+	
+	
 </project>

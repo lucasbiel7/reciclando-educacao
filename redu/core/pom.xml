@@ -12,6 +12,7 @@
 	</parent>
 	
 	<name>Core</name>
+	
 	<groupId>br.com.unibh.redu</groupId>
 	<artifactId>core</artifactId>
 	<packaging>jar</packaging>

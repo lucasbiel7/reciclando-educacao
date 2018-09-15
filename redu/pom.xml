@@ -12,6 +12,7 @@
     <name>Reciclando educação</name>
 
 	<modules>
+		<module>core</module>
 		<module>service</module>
 		<module>rest</module>
 		<module>web</module>

@@ -11,7 +11,7 @@
     <groupId>br.com.unibh.redu</groupId>
     <artifactId>web</artifactId>
     <packaging>war</packaging>
-    <name>WEB</name>
+    <name>FRONT-END</name>
     
     <build>
         <plugins>

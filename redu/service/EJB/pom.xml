@@ -6,11 +6,12 @@
 		<artifactId>service</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<name>EJB</name>
+	
+	<name>EJB Services</name>
+	
 	<groupId>br.com.unibh.redu.service</groupId>
 	<artifactId>EJB</artifactId>
 	<packaging>war</packaging>
-	
 	
 	<build>
         <plugins>

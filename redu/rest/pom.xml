@@ -6,7 +6,7 @@
 		<artifactId>redu</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	
+	<name>REST Service</name>
 	<artifactId>rest</artifactId>
 	<groupId>br.com.unibh.redu</groupId>
 	<packaging>war</packaging>
