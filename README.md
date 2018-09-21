@@ -16,6 +16,6 @@ para doação, se apresente em qual serviço você se encaixa para nos ajudar ta
 <ul>
   <li>Lucas Gabriel - https://github.com/lucasbiel7</li>
   <li>Diego Soares Santos - https://github.com/protoman555</li>
-  <li>Paulo Henrique</li>
+  <li>Paulo Henrique - https://github.com/phenrique17</li>
   <li>Nicolas Bagetto</li>
 </ul>
