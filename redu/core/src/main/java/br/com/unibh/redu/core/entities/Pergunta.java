@@ -24,7 +24,8 @@ public class Pergunta extends BaseEntity<Long> {
 	@Id
 	@Column(name = "id_pergunta")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	protected Long id;
+
 	@Column(name = "txt_pergunta")
 	private String textoPergunta;
 
@@ -49,4 +50,13 @@ public class Pergunta extends BaseEntity<Long> {
 		this.textoPergunta = textoPergunta;
 	}
 
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj);
+	}
 }
