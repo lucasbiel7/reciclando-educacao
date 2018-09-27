@@ -8,7 +8,6 @@ package br.com.unibh.redu.core.util;
  */
 public class ObjectUtil {
 
-	
 	public static <T> T cast(Object object, Class<T> classe) {
 		return classe.cast(object);
 	}

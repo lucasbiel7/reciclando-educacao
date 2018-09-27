@@ -9,7 +9,7 @@ package br.com.unibh.redu.core.util;
 public class StringUtil {
 
 	public static boolean isEmpty(String text) {
-		return text ==null || text.isEmpty();
+		return text == null || text.isEmpty();
 	}
 	
 	
