@@ -9,6 +9,11 @@ import javax.persistence.Table;
 
 import br.com.unibh.redu.core.util.Constante;
 
+/**
+ * 
+ * @author Lucas Gabriel
+ *
+ */
 @Entity
 @Table(name = "tipo_colaborador", schema = Constante.DATABASE)
 public class TipoColaborador extends BaseEntity<Long> {
@@ -22,7 +27,7 @@ public class TipoColaborador extends BaseEntity<Long> {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false, unique = true)
 	private Long id;
-	@Column(name = "tx_descricao")
+	@Column(name = "tx_descricao", nullable = false)
 	private String descricao;
 
 	@Override

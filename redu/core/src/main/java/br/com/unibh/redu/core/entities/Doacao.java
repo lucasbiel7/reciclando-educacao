@@ -27,7 +27,7 @@ public class Doacao extends BaseEntity<Long> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "id_doacao")
 	private Long id;
 
 	@Column(name = "vl_quantidade")
@@ -37,11 +37,11 @@ public class Doacao extends BaseEntity<Long> {
 	private String caracteristica;
 
 	@ManyToOne(targetEntity = TipoDoacao.class, optional = false)
-	@JoinColumn(name = "id_tipo_doacao", referencedColumnName = "id")
+	@JoinColumn(name = "id_tipo_doacao", referencedColumnName = "id_tipo_doacao")
 	private TipoDoacao tipoDoacao;
 
 	@ManyToOne(targetEntity = Colaborador.class, optional = false)
-	@JoinColumn(name = "id_colaborador", referencedColumnName = "id")
+	@JoinColumn(name = "id_colaborador", referencedColumnName = "id_colaborador")
 	private Colaborador colaborador;
 
 	@Override

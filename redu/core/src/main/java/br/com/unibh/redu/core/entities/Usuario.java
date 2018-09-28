@@ -13,6 +13,11 @@ import javax.persistence.Table;
 
 import br.com.unibh.redu.core.util.Constante;
 
+/**
+ * 
+ * @author Lucas Gabriel
+ *
+ */
 @Entity
 @Table(name = "usuario", schema = Constante.DATABASE)
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -25,7 +30,7 @@ public class Usuario extends BaseEntity<Long> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "id_usuario")
 	private Long id;
 
 	@Column(name = "tx_nome", nullable = false)

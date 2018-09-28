@@ -24,11 +24,11 @@ public class Endereco extends BaseEntity<Long> {
 	private static final long serialVersionUID = 67190653709988451L;
 
 	@Id
-	@Column(name = "id")
+	@Column(name = "id_endereco")
 	private Long id;
 
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "id_endereco")
 	@MapsId
 	private Usuario usuario;
 

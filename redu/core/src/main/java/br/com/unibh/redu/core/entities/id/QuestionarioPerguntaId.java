@@ -9,34 +9,39 @@ import javax.persistence.ManyToOne;
 import br.com.unibh.redu.core.entities.Pergunta;
 import br.com.unibh.redu.core.entities.Questionario;
 
+
+/**
+ * 
+ * @author Lucas Gabriel
+ *
+ */
 @Embeddable
-public class QuestionarioPerguntaId implements Serializable{
+public class QuestionarioPerguntaId implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3775227023341675875L;
-	
-	@ManyToOne(targetEntity = Questionario.class,optional =false )
-	@JoinColumn(name="id_questionario",referencedColumnName="id_questionario")
+
+	@ManyToOne(targetEntity = Questionario.class, optional = false)
+	@JoinColumn(name = "id_questionario", referencedColumnName = "id_questionario")
 	private Questionario questionario;
 	@ManyToOne(targetEntity = Pergunta.class, optional = false)
-	@JoinColumn(name ="id_pergunta",referencedColumnName="id_pergunta")
+	@JoinColumn(name = "id_pergunta", referencedColumnName = "id_pergunta")
 	private Pergunta pergunta;
 
-	
 	public Questionario getQuestionario() {
 		return questionario;
 	}
-	
+
 	public void setQuestionario(Questionario questionario) {
 		this.questionario = questionario;
 	}
-	
+
 	public Pergunta getPergunta() {
 		return pergunta;
 	}
-	
+
 	public void setPergunta(Pergunta pergunta) {
 		this.pergunta = pergunta;
 	}
@@ -71,6 +76,5 @@ public class QuestionarioPerguntaId implements Serializable{
 			return false;
 		return true;
 	}
-		
-	
+
 }

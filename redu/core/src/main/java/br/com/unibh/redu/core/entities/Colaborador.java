@@ -19,7 +19,7 @@ import br.com.unibh.redu.core.util.Constante;
 @Entity
 @Table(name = "colaborador", schema = Constante.DATABASE)
 @Inheritance(strategy = InheritanceType.JOINED)
-@PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
+@PrimaryKeyJoinColumn(name = "id_colaborador", referencedColumnName = "id_usuario")
 public class Colaborador extends Usuario {
 
 	/**

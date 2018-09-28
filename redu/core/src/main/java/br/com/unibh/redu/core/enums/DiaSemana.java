@@ -1,5 +1,11 @@
-package br.com.unibh.redu.core;
+package br.com.unibh.redu.core.enums;
 
+/**
+ * Enumerador para mapear os dias da semana
+ * 
+ * @author Lucas Gabriel
+ *
+ */
 public enum DiaSemana {
 	DOMINGO("Domingo"), SEGUNDA("Segunda"), TERCA("Terça"), QUARTA("Quarta"), QUINTA("Quinta"), SEXTA("Sexta"),
 	SABADO("Sabado");

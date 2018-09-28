@@ -23,8 +23,8 @@ public class Escola extends BaseEntity<Long> {
 	 */
 	private static final long serialVersionUID = -414771552198251994L;
 	@Id
-	@Column(name = "id_escola")
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_escola")
 	private Long id;
 	@Column(name = "txt_email")
 	private String email;

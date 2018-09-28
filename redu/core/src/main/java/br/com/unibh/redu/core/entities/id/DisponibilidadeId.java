@@ -9,9 +9,14 @@ import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import br.com.unibh.redu.core.DiaSemana;
 import br.com.unibh.redu.core.entities.Colaborador;
+import br.com.unibh.redu.core.enums.DiaSemana;
 
+/**
+ * 
+ * @author Lucas Gabriel
+ *
+ */
 @Embeddable
 public class DisponibilidadeId implements Serializable {
 
