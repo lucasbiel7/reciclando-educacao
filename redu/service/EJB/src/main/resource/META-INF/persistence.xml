@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="Redu">
+		<jta-data-source>java:jboss/datasources/ReduDS</jta-data-source>
+		<class>br.com.unibh.redu.core.entities.Alternativa</class>
+		<class>br.com.unibh.redu.core.entities.Colaborador</class>
+		<class>br.com.unibh.redu.core.entities.Disponibilidade</class>
+		<class>br.com.unibh.redu.core.entities.Doacao</class>
+		<class>br.com.unibh.redu.core.entities.Endereco</class>
+		<class>br.com.unibh.redu.core.entities.Escola</class>
+		<class>br.com.unibh.redu.core.entities.Pergunta</class>
+		<class>br.com.unibh.redu.core.entities.PessoaFisica</class>
+		<class>br.com.unibh.redu.core.entities.PessoaJuridica</class>
+		<class>br.com.unibh.redu.core.entities.Questionario</class>
+		<class>br.com.unibh.redu.core.entities.QuestionarioPergunta</class>
+		<class>br.com.unibh.redu.core.entities.TipoColaborador</class>
+		<class>br.com.unibh.redu.core.entities.TipoDoacao</class>
+		<class>br.com.unibh.redu.core.entities.Usuario</class>
+
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+		</properties>
+	</persistence-unit>
+</persistence>

@@ -9,6 +9,11 @@ import javax.persistence.Table;
 
 import br.com.unibh.redu.core.util.Constante;
 
+/**
+ * 
+ * @author Lucas Gabriel
+ *
+ */
 @Entity
 @Table(name = "escola", schema = Constante.DATABASE)
 public class Escola extends BaseEntity<Long> {

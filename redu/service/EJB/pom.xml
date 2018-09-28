@@ -6,14 +6,21 @@
 	<parent>
 		<groupId>br.com.unibh.redu</groupId>
 		<artifactId>service</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${projeto.versao}</version>
 	</parent>
 	
-	<name>EJB Services</name>
-	
+	<name>BACKEND-Service</name>
 	<groupId>br.com.unibh.redu.service</groupId>
 	<artifactId>EJB</artifactId>
 	<packaging>war</packaging>
+	
+	<dependencies>
+		<dependency>
+			<groupId>br.com.unibh.redu</groupId>
+			<artifactId>core</artifactId>
+			<version>${projeto.versao}</version>
+		</dependency>
+	</dependencies>
 	
 	<build>
         <plugins>

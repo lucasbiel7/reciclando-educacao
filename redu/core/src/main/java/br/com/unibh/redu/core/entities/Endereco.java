@@ -3,8 +3,10 @@ package br.com.unibh.redu.core.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import br.com.unibh.redu.core.util.Constante;
@@ -12,18 +14,23 @@ import br.com.unibh.redu.core.util.Constante;
 /**
  * Entidade para armazenar endereco
  * 
- * @author aluno
+ * @author Lucas Gabriel
  *
  */
 @Entity
 @Table(name = "endereco", schema = Constante.DATABASE)
-public class Endereco extends BaseEntity<Usuario> {
+public class Endereco extends BaseEntity<Long> {
 
 	private static final long serialVersionUID = 67190653709988451L;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
-	private Usuario id;
+	@Id
+	@Column(name = "id")
+	private Long id;
+
+	@OneToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "id")
+	@MapsId
+	private Usuario usuario;
 
 	@Column(name = "tx_cep", nullable = false)
 	private String cep;
@@ -44,13 +51,21 @@ public class Endereco extends BaseEntity<Usuario> {
 	private String uf;
 
 	@Override
-	public Usuario getId() {
+	public Long getId() {
 		return id;
 	}
 
 	@Override
-	public void setId(Usuario id) {
+	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getCep() {

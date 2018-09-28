@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>br.com.unibh</groupId>
 		<artifactId>redu</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${projeto.versao}</version>
 	</parent>
 	
 	<name>Core</name>

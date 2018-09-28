@@ -6,13 +6,21 @@
 	<parent>
 		<groupId>br.com.unibh</groupId>
 		<artifactId>redu</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${projeto.versao}</version>
 	</parent>
-	<name>REST Service</name>
+	<name>API-REST</name>
 	<artifactId>rest</artifactId>
 	<groupId>br.com.unibh.redu</groupId>
 	<packaging>war</packaging>
     
+    
+    <dependencies>
+    	<dependency>
+    		<groupId>br.com.unibh.redu.service</groupId>
+			<artifactId>negocio</artifactId>
+			<version>${projeto.versao}</version>
+		</dependency>
+    </dependencies>
     
     <build>
         <plugins>

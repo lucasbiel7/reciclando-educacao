@@ -37,7 +37,7 @@ public class Usuario extends BaseEntity<Long> {
 	@Column(name = "tx_senha", nullable = false)
 	private String senha;
 
-	@OneToOne(optional = true, cascade = CascadeType.ALL, mappedBy = "aluno")
+	@OneToOne(optional = true, cascade = CascadeType.ALL, mappedBy = "usuario")
 	private Endereco endereco;
 
 	@Override

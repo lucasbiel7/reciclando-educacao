@@ -8,6 +8,12 @@ import javax.persistence.Table;
 import br.com.unibh.redu.core.entities.id.DisponibilidadeId;
 import br.com.unibh.redu.core.util.Constante;
 
+/**
+ * 
+ * 
+ * @author Lucas Gabriel
+ *
+ */
 @Entity
 @Table(name = "disponibilidade", schema = Constante.DATABASE)
 public class Disponibilidade extends BaseEntity<DisponibilidadeId> {

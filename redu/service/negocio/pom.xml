@@ -4,10 +4,10 @@
 	<parent>
 		<groupId>br.com.unibh.redu</groupId>
 		<artifactId>service</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${projeto.versao}</version>
 	</parent>
 	
-	<name>Négocio</name>
+	<name>BACKEND-Negocio</name>
 	
 	<groupId>br.com.unibh.redu.service</groupId>
 	<artifactId>negocio</artifactId>

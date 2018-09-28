@@ -11,32 +11,37 @@ import javax.persistence.Table;
 
 import br.com.unibh.redu.core.util.Constante;
 
+/**
+ * 
+ * @author Lucas Gabriel
+ *
+ */
 @Entity
-@Table(name="doacao",schema = Constante.DATABASE)
+@Table(name = "doacao", schema = Constante.DATABASE)
 public class Doacao extends BaseEntity<Long> {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8161905434478770356L;
 
 	@Id
-	@GeneratedValue(strategy =GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Long id;
-	
-	@Column(name="vl_quantidade")
+
+	@Column(name = "vl_quantidade")
 	private Integer quantidade;
-	
-	@Column(name="tx_caracteristica")
+
+	@Column(name = "tx_caracteristica")
 	private String caracteristica;
-	
-	@ManyToOne(targetEntity=TipoDoacao.class,optional=false)
-	@JoinColumn(name="id_tipo_doacao",referencedColumnName = "id")
+
+	@ManyToOne(targetEntity = TipoDoacao.class, optional = false)
+	@JoinColumn(name = "id_tipo_doacao", referencedColumnName = "id")
 	private TipoDoacao tipoDoacao;
-	
-	@ManyToOne(targetEntity = Colaborador.class, optional =false)
-	@JoinColumn(name="id_colaborador",referencedColumnName="id")
+
+	@ManyToOne(targetEntity = Colaborador.class, optional = false)
+	@JoinColumn(name = "id_colaborador", referencedColumnName = "id")
 	private Colaborador colaborador;
 
 	@Override
@@ -72,5 +77,5 @@ public class Doacao extends BaseEntity<Long> {
 	public void setTipoDoacao(TipoDoacao tipoDoacao) {
 		this.tipoDoacao = tipoDoacao;
 	}
-	
+
 }
