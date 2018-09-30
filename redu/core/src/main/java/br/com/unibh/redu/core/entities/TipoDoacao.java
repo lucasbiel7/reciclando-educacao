@@ -29,7 +29,7 @@ public class TipoDoacao extends BaseEntity<Long> {
 	private String descricao;
 
 	@ManyToOne(targetEntity = TipoDoacao.class, optional = true)
-	@JoinColumn(name = "id_tipo_doacao", referencedColumnName = "id_tipo_doacao")
+	@JoinColumn(name = "id_tipo_doacao_pai", referencedColumnName = "id_tipo_doacao")
 	private TipoDoacao tipoDoacao;
 
 	@Override

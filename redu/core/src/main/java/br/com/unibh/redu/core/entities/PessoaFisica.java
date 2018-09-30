@@ -14,7 +14,7 @@ import br.com.unibh.redu.core.util.Constante;
  */
 @Entity
 @Table(name = "pessoa_fisica", schema = Constante.DATABASE)
-@PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id")
+@PrimaryKeyJoinColumn(name = "id_pessoa_fisica", referencedColumnName = "id_colaborador")
 public class PessoaFisica extends Colaborador {
 
 	/**

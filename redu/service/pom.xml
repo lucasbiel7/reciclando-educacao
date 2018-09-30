@@ -7,12 +7,13 @@
 		<version>${projeto.versao}</version>
 	</parent>
 	
-	<name>BACKEND Services</name>
+	<name>Services</name>
 	<groupId>br.com.unibh.redu</groupId>
 	<artifactId>service</artifactId>
 	<packaging>pom</packaging>
+	
 	<modules>
-		<module>EJB</module>
+		<module>redu-service</module>
 		<module>negocio</module>
 	</modules>
 </project>

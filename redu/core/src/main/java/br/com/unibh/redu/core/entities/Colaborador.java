@@ -32,7 +32,7 @@ public class Colaborador extends Usuario {
 	@Column(name = "tx_experiencia", nullable = true)
 	private String experiencia;
 	@ManyToOne(targetEntity = TipoColaborador.class, optional = false)
-	@JoinColumn(name = "id_tipo_colaborador", referencedColumnName = "id")
+	@JoinColumn(name = "id_tipo_colaborador", referencedColumnName = "id_tipo_colaborador")
 	private TipoColaborador tipoColaborador;
 
 	public String getFormacao() {

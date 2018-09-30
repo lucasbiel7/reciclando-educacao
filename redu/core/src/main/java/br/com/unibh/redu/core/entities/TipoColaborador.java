@@ -25,7 +25,7 @@ public class TipoColaborador extends BaseEntity<Long> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", nullable = false, unique = true)
+	@Column(name = "id_tipo_colaborador", nullable = false, unique = true)
 	private Long id;
 	@Column(name = "tx_descricao", nullable = false)
 	private String descricao;

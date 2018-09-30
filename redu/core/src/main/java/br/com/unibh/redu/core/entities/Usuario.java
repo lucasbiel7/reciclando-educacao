@@ -30,7 +30,7 @@ public class Usuario extends BaseEntity<Long> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_usuario")
+	@Column(name = "id_usuario", unique = true, nullable = false)
 	private Long id;
 
 	@Column(name = "tx_nome", nullable = false)

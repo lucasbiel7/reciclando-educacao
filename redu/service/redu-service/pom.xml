@@ -9,7 +9,7 @@
 		<version>${projeto.versao}</version>
 	</parent>
 	
-	<name>BACKEND-Service</name>
+	<name>redu-service</name>
 	<groupId>br.com.unibh.redu.service</groupId>
 	<artifactId>EJB</artifactId>
 	<packaging>war</packaging>
@@ -23,6 +23,7 @@
 	</dependencies>
 	
 	<build>
+		<finalName>redu-service</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

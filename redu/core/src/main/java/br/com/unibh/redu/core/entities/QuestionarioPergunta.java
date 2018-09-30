@@ -1,8 +1,8 @@
 package br.com.unibh.redu.core.entities;
 
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -27,7 +27,7 @@ public class QuestionarioPergunta extends BaseEntity<QuestionarioPerguntaId> {
 	private QuestionarioPerguntaId id;
 
 	@ManyToOne(targetEntity = Alternativa.class, optional = true)
-	@Column(name = "id_alternativa", nullable = true)
+	@JoinColumn(name = "id_alternativa", referencedColumnName = "id_alternativa", nullable = true)
 	private Alternativa alternativa;
 
 	@Override

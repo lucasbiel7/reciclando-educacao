@@ -26,7 +26,7 @@ public class DisponibilidadeId implements Serializable {
 	private static final long serialVersionUID = -8249050249285782367L;
 
 	@ManyToOne(targetEntity = Colaborador.class, optional = false)
-	@JoinColumn(name = "id_colaborador", referencedColumnName = "id")
+	@JoinColumn(name = "id_colaborador", referencedColumnName = "id_colaborador")
 	private Colaborador colaborador;
 	@Column(name = "dia_semana", nullable = false)
 	@Enumerated(EnumType.ORDINAL)
