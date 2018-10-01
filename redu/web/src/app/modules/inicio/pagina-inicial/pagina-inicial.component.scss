@@ -1,6 +1,22 @@
 @import "src/assets/scss/variables";
+
 section.pagina-inicial{
     background-color: white;
     height: 100%;
     width: 100%;
+    background-image: url('/assets/img/fundo-principal.jpg');
+    background-position-y: -5rem;
+    background-repeat:no-repeat;
+    padding-top: 6rem;
+
+    .principal{
+        min-height:90vh;
+    }
+
+    .sobre{
+        background-color: $primaria;
+        color:white;
+        padding-top: 1.4rem;
+        padding-bottom: 1rem;
+    }
 }

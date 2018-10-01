@@ -1,0 +1,13 @@
+
+@import 'src/assets/scss/variables';
+
+nav{
+    background-color: $secundaria;
+    .menu-item{
+        font-weight: bold;
+        color:$aux1;
+    }
+    .logo{
+        max-height: 3rem;
+    }
+}
