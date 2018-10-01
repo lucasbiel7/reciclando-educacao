@@ -1,15 +1,16 @@
 @import "src/assets/scss/variables";
 
 section.pagina-inicial{
-    background-color: white;
-    height: 100%;
-    width: 100%;
+    background-color: $secundaria-aux;
     background-image: url('/assets/img/fundo-principal.jpg');
-    background-position-y: -5rem;
+    background-position: center;
+    background-position-y: 4rem;
     background-repeat:no-repeat;
+    
     padding-top: 6rem;
 
     .principal{
+        margin: 0 2em;
         min-height:90vh;
     }
 

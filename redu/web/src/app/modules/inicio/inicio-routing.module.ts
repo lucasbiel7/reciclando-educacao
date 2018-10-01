@@ -7,7 +7,12 @@ const routes: Routes = [
     {
         path: 'inicio',
         component: PaginaInicialComponent,
+    },
+    {
+        path: 'inicio/:component',
+        component: PaginaInicialComponent,
     }
+
 ];
 
 @NgModule({
