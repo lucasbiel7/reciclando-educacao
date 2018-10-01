@@ -8,7 +8,7 @@
 		<artifactId>redu</artifactId>
 		<version>${projeto.versao}</version>
 	</parent>
-	<name>API-REST</name>
+	<name>Redu REST</name>
 	<artifactId>rest</artifactId>
 	<groupId>br.com.unibh.redu</groupId>
 	<packaging>war</packaging>
@@ -20,9 +20,14 @@
 			<artifactId>negocio</artifactId>
 			<version>${projeto.versao}</version>
 		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+		</dependency>
     </dependencies>
     
     <build>
+    	<finalName>redu-rest</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

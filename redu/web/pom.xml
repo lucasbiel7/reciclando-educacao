@@ -13,9 +13,10 @@
     <groupId>br.com.unibh.redu</groupId>
     <artifactId>web</artifactId>
     <packaging>war</packaging>
-    <name>FRONT-END</name>
+    <name>Redu web</name>
     
     <build>
+    	<finalName>redu</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

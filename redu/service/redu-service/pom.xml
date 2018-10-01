@@ -9,9 +9,9 @@
 		<version>${projeto.versao}</version>
 	</parent>
 	
-	<name>redu-service</name>
+	<name>Redu service</name>
 	<groupId>br.com.unibh.redu.service</groupId>
-	<artifactId>EJB</artifactId>
+	<artifactId>redu-service</artifactId>
 	<packaging>war</packaging>
 	
 	<dependencies>
