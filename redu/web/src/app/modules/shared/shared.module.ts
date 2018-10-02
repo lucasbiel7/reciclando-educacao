@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MenuComponent } from './menu/menu.component';
-import { RodapeComponent } from './rodape/rodape.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { RodapeComponent } from './components/rodape/rodape.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
+import { MatTabsModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EnderecoComponent } from './components/endereco/endereco.component';
 
 @NgModule({
     exports: [
@@ -13,13 +15,24 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
         MenuComponent,
         RodapeComponent,
         AngularFontAwesomeModule,
+        MatTabsModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        EnderecoComponent
     ],
     imports: [
-        AngularFontAwesomeModule
+        AngularFontAwesomeModule,
+        AngularFontAwesomeModule,
+        MatTabsModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule
     ],
     declarations: [
         MenuComponent,
-        RodapeComponent
+        RodapeComponent,
+        EnderecoComponent
     ]
 })
 export class SharedModule { }

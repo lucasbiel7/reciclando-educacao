@@ -12,7 +12,7 @@ import { DoacaoModule } from './modules/doacao/doacao.module';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         SharedModule,

@@ -1,0 +1,9 @@
+@import "src/assets/scss/variables";
+section{
+    background-color:rgba($color: $aux1, $alpha: 0.5);
+    padding: .8rem;
+    .formulario-doador{
+        padding: 0.4rem;
+        widows: 100%;
+    }
+}

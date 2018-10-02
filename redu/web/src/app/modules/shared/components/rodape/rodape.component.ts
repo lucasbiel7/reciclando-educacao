@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../../environments/environment';
 
 @Component({
     selector: 'redu-rodape',
@@ -8,11 +7,8 @@ import { environment } from '../../../../environments/environment';
 })
 export class RodapeComponent implements OnInit {
 
-    public env: any;
-
     constructor() { }
 
     ngOnInit() {
-        this.env = environment;
     }
 }
