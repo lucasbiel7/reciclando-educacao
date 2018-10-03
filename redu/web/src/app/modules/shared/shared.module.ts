@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MenuComponent } from './components/menu/menu.component';
 import { RodapeComponent } from './components/rodape/rodape.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { MatTabsModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatTabsModule, MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnderecoComponent } from './components/endereco/endereco.component';
 
@@ -19,7 +19,8 @@ import { EnderecoComponent } from './components/endereco/endereco.component';
         BrowserAnimationsModule,
         MatFormFieldModule,
         MatInputModule,
-        EnderecoComponent
+        EnderecoComponent,
+        MatSelectModule
     ],
     imports: [
         AngularFontAwesomeModule,
