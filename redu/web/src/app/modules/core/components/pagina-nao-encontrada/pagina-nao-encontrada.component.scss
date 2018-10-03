@@ -7,4 +7,14 @@ section.pagina-nao-encontrada{
     min-height: 70vh;
     padding-top: 15%;
     margin-bottom: -4rem;
+    a.voltar{
+        font-weight: bold;
+        color: $aux1;
+        text-decoration: none;
+
+    }
+
+    a.voltar:hover{
+        color: $secundaria;
+    }
 }

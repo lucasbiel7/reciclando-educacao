@@ -1,10 +1,14 @@
 <section class="pagina-nao-encontrada align-self-center text-center">
-    <h1>Página não encontrada</h1>
+    <h1>Página não encontrada!</h1>
     <article>
         <p>
             Não conseguimos encontrar a página que você está acessando :(<br />
             Favor voltar ao inicio da aplicação para continuar sua navegação
         </p>
     </article>
+    <a class="voltar" [routerLink]="['..','inicio']">
+        <fa name="chevron-left"></fa>
+        Voltar
+    </a>
 </section>
 <redu-rodape></redu-rodape>
