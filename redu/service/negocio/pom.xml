@@ -6,17 +6,16 @@
 		<artifactId>service</artifactId>
 		<version>${projeto.versao}</version>
 	</parent>
-	
 	<name>Client redu service</name>
-	
 	<groupId>br.com.unibh.redu.service</groupId>
 	<artifactId>negocio</artifactId>
 	<packaging>jar</packaging>
+	
 	<dependencies>
 		<dependency>
-			<artifactId>core</artifactId>
-			<groupId>br.com.unibh.redu</groupId>
-			<version>${projeto.versao}</version>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
 		</dependency>
 	</dependencies>
+	
 </project>

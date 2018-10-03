@@ -35,9 +35,20 @@
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>7.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
 				<groupId>org.hibernate.javax.persistence</groupId>
 				<artifactId>hibernate-jpa-2.1-api</artifactId>
 				<version>1.0.2.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>br.com.unibh.redu.service</groupId>
+				<artifactId>negocio</artifactId>
+				<version>${projeto.versao}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

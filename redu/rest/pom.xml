@@ -18,11 +18,14 @@
     	<dependency>
     		<groupId>br.com.unibh.redu.service</groupId>
 			<artifactId>negocio</artifactId>
-			<version>${projeto.versao}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
 		</dependency>
     </dependencies>
     

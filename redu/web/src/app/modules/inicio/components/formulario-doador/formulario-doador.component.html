@@ -4,7 +4,9 @@
             <div class="col-md-12 col-sm-12 col-xs-12" *ngFor="let tipoDoacao of tipoDoacoes; let i = index">
                 <mat-form-field class="w-100">
                     <mat-select placeholder="Tipo da doação" [(value)]="tipoDoacoes[i]">
-                        <mat-option value="teste">Teste</mat-option>
+                        <mat-option [value]="tipoDoacaoItem" *ngFor="let tipoDoacaoItem of listaDoacoes[i]">
+                            {{tipoDoacaoItem.descricao}}
+                        </mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>
