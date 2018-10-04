@@ -24,7 +24,7 @@ public class TipoDoacaoDAO extends BaseDAO {
 		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<TipoDoacao> query = criteriaBuilder.createQuery(TipoDoacao.class);
 		Root<TipoDoacao> root = query.from(TipoDoacao.class);
-		query.where(criteriaBuilder.equal(root.get("tipoDoacao.id"), id));
+		query.where(criteriaBuilder.equal(root.get("tipoDoacao").get("id"), id));
 		return entityManager.createQuery(query).getResultList();
 	}
 

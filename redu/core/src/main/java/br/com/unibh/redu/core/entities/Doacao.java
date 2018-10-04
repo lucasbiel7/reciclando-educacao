@@ -2,6 +2,8 @@ package br.com.unibh.redu.core.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,6 +46,10 @@ public class Doacao extends BaseEntity<Long> {
 	@JoinColumn(name = "id_colaborador", referencedColumnName = "id_colaborador")
 	private Colaborador colaborador;
 
+	@Enumerated(EnumType.STRING)
+	@Column(name="vl_estado_doacao",nullable=false)
+	private EstadoDoacaoEnum estadoDoacao;
+	
 	@Override
 	public Long getId() {
 		return id;

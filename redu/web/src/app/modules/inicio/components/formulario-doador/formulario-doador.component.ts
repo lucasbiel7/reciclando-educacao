@@ -37,4 +37,14 @@ export class FormularioDoadorComponent implements OnInit {
             this.listaDoacoes[index] = t;
         });
     }
+
+    public selecionarTipoDoacao(i: number) {
+        this.tipoDoacoes.slice(0, i + 1);
+        this.formularioDoadorService.buscarTiposDoacoes(this.tipoDoacoes[i].id).subscribe(t => {
+            if (t.length > 0) {
+                this.tipoDoacoes.push(null);
+                this.listaDoacoes[i + 1] = t;
+            }
+        });
+    }
 }
