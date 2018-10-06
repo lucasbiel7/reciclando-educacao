@@ -1,3 +1,5 @@
+import { Doacao } from './../../../shared/resource/class/doacao.class';
+import { EstadoDoacaoEnum } from './../../../shared/resource/enum/estado-doacao.enum';
 import { Component, OnInit } from '@angular/core';
 import { TipoDoacao } from '../../../shared/resource/interfaces/tipo-doacao.interface';
 import { FormularioDoadorService } from '../../services/formulario-doador.service';
@@ -11,6 +13,8 @@ export class FormularioDoadorComponent implements OnInit {
 
     public tipoDoacoes: TipoDoacao[];
     public listaDoacoes: TipoDoacao[][];
+    public estadosDoacao: EstadoDoacaoEnum[];
+    public doacao: Doacao;
 
     /**
      * Criando lista para armazenar o tipo das doações
@@ -21,8 +25,9 @@ export class FormularioDoadorComponent implements OnInit {
      */
     constructor(private formularioDoadorService: FormularioDoadorService) {
         this.tipoDoacoes = [];
+        this.doacao = new Doacao();
         this.tipoDoacoes.push(null);
-
+        this.estadosDoacao = [EstadoDoacaoEnum.NOVO, EstadoDoacaoEnum.USADO, EstadoDoacaoEnum.COM_DEFEITO];
     }
 
     ngOnInit() {
@@ -39,7 +44,7 @@ export class FormularioDoadorComponent implements OnInit {
     }
 
     public selecionarTipoDoacao(i: number) {
-        this.tipoDoacoes.slice(0, i + 1);
+        this.tipoDoacoes = this.tipoDoacoes.slice(0, i + 1);
         this.formularioDoadorService.buscarTiposDoacoes(this.tipoDoacoes[i].id).subscribe(t => {
             if (t.length > 0) {
                 this.tipoDoacoes.push(null);

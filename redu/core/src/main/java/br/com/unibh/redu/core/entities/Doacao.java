@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import br.com.unibh.redu.core.enums.EstadoDoacaoEnum;
 import br.com.unibh.redu.core.util.Constante;
 
 /**
@@ -49,6 +50,13 @@ public class Doacao extends BaseEntity<Long> {
 	@Enumerated(EnumType.STRING)
 	@Column(name="vl_estado_doacao",nullable=false)
 	private EstadoDoacaoEnum estadoDoacao;
+	
+	@Column(name="vl_revisado",nullable = false)
+	public boolean revisado;
+	
+	@Column(name="vl_alocado",nullable = false)
+	public boolean alocado;
+	
 	
 	@Override
 	public Long getId() {

@@ -1,0 +1,7 @@
+@import "src/assets/scss/variables";
+
+button.mat-raised-button{
+    border-radius: 4px;
+    background-color: $primaria;
+    color: $aux1;
+}

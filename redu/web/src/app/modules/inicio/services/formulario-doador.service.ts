@@ -1,5 +1,6 @@
+import { Doacao } from './../../shared/resource/class/doacao.class';
 import { Injectable } from '@angular/core';
-import { Http, RequestOptionsArgs, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import { environment } from '../../../../environments/environment.dese';
 import { Observable } from 'rxjs/Observable';
 import { TipoDoacao } from '../../shared/resource/interfaces/tipo-doacao.interface';
@@ -8,6 +9,8 @@ import { TipoDoacao } from '../../shared/resource/interfaces/tipo-doacao.interfa
 export class FormularioDoadorService {
 
     private controller: string;
+
+    public doacao: Doacao;
 
     constructor(private http: Http) {
         this.controller = 'formulario-doador';

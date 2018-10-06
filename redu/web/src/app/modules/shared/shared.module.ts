@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MenuComponent } from './components/menu/menu.component';
 import { RodapeComponent } from './components/rodape/rodape.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { MatTabsModule, MatFormFieldModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatTabsModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnderecoComponent } from './components/endereco/endereco.component';
 import { HttpModule } from '@angular/http';
@@ -28,6 +28,7 @@ import 'rxjs/add/operator/switchMap';
         MatInputModule,
         EnderecoComponent,
         MatSelectModule,
+        MatButtonModule,
         // Componentes internos
         MenuComponent,
         RodapeComponent,
