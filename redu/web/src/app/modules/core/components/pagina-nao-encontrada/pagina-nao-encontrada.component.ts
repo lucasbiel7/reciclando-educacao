@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'redu-pagina-nao-encontrada',
-  templateUrl: './pagina-nao-encontrada.component.html',
-  styleUrls: ['./pagina-nao-encontrada.component.scss']
+    selector: 'redu-pagina-nao-encontrada',
+    templateUrl: './pagina-nao-encontrada.component.html',
+    styleUrls: ['./pagina-nao-encontrada.component.scss']
 })
 export class PaginaNaoEncontradaComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+
+    }
 
 }
