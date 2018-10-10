@@ -4,11 +4,13 @@ import { SharedModule } from '../shared/shared.module';
 import { CoreRoutingModule } from './core-routing.module';
 import { PaginaNaoEncontradaComponent } from './components/pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
         SharedModule,
-        CoreRoutingModule
+        CoreRoutingModule,
+        FormsModule
     ],
     declarations: [PaginaNaoEncontradaComponent, LoginComponent]
 })

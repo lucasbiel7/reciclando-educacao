@@ -3,6 +3,7 @@ import { EstadoDoacaoEnum } from './../../../shared/resource/enum/estado-doacao.
 import { Component, OnInit } from '@angular/core';
 import { TipoDoacao } from '../../../shared/resource/interfaces/tipo-doacao.interface';
 import { FormularioDoadorService } from '../../services/formulario-doador.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'redu-formulario-doador',
@@ -15,6 +16,7 @@ export class FormularioDoadorComponent implements OnInit {
     public listaDoacoes: TipoDoacao[][];
     public estadosDoacao: EstadoDoacaoEnum[];
     public doacao: Doacao;
+    public formulario: FormGroup;
 
     /**
      * Criando lista para armazenar o tipo das doações
@@ -28,6 +30,10 @@ export class FormularioDoadorComponent implements OnInit {
         this.doacao = new Doacao();
         this.tipoDoacoes.push(null);
         this.estadosDoacao = [EstadoDoacaoEnum.NOVO, EstadoDoacaoEnum.USADO, EstadoDoacaoEnum.COM_DEFEITO];
+        this.formulario = new FormGroup({
+            caracteristica: new FormControl('', Validators.required),
+            quantidade: new FormControl('', Validators.required)
+        });
     }
 
     ngOnInit() {
@@ -51,5 +57,9 @@ export class FormularioDoadorComponent implements OnInit {
                 this.listaDoacoes[i + 1] = t;
             }
         });
+    }
+
+    public cadastrarDoacao() {
+
     }
 }

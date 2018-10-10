@@ -39,7 +39,7 @@ public class Usuario extends BaseEntity<Long> {
 	@Column(name = "tx_usuario", nullable = false)
 	private String usuario;
 
-	@Column(name = "tx_senha", nullable = false)
+	@Column(name = "tx_senha", nullable = true)
 	private String senha;
 
 	@OneToOne(optional = true, cascade = CascadeType.ALL, mappedBy = "usuario")

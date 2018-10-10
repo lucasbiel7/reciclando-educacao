@@ -18,6 +18,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/switchMap';
 import { CadastroColaboradorComponent } from './components/cadastro-colaborador/cadastro-colaborador.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
     exports: [
         // Modulos básicos
@@ -34,11 +35,14 @@ import { CadastroColaboradorComponent } from './components/cadastro-colaborador/
         MatButtonModule,
         MatCardModule,
         MatStepperModule,
+        FormsModule,
+        ReactiveFormsModule,
         // Componentes internos
         EnderecoComponent,
         MenuComponent,
         RodapeComponent,
         CadastroColaboradorComponent,
+
     ],
     imports: [
         AngularFontAwesomeModule,
@@ -50,7 +54,9 @@ import { CadastroColaboradorComponent } from './components/cadastro-colaborador/
         MatSelectModule,
         MatButtonModule,
         MatCardModule,
-        MatStepperModule
+        MatStepperModule,
+        FormsModule,
+        ReactiveFormsModule,
     ],
     declarations: [
         MenuComponent,

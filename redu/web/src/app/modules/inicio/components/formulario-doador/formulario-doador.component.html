@@ -1,38 +1,47 @@
 <section class="formulario-doador">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12" *ngFor="let tipoDoacao of tipoDoacoes; let i = index">
-                <mat-form-field class="w-100">
-                    <mat-select (change)="selecionarTipoDoacao(i)" placeholder="{{i>0?'Sub tipo da doação':'Tipo da doação'}}"
-                        [(value)]="tipoDoacoes[i]">
-                        <mat-option [value]="tipoDoacaoItem" *ngFor="let tipoDoacaoItem of listaDoacoes[i]">
-                            {{tipoDoacaoItem.descricao}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+        <form [formGroup]="formulario">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12" *ngFor="let tipoDoacao of tipoDoacoes; let i = index">
+                    <mat-form-field class="w-100">
+                        <mat-select (change)="selecionarTipoDoacao(i)" placeholder="{{i>0?'Sub tipo da doação':'Tipo da doação'}}"
+                            [(value)]="tipoDoacoes[i]">
+                            <mat-option [value]="tipoDoacaoItem" *ngFor="let tipoDoacaoItem of listaDoacoes[i]">
+                                {{tipoDoacaoItem.descricao}}
+                            </mat-option>
+                        </mat-select>
+
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <mat-form-field class="w-100">
+                        <textarea matInput placeholder="Caracteristica" formControlName="caracteristica"></textarea>
+                        <mat-error *ngIf="formulario.get('caracteristica').hasError('required')">
+                            O preenchimento da caracteristica é obrigatório!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12 col xs-12 col-lg-12">
+                    <mat-form-field class="w-100">
+                        <input matInput min="1" type="number" formControlName="quantidade" placeholder="Quantidade" />
+                        <mat-error *ngIf="formulario.get('quantidade').hasError('required')">
+                            O preenchimento da quantidade é obrigatório!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                    <mat-form-field class="w-100">
+                        <mat-select [(value)]="doacao.tipoDoacao" placeholder="Estado da doação">
+                            <mat-option [value]='estadoDoacao' *ngFor="let estadoDoacao of estadosDoacao">
+                                {{estadoDoacao}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 justify-content-center text-center">
+                    <button mat-raised-button (onClick)="cadastrarDoacao()">Avançar</button>
+                </div>
             </div>
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <mat-form-field class="w-100">
-                    <textarea matInput placeholder="Caracteristica"></textarea>
-                </mat-form-field>
-            </div>
-            <div class="col-md-12 col-sm-12 col xs-12 col-lg-12">
-                <mat-form-field class="w-100">
-                    <input matInput min="1" type="number" placeholder="Quantidade" />
-                </mat-form-field>
-            </div>
-            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-                <mat-form-field class="w-100">
-                    <mat-select [(value)]="doacao.tipoDoacao" placeholder="Estado da doação">
-                        <mat-option [value]='estadoDoacao' *ngFor="let estadoDoacao of estadosDoacao">
-                            {{estadoDoacao}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 justify-content-center text-center">
-                <button mat-raised-button>Avançar</button>
-            </div>
-        </div>
+        </form>
     </div>
 </section>
