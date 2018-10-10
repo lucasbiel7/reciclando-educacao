@@ -1,0 +1,12 @@
+@import "src/assets/scss/variables";
+
+section.sobre{
+    min-height: 75vh;
+    background-color:$aux2;
+    margin-top: 4.5rem;
+    article{
+        h1{
+            font-weight:bold;
+        }
+    }
+}
