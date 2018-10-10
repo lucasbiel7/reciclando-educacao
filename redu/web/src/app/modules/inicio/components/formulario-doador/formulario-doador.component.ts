@@ -32,8 +32,10 @@ export class FormularioDoadorComponent implements OnInit {
         this.estadosDoacao = [EstadoDoacaoEnum.NOVO, EstadoDoacaoEnum.USADO, EstadoDoacaoEnum.COM_DEFEITO];
         this.formulario = new FormGroup({
             caracteristica: new FormControl('', Validators.required),
-            quantidade: new FormControl('', Validators.required)
+            quantidade: new FormControl('', Validators.required),
+            estadoDoacao: new FormControl('', Validators.required)
         });
+        this.formulario.addControl('tipoDoacao0', new FormControl('', Validators.required));
     }
 
     ngOnInit() {
@@ -54,6 +56,7 @@ export class FormularioDoadorComponent implements OnInit {
         this.formularioDoadorService.buscarTiposDoacoes(this.tipoDoacoes[i].id).subscribe(t => {
             if (t.length > 0) {
                 this.tipoDoacoes.push(null);
+                this.formulario.addControl('tipoDoacao' + i, new FormControl('', Validators.required));
                 this.listaDoacoes[i + 1] = t;
             }
         });
