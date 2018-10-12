@@ -8,11 +8,14 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
-        SharedModule,
+        SharedModule.forRoot(),
         CoreRoutingModule,
         FormsModule
     ],
-    declarations: [PaginaNaoEncontradaComponent, LoginComponent]
+    declarations: [
+        PaginaNaoEncontradaComponent,
+        LoginComponent
+    ]
 })
 export class CoreModule {
     static forRoot(): ModuleWithProviders {

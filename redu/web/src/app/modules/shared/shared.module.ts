@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MenuComponent } from './components/menu/menu.component';
@@ -19,6 +19,8 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/switchMap';
 import { CadastroColaboradorComponent } from './components/cadastro-colaborador/cadastro-colaborador.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CepDirective } from './directive/cep.directive';
+import { CepService } from './services/cep.service';
 @NgModule({
     exports: [
         // Modulos básicos
@@ -59,10 +61,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ReactiveFormsModule,
     ],
     declarations: [
+        // Componentes generalizados
         MenuComponent,
         RodapeComponent,
         EnderecoComponent,
-        CadastroColaboradorComponent
+        CadastroColaboradorComponent,
+        // Diretivas
+        CepDirective
     ]
 })
-export class SharedModule { }
+export class SharedModule {
+    static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: SharedModule,
+            providers: [
+                CepService
+            ]
+        };
+    }
+}
