@@ -3,9 +3,9 @@ package br.com.unibh.redu.core.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,11 +25,10 @@ public class Endereco extends BaseEntity<Long> {
 
 	@Id
 	@Column(name = "id_endereco")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "id_endereco")
-	@MapsId
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "endereco", optional = true)
 	private Usuario usuario;
 
 	@Column(name = "tx_cep", nullable = false)

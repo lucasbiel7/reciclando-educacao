@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -42,7 +43,8 @@ public class Usuario extends BaseEntity<Long> {
 	@Column(name = "tx_senha", nullable = true)
 	private String senha;
 
-	@OneToOne(optional = true, cascade = CascadeType.ALL, mappedBy = "usuario")
+	@OneToOne(optional = true, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_endereco", nullable = true)
 	private Endereco endereco;
 
 	@Override

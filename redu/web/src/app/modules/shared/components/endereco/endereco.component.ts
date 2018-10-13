@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CepService } from '../../services/cep.service';
 import { Endereco } from '../../resource/class/endereco.class';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'redu-endereco',
@@ -10,8 +11,8 @@ import { Endereco } from '../../resource/class/endereco.class';
 export class EnderecoComponent implements OnInit {
 
     @Output()
-    public change: EventEmitter<Endereco> = new EventEmitter();;
-
+    public change: EventEmitter<Endereco>;
+    public formulario: FormGroup;
     public _endereco: Endereco;
 
     @Input()
@@ -29,11 +30,19 @@ export class EnderecoComponent implements OnInit {
     cep: string;
 
     constructor(private cepService: CepService) {
+        this.change = new EventEmitter();
         this.endereco = new Endereco();
     }
 
     ngOnInit() {
-
+        this.formulario = new FormGroup({
+            cep: new FormControl(null, Validators.required),
+            logradouro: new FormControl(null, Validators.required),
+            bairro: new FormControl(null, Validators.required),
+            numero: new FormControl(null, Validators.required),
+            uf: new FormControl(null, Validators.required),
+            municipio: new FormControl(null, Validators.required)
+        });
     }
 
     /**
