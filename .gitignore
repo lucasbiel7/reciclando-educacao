@@ -6,7 +6,7 @@
 
 # BlueJ files
 *.ctxt
-
+package-lock.json
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 .sonarlint/*
