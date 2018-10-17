@@ -1,3 +1,16 @@
-<p>
-  cadastrar-doacao works!
-</p>
+<section class="cadastrar-doacao">
+    <form [formGroup]="formulario">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Dados da doação
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="container-fluid">
+                    <redu-formulario-doador [(doacao)]="doacao" #formularioDoacao></redu-formulario-doador>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </form>
+</section>

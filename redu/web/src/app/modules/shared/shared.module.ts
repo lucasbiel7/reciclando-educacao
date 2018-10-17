@@ -6,7 +6,7 @@ import { RodapeComponent } from './components/rodape/rodape.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {
     MatTabsModule, MatFormFieldModule, MatInputModule, MatSelectModule,
-    MatButtonModule, MatCardModule, MatStepperModule
+    MatButtonModule, MatCardModule, MatStepperModule, MatExpansionModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnderecoComponent } from './components/endereco/endereco.component';
@@ -21,6 +21,7 @@ import { CadastroColaboradorComponent } from './components/cadastro-colaborador/
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CepDirective } from './directive/cep.directive';
 import { CepService } from './services/cep.service';
+import { FormularioDoadorComponent } from './components/formulario-doador/formulario-doador.component';
 @NgModule({
     exports: [
         // Modulos básicos
@@ -39,11 +40,13 @@ import { CepService } from './services/cep.service';
         MatStepperModule,
         FormsModule,
         ReactiveFormsModule,
+        MatExpansionModule,
         // Componentes internos
         EnderecoComponent,
         MenuComponent,
         RodapeComponent,
         CadastroColaboradorComponent,
+        FormularioDoadorComponent,
 
     ],
     imports: [
@@ -59,6 +62,7 @@ import { CepService } from './services/cep.service';
         MatStepperModule,
         FormsModule,
         ReactiveFormsModule,
+        MatExpansionModule
     ],
     declarations: [
         // Componentes generalizados
@@ -66,6 +70,7 @@ import { CepService } from './services/cep.service';
         RodapeComponent,
         EnderecoComponent,
         CadastroColaboradorComponent,
+        FormularioDoadorComponent,
         // Diretivas
         CepDirective
     ]

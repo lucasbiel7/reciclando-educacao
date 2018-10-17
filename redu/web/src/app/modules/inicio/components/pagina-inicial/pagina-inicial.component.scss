@@ -21,4 +21,8 @@ section.pagina-inicial{
         padding-top: 1.4rem;
         padding-bottom: 1rem;
     }
+
+    .opaco{
+        background-color:rgba($color: $aux1, $alpha: 0.5);
+    }
 }

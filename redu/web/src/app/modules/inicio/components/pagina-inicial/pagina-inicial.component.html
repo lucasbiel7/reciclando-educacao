@@ -8,8 +8,16 @@
             <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
                 <mat-tab-group>
                     <mat-tab label="Doador">
-                        <redu-formulario-doador>
-                        </redu-formulario-doador>
+                        <div class="opaco">
+                            <redu-formulario-doador [(doacao)]='doacao' #formularioDoador>
+                            </redu-formulario-doador>
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 justify-content-center text-center pb-4">
+                                <button mat-raised-button (click)="cadastrarDoacao()">
+                                    Avançar
+                                    <fa name="arrow-circle-right"></fa>
+                                </button>
+                            </div>
+                        </div>
                     </mat-tab>
                     <mat-tab label="Colaborador">
                         <redu-formulario-colaborador>

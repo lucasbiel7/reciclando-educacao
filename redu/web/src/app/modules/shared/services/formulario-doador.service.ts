@@ -1,9 +1,9 @@
-import { Doacao } from './../../shared/resource/class/doacao.class';
+import { Doacao } from '../resource/class/doacao.class';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { environment } from '../../../../environments/environment.dese';
 import { Observable } from 'rxjs/Observable';
-import { TipoDoacao } from '../../shared/resource/interfaces/tipo-doacao.interface';
+import { TipoDoacao } from '../resource/interfaces/tipo-doacao.interface';
 
 @Injectable()
 export class FormularioDoadorService {
