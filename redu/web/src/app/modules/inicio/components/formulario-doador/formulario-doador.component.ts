@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { TipoDoacao } from '../../../shared/resource/interfaces/tipo-doacao.interface';
 import { FormularioDoadorService } from '../../services/formulario-doador.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DoacaoService } from '../../../core/services/doacao.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'redu-formulario-doador',
@@ -25,7 +27,10 @@ export class FormularioDoadorComponent implements OnInit {
      *  Combo box recursivo
      *
      */
-    constructor(private formularioDoadorService: FormularioDoadorService) {
+    constructor(private formularioDoadorService: FormularioDoadorService,
+        private doacaoService: DoacaoService,
+        private router: Router
+    ) {
         this.tipoDoacoes = [];
         this.doacao = new Doacao();
         this.tipoDoacoes.push(null);
@@ -63,6 +68,9 @@ export class FormularioDoadorComponent implements OnInit {
     }
 
     public cadastrarDoacao() {
-
+        if (this.formulario.valid) {
+            this.doacaoService.doacao = this.doacao;
+            this.router.navigate(['doacao', 'cadastrar']);
+        }
     }
 }
