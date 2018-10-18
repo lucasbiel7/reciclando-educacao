@@ -1,6 +1,6 @@
 import { Doacao } from './../../../shared/resource/class/doacao.class';
 import { EstadoDoacaoEnum } from './../../../shared/resource/enum/estado-doacao.enum';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { TipoDoacao } from '../../../shared/resource/interfaces/tipo-doacao.interface';
 import { FormularioDoadorService } from '../../services/formulario-doador.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
     templateUrl: './formulario-doador.component.html',
     styleUrls: ['./formulario-doador.component.scss']
 })
-export class FormularioDoadorComponent implements OnInit {
+export class FormularioDoadorComponent implements OnInit, OnChanges {
 
     public tipoDoacoes: TipoDoacao[];
     public listaDoacoes: TipoDoacao[][];
@@ -24,7 +24,6 @@ export class FormularioDoadorComponent implements OnInit {
             doacao = new Doacao();
         }
         this._doacao = doacao;
-        this.carregarTiposDoacoes();
     }
 
     private _doacao: Doacao;
@@ -54,16 +53,17 @@ export class FormularioDoadorComponent implements OnInit {
         this.carregarLista(0);
     }
 
+    ngOnChanges(changes): void {
+        console.log('change');
+    }
+
+
     public carregarLista(index: number) {
         if (!this.listaDoacoes) {
             this.listaDoacoes = [];
         }
         this.formularioDoadorService.buscarTiposDoacoes().subscribe(t => {
             this.listaDoacoes[index] = t;
-            if (this.tipoDoacoes[index]) {
-                this.tipoDoacoes[index] = this.listaDoacoes[index].filter(tipoDoacao => tipoDoacao.id === this.tipoDoacoes[index].id)[0];
-                console.log('entrando aqui pelo menos');
-            }
         });
     }
 
@@ -79,22 +79,10 @@ export class FormularioDoadorComponent implements OnInit {
         this.formularioDoadorService.buscarTiposDoacoes(this.tipoDoacoes[i].id).subscribe(t => {
             if (t.length > 0) {
                 this.tipoDoacoes.push(null);
-                this.formulario.addControl('tipoDoacao' + i, new FormControl('', Validators.required));
+                this.formulario.addControl('tipoDoacao' + (i + 1), new FormControl('', Validators.required));
                 this.listaDoacoes[i + 1] = t;
             }
         });
-    }
-
-    private carregarTiposDoacoes() {
-        if (this.doacao.tipoDoacao) {
-            let tipoDoacaoLoop = this.doacao.tipoDoacao;
-            const vet = [];
-            do {
-                vet.splice(0, 0, tipoDoacaoLoop);
-                tipoDoacaoLoop = tipoDoacaoLoop.tipoDoacao;
-            } while (tipoDoacaoLoop);
-            this.tipoDoacoes = vet;
-        }
     }
 
 }

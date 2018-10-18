@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Doacao } from '../../../../shared/resource/class/doacao.class';
 import { FormularioDoadorComponent } from '../../../../shared/components/formulario-doador/formulario-doador.component';
 import { DoacaoService } from '../../../../core/services/doacao.service';
@@ -23,9 +23,16 @@ export class CadastrarDoacaoComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.doacao = this.doacaoService.doacao;
-        this.formulario = new FormGroup([
-        ]);
+        if (this.doacaoService.doacao) {
+            this.doacao = this.doacaoService.doacao;
+        } else {
+            this.doacao = new Doacao();
+        }
+        this.formulario = new FormGroup({
+        });
     }
 
+    public utilizarMeuEndereco() {
+        console.log('Não implementado');
+    }
 }

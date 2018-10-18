@@ -30,6 +30,9 @@ public class Endereco extends BaseEntity<Long> {
 
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "endereco", optional = true)
 	private Usuario usuario;
+	
+	@OneToOne(fetch = FetchType.LAZY,mappedBy="endereco",optional=true)
+	private Doacao doacao;
 
 	@Column(name = "tx_cep", nullable = false)
 	private String cep;
