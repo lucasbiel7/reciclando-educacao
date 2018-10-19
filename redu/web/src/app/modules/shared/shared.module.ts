@@ -22,12 +22,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CepDirective } from './directive/cep.directive';
 import { CepService } from './services/cep.service';
 import { FormularioDoadorComponent } from './components/formulario-doador/formulario-doador.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
     exports: [
         // Modulos básicos
         CommonModule,
         RouterModule,
         HttpModule,
+        HttpClientModule,
         // Modulos de componentes externos
         AngularFontAwesomeModule,
         MatTabsModule,

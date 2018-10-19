@@ -3,5 +3,19 @@
 		{
 			"path": "web"
 		}
-	]
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			".settings": true,
+			"e2e": true,
+			"node_modules": true,
+			"target": true,
+			".classpath": true,
+		}
+	}
 }

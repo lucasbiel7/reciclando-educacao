@@ -24,5 +24,10 @@ section.pagina-inicial{
 
     .opaco{
         background-color:rgba($color: $aux1, $alpha: 0.5);
+        a{
+            text-decoration: none;
+            font-style: italic;
+            color: $primaria;
+        }
     }
 }

@@ -1,33 +1,47 @@
 <redu-menu></redu-menu>
 <section class="login">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 mt-4">
-                <redu-cadastro-colaborador></redu-cadastro-colaborador>
-            </div>
-            <div class="col-md-4 col-sm-12 col-lg-4 col-xs-12 mt-4 h-100  align-self-center">
-                <mat-card class="h-100">
-                    <mat-card-header class="justify-content-center">
-                        <mat-card-title>Entrar no REDU</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content class="container">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 text-center">
-                                <mat-form-field>
-                                    <input matInput type="text" placeholder="Usuário">
-                                </mat-form-field>
+        <form [formGroup]="formulario">
+            <div class="row">
+                <div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 mt-4">
+                    <redu-cadastro-colaborador></redu-cadastro-colaborador>
+                </div>
+                <div class="col-md-4 col-sm-12 col-lg-4 col-xs-12 mt-4 h-100  align-self-center">
+                    <mat-card class="h-100">
+                        <mat-card-header class="justify-content-center">
+                            <mat-card-title>Entrar no REDU</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 text-center">
+                                    <mat-form-field class="w-100">
+                                        <input matInput type="text" placeholder="E-mail" [(ngModel)]="credencial.email"
+                                            formControlName="email">
+                                        <mat-error *ngIf="formulario.get('email').hasError('required')">
+                                            O preenchimento do e-mail é obrigatório!
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 text-center">
+                                    <mat-form-field class="w-100">
+                                        <input matInput type="password" placeholder="Senha" [(ngModel)]="credencial.senha"
+                                            formControlName="senha" />
+                                        <mat-error *ngIf="formulario.get('email').hasError('required')">
+                                            O preenchimento da senha é obrigatório!
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col text-center">
+                                    <button mat-raised-button color="primary" (click)="login()">
+                                        Entrar
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 text-center">
-                                <mat-form-field>
-                                    <input matInput type="password" placeholder="Senha" />
-                                </mat-form-field>
-                            </div>
-                            <div class="col"><button mat-raised-button color="primary">Confirmar</button></div>
-                        </div>
-                    </mat-card-content>
-                </mat-card>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </section>
 <redu-rodape></redu-rodape>

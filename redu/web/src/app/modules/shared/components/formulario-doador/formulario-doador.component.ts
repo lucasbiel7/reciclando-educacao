@@ -33,7 +33,7 @@ export class FormularioDoadorComponent implements OnInit, OnChanges {
      * Criando lista para armazenar o tipo das doações
      * Toda vez que adicionar um elemento será feito uma pesquisa e verificado se tem filhos,
      * caso houver adicionar um elemento na lista e refeito o vetor
-     *  Combo box recursivo
+     * Combo box recursivo
      *
      */
     constructor(private formularioDoadorService: FormularioDoadorService) {
@@ -54,7 +54,6 @@ export class FormularioDoadorComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes): void {
-        console.log('change');
     }
 
 
