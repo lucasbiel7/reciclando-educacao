@@ -1,0 +1,9 @@
+
+p, div, footer {
+    @extend .fonte-padrao;
+}
+
+
+h1{
+    @extend .fonte-titulo;
+}
