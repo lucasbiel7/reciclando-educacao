@@ -1,0 +1,5 @@
+<div *ngFor="let mensagem of mensagens" [ngClass]="{'text-center':centralizado}">
+    <p [ngClass]='mensagem.tipo === TipoMensagem.ERRO?"error": (mensagem.tipo===TipoMensagem.SUCESSO)?"sucesso":"alerta"'
+        [innerHTML]="mensagem.mensagem">
+    </p>
+</div>

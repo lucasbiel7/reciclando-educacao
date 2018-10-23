@@ -36,10 +36,9 @@ public class Usuario extends BaseEntity<Long> {
 
 	@Column(name = "tx_nome", nullable = false)
 	private String nome;
-	
-	@Column(name="tx_email",nullable = false)
-	private String email;
 
+	@Column(name = "tx_email", nullable = false)
+	private String email;
 
 	@Column(name = "tx_senha", nullable = true)
 	private String senha;
@@ -66,13 +65,28 @@ public class Usuario extends BaseEntity<Long> {
 		this.nome = nome;
 	}
 
-
 	public String getSenha() {
 		return senha;
 	}
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 }

@@ -1,3 +1,4 @@
+import { MensagemComponent } from './components/mensagem/mensagem.component';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -19,10 +20,11 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/switchMap';
 import { CadastroColaboradorComponent } from './components/cadastro-colaborador/cadastro-colaborador.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CepDirective } from './directive/cep.directive';
 import { CepService } from './services/cep.service';
 import { FormularioDoadorComponent } from './components/formulario-doador/formulario-doador.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CepDirective } from './directive/cep.directive';
+
 @NgModule({
     exports: [
         // Modulos básicos
@@ -49,7 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
         RodapeComponent,
         CadastroColaboradorComponent,
         FormularioDoadorComponent,
-
+        MensagemComponent,
     ],
     imports: [
         AngularFontAwesomeModule,
@@ -74,7 +76,8 @@ import { HttpClientModule } from '@angular/common/http';
         CadastroColaboradorComponent,
         FormularioDoadorComponent,
         // Diretivas
-        CepDirective
+        CepDirective,
+        MensagemComponent
     ]
 })
 export class SharedModule {

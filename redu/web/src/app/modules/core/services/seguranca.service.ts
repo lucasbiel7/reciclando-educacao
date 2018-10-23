@@ -1,17 +1,23 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { environment } from './../../../../environments/environment';
+import { Injectable, Injector } from '@angular/core';
 import { Credencial } from '../../shared/resource/class/credencial.class';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SegurancaService {
     private api: string;
 
-    constructor(private http: Http) {
-        this.api = 'rest/seguranca';
+    constructor(private injector: Injector) {
+        this.api = 'seguranca';
+    }
+
+    get http() {
+        return this.injector.get(HttpClient);
     }
 
     public login(credencial: Credencial) {
-        return this.http.post(`${this.api}/login`, credencial).map(response => response.json());
+        return this.http.post(`${environment.backend + this.api}/login`, credencial);
     }
 
 

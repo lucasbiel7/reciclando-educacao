@@ -29,5 +29,8 @@ section.pagina-inicial{
             font-style: italic;
             color: $primaria;
         }
+        a:hover{
+            color: $secundaria;
+        }
     }
 }

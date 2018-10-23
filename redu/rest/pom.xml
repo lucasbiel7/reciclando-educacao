@@ -27,6 +27,10 @@
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 		</dependency>
+		<dependency>
+	    <groupId>io.jsonwebtoken</groupId>
+		    <artifactId>jjwt</artifactId>
+		</dependency>		
     </dependencies>
     
     <build>
