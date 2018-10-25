@@ -11,6 +11,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -52,7 +53,7 @@ public class SegurancaController {
 			calendar.add(Calendar.HOUR_OF_DAY, 1);
 			String token = Jwts.builder().setSubject("users/authentication").setExpiration(calendar.getTime())
 					.setClaims(dados).signWith(SignatureAlgorithm.HS256, "redu-web".getBytes("UTF-8")).compact();
-			return Response.ok().header("authorization", token).build();
+			return Response.ok().header(HttpHeaders.AUTHORIZATION, token).build();
 		} catch (AutenticacaoException e) {
 			return Response.status(Status.FORBIDDEN).entity(e.getMessage()).build();
 		}

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'redu-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+    selector: 'redu-menu',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
 
+    }
 }

@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     public login() {
         if (this.formulario.valid) {
             this.segurancaService.login(this.credencial).subscribe(resultado => {
-
+                console.log(resultado);
             }, error => {
                 if (error.status === 403) {
                     this.mensagem = {

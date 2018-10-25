@@ -1,5 +1,6 @@
+import { environment } from './../../../../environments/environment';
 import { SegurancaService } from './seguranca.service';
-import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
+import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -18,7 +19,15 @@ export class SegurancaInterceptor implements HttpInterceptor {
                 }
             });
         }
-        return next.handle(request);
+        return next.handle(request).map(event => {
+            if (event instanceof HttpResponse) {
+                const resposta: HttpResponse<any> = event;
+                if (resposta.headers.get('authorization')) {
+                    localStorage.setItem(environment.userToken, resposta.headers.get('authorization'));
+                }
+            }
+            return event;
+        });
     }
 
 }

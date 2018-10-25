@@ -12,9 +12,6 @@ export class MensagemComponent implements OnInit, OnChanges {
     @Input()
     public mensagem: string;
 
-    @Input()
-    public centralizado: boolean;
-
     TipoMensagem = TipoMensagem;
     public mensagens: Mensagem[];
 
@@ -29,6 +26,9 @@ export class MensagemComponent implements OnInit, OnChanges {
     ngOnChanges(changes: SimpleChanges): void {
         if (!changes.mensagem.firstChange) {
             this.mensagens.push(changes.mensagem.currentValue);
+            setTimeout(() => {
+                this.mensagens.pop();
+            }, 5000);
         }
     }
 

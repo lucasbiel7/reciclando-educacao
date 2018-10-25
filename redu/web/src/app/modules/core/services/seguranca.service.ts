@@ -2,11 +2,13 @@ import { environment } from './../../../../environments/environment';
 import { Injectable, Injector } from '@angular/core';
 import { Credencial } from '../../shared/resource/class/credencial.class';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { UrlSegment } from '@angular/router';
 
 @Injectable()
 export class SegurancaService {
+
     private api: string;
+    public lastRoute: UrlSegment[];
 
     constructor(private injector: Injector) {
         this.api = 'seguranca';
@@ -20,12 +22,11 @@ export class SegurancaService {
         return this.http.post(`${environment.backend + this.api}/login`, credencial);
     }
 
-
-    public get token() {
-        return '';
+    public get token(): string {
+        return localStorage.getItem(environment.userToken);
     }
 
     public get logado() {
-        return false;
+        return this.token != null;
     }
 }
