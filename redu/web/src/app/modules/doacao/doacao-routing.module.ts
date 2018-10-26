@@ -10,7 +10,7 @@ const routes: Routes = [
         path: 'doacao',
         component: DoacaoComponent,
         canActivate: [UsuarioAutenticadoGuard],
-        canActivateChild: [UsuarioNaoAutenticadoGuard],
+        canActivateChild: [UsuarioAutenticadoGuard],
         children: [
             {
                 path: 'cadastrar',
