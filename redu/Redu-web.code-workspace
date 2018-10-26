@@ -2,12 +2,6 @@
 	"folders": [
 		{
 			"path": "web"
-		},
-		{
-			"path": "C:\\Users\\lucas\\Documents\\Faculdade\\PI\\3periodo\\modern_sans"
-		},
-		{
-			"path": "C:\\Users\\lucas\\Documents\\Faculdade\\PI\\3periodo\\chapaza"
 		}
 	],
 	"settings": {
@@ -23,5 +17,5 @@
 			"target": true,
 			".classpath": true,
 		}
-	}
+	},
 }

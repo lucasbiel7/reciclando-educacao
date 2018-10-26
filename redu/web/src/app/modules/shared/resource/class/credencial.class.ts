@@ -1,4 +1,4 @@
-export class Credencial{
-    public email:string;
-    public senha:string;
+export class Credencial {
+    public email: string;
+    public senha: string;
 }

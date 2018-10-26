@@ -2,13 +2,12 @@ import { environment } from './../../../../environments/environment';
 import { Injectable, Injector } from '@angular/core';
 import { Credencial } from '../../shared/resource/class/credencial.class';
 import { HttpClient } from '@angular/common/http';
-import { UrlSegment } from '@angular/router';
 
 @Injectable()
 export class SegurancaService {
 
     private api: string;
-    public lastRoute: UrlSegment[];
+    public lastRoute: string;
 
     constructor(private injector: Injector) {
         this.api = 'seguranca';
@@ -28,5 +27,9 @@ export class SegurancaService {
 
     public get logado() {
         return this.token != null;
+    }
+
+    public logaout(): void {
+        localStorage.removeItem(environment.userToken);
     }
 }

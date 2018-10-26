@@ -1,3 +1,4 @@
+import { UsuarioNaoAutenticadoGuard } from './services/usuario-nao-autenticado.guard';
 import { MensagemComponent } from './components/mensagem/mensagem.component';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -25,6 +26,7 @@ import { CepService } from './services/cep.service';
 import { FormularioDoadorComponent } from './components/formulario-doador/formulario-doador.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CepDirective } from './directive/cep.directive';
+import { UsuarioAutenticadoGuard } from './services/usuario-autenticado.guard';
 
 @NgModule({
     exports: [
@@ -86,7 +88,9 @@ export class SharedModule {
         return {
             ngModule: SharedModule,
             providers: [
-                CepService
+                CepService,
+                UsuarioAutenticadoGuard,
+                UsuarioNaoAutenticadoGuard
             ]
         };
     }
