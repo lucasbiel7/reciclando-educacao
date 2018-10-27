@@ -9,15 +9,16 @@ export class UsuarioNaoAutenticadoGuard implements CanActivate, CanActivateChild
     constructor(private segurancaService: SegurancaService, private router: Router) {
     }
 
-    public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    public canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot):
+        Observable<boolean> | Promise<boolean> | boolean {
         if (this.segurancaService.logado) {
             this.router.navigate(['dashboard']);
         }
         return !this.segurancaService.logado;
     }
 
-    public canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean |
-        Observable<boolean> | Promise<boolean> {
+    public canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot):
+        boolean | Observable<boolean> | Promise<boolean> {
         return this.canActivate(childRoute, state);
     }
 }

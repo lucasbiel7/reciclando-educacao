@@ -2,6 +2,7 @@ import { environment } from './../../../../environments/environment';
 import { Injectable, Injector } from '@angular/core';
 import { Credencial } from '../../shared/resource/class/credencial.class';
 import { HttpClient } from '@angular/common/http';
+import { Usuario } from '../../shared/resource/class/usuario.class';
 
 @Injectable()
 export class SegurancaService {
@@ -15,6 +16,14 @@ export class SegurancaService {
 
     get http() {
         return this.injector.get(HttpClient);
+    }
+
+    get usuario(): Usuario {
+        const usuario = new Usuario();
+        if (this.logado) {
+            return usuario;
+        }
+        return null;
     }
 
     public login(credencial: Credencial) {
