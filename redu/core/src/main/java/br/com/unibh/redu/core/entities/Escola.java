@@ -2,9 +2,7 @@ package br.com.unibh.redu.core.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import br.com.unibh.redu.core.util.Constante;
@@ -16,49 +14,27 @@ import br.com.unibh.redu.core.util.Constante;
  */
 @Entity
 @Table(name = "escola", schema = Constante.DATABASE)
-public class Escola extends BaseEntity<Long> {
+@PrimaryKeyJoinColumn(name = "id_escola", referencedColumnName = "id_usuario")
+public class Escola extends Usuario {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -414771552198251994L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_escola")
-	private Long id;
-	@Column(name = "txt_email")
-	private String email;
-	@Column(name = "txt_nome")
-	private String nome;
+
+	@Column(name = "txt_nome_escola")
+	private String nomeEscola;
 	@Column(name = "txt_telefone")
 	private String telefone;
 	@Column(name = "txt_diretor")
 	private String diretor;
 
-	@Override
-	public Long getId() {
-		return id;
+	public String getNomeEscola() {
+		return nomeEscola;
 	}
 
-	@Override
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeEscola(String nomeEscola) {
+		this.nomeEscola = nomeEscola;
 	}
 
 	public String getTelefone() {
@@ -76,4 +52,5 @@ public class Escola extends BaseEntity<Long> {
 	public void setDiretor(String diretor) {
 		this.diretor = diretor;
 	}
+
 }

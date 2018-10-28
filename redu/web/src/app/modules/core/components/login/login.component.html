@@ -32,11 +32,11 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 justify-content-center">
-                                    <redu-mensagem [mensagem]='mensagem' centralizado="true"></redu-mensagem>
+                                    <redu-mensagem [mensagem]='mensagem' [limite]='1'></redu-mensagem>
                                 </div>
 
                                 <div class="col text-center">
-                                    <button mat-raised-button color="primary" (click)="login()">
+                                    <button mat-raised-button color="primary" type="submit" (click)="login()">
                                         Entrar
                                     </button>
                                 </div>

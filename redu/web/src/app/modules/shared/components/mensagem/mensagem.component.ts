@@ -11,6 +11,8 @@ export class MensagemComponent implements OnInit, OnChanges {
 
     @Input()
     public mensagem: string;
+    @Input()
+    public limite: number;
 
     TipoMensagem = TipoMensagem;
     public mensagens: Mensagem[];
@@ -20,7 +22,9 @@ export class MensagemComponent implements OnInit, OnChanges {
     }
 
     ngOnInit() {
-
+        if (!this.limite) {
+            this.limite = 1;
+        }
     }
 
     ngOnChanges(changes: SimpleChanges): void {

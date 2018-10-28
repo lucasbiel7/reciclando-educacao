@@ -16,6 +16,7 @@
 		<class>br.com.unibh.redu.core.entities.Questionario</class>
 		<class>br.com.unibh.redu.core.entities.QuestionarioPergunta</class>
 		<class>br.com.unibh.redu.core.entities.TipoDoacao</class>
+		<class>br.com.unibh.redu.core.entities.Lote</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update"/>
 			<property name="hibernate.show_sql" value="true"/>

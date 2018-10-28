@@ -34,6 +34,10 @@ public class Questionario extends BaseEntity<Long> {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long id;
 
+	@ManyToOne(targetEntity = Lote.class, optional = false)
+	@JoinColumn(name = "id_lote", referencedColumnName = "id_lote")
+	private Lote lote;
+
 	@ManyToOne(targetEntity = Escola.class, optional = false)
 	@JoinColumn(name = "id_escola", referencedColumnName = "id_escola")
 	private Escola escola;
@@ -88,6 +92,14 @@ public class Questionario extends BaseEntity<Long> {
 
 	public void setConcluido(boolean concluido) {
 		this.concluido = concluido;
+	}
+
+	public Lote getLote() {
+		return lote;
+	}
+
+	public void setLote(Lote lote) {
+		this.lote = lote;
 	}
 
 	@Override

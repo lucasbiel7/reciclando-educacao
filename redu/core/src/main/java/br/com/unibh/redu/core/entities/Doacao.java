@@ -50,20 +50,23 @@ public class Doacao extends BaseEntity<Long> {
 	private Colaborador colaborador;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name="vl_estado_doacao",nullable=false)
+	@Column(name = "vl_estado_doacao", nullable = false)
 	private EstadoDoacaoEnum estadoDoacao;
-	
-	@Column(name="vl_revisado",nullable = false)
+
+	@Column(name = "vl_revisado", nullable = false)
 	public boolean revisado;
-	
-	@Column(name="vl_alocado",nullable = false)
+
+	@Column(name = "vl_alocado", nullable = false)
 	public boolean alocado;
-	
-	@OneToOne(optional = true,cascade= CascadeType.ALL)
-	@JoinColumn(name="id_endereco",referencedColumnName="id_endereco",nullable=true)
+
+	@OneToOne(optional = true, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_endereco", referencedColumnName = "id_endereco", nullable = true)
 	private Endereco endereco;
-	
-	
+
+	@ManyToOne(targetEntity = Lote.class, optional = true)
+	@JoinColumn(name = "id_lote", referencedColumnName = "id_lote")
+	private Lote lote;
+
 	@Override
 	public Long getId() {
 		return id;
@@ -96,6 +99,54 @@ public class Doacao extends BaseEntity<Long> {
 
 	public void setTipoDoacao(TipoDoacao tipoDoacao) {
 		this.tipoDoacao = tipoDoacao;
+	}
+
+	public Colaborador getColaborador() {
+		return colaborador;
+	}
+
+	public void setColaborador(Colaborador colaborador) {
+		this.colaborador = colaborador;
+	}
+
+	public EstadoDoacaoEnum getEstadoDoacao() {
+		return estadoDoacao;
+	}
+
+	public void setEstadoDoacao(EstadoDoacaoEnum estadoDoacao) {
+		this.estadoDoacao = estadoDoacao;
+	}
+
+	public boolean isRevisado() {
+		return revisado;
+	}
+
+	public void setRevisado(boolean revisado) {
+		this.revisado = revisado;
+	}
+
+	public boolean isAlocado() {
+		return alocado;
+	}
+
+	public void setAlocado(boolean alocado) {
+		this.alocado = alocado;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
+	public Lote getLote() {
+		return lote;
+	}
+
+	public void setLote(Lote lote) {
+		this.lote = lote;
 	}
 
 }
