@@ -1,3 +1,68 @@
-<p>
-  formulario-colaborador works!
-</p>
+<section class='formulario-colaborador'>
+
+    <div class="container-fluid">
+        <form [formGroup]="formulario">
+            <div class="row">
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <mat-form-field class="w-100">
+                        <mat-select formControlName="tipoColaborador" placeholder="Tipo Colaborador">
+                            <mat-option value='1'>
+                                Entregador
+                            </mat-option>
+                            <mat-option value='2'>
+                                Manutenção
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="formulario.get('tipoColaborador').hasError('required')">
+                            O preenchimento da tipo do colaborador é obrigatório!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <mat-form-field class="w-100">
+                        <input matInput min="1" type="text" formControlName="nomeColaborador" placeholder="Colaborador" />
+                        <mat-error *ngIf="formulario.get('nomeColaborador').hasError('required')">
+                            O preenchimento da colaborador é obrigatório!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <mat-form-field class="w-100">
+                        <input matInput min="1" type="text" formControlName="tipoFormacao" placeholder="Formação" />
+                        <mat-error *ngIf="formulario.get('tipoFormacao').hasError('required')">
+                            O preenchimento do campo formação é obrigatório!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <mat-form-field class="w-100">
+                        <input matInput min="1" type="text" formControlName="tipoExperiencia" placeholder="experiência" />
+                        <mat-error *ngIf="formulario.get('tipoExperiencia').hasError('required')">
+                            O preenchimento do campo experiência é obrigatório!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 justify-content-center text-center pb-4">
+                    <button mat-raised-button type="submit" (click)="cadastroColaborador()">
+                        Avançar
+                        <fa name="arrow-circle-right"></fa>
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
+
+
+</section>
