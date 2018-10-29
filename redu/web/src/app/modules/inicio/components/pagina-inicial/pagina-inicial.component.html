@@ -11,6 +11,7 @@
                         <div class="opaco">
                             <redu-formulario-doador [(doacao)]='doacao' #formularioDoador>
                             </redu-formulario-doador>
+
                             <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 justify-content-center text-center pb-4">
                                 <button mat-raised-button type="submit" (click)="cadastrarDoacao()">
                                     Avançar
@@ -23,8 +24,10 @@
                         </div>
                     </mat-tab>
                     <mat-tab label="Colaborador">
-                        <redu-formulario-colaborador>
-                        </redu-formulario-colaborador>
+                        <div class="opaco">
+                            <redu-formulario-colaborador>
+                            </redu-formulario-colaborador>
+                        </div>
                     </mat-tab>
                 </mat-tab-group>
             </div>
