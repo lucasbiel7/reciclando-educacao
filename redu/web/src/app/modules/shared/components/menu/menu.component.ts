@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SegurancaService } from '../../../core/services/seguranca.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'redu-menu',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-    constructor() { }
+    constructor(public segurancaService: SegurancaService, private router: Router) {
+
+    }
 
     ngOnInit() {
 
+    }
+
+    public logout() {
+        this.segurancaService.logaout();
+        this.router.navigate(['inicio']);
     }
 }

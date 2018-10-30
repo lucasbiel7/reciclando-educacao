@@ -3,11 +3,28 @@
 
 nav{
     background-color: $secundaria;
+    .container{
+        color:$aux1;
+    }
     .menu-item{
         font-weight: bold;
         color:$aux1;
     }
     .logo{
         max-height: 3rem;
+    }
+
+}
+::ng-deep{
+    .mat-menu-content{
+        background-color: $secundaria !important;
+        color: $aux1;
+    }
+    button.mat-menu-item{
+        background-color: $secundaria !important;
+        color: $aux1;
+        mat-icon{
+            color:$aux1 !important;
+        }
     }
 }

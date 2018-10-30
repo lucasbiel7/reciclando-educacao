@@ -6,9 +6,9 @@
                 <p class="lead mb-0">Unibh-Cristiano Machado
                     <br>Minas Gerais</p>
             </div>
-            <div class="col-md-4 mb-5 mb-lg-0" style="visibility: hidden">
-                <h4 class="text-uppercase mb-4">Redes Sociais</h4>
-                <ul class="list-inline mb-0">
+            <div class="col-md-4 col-sm-12 mb-3 mb-lg-0" style="visibility: hidden">
+                <h4 class="text-uppercase mb-4" *ngIf="false">Redes Sociais</h4>
+                <ul class="list-inline mb-0" *ngIf="false">
                     <li class="list-inline-item">
                         <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
                             <fa name="facebook" class="fab fa-fw"></fa>
@@ -36,10 +36,16 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 d-none d-md-block">
                 <h4 class="text-uppercase mb-4">Sobre R.E.D.U</h4>
                 <p class="lead mb-0">É uma plataforma online gratuita que recebe doações de equipamentos
                     informáticos para ajudar escolas que apresentam baixa infraestrura.
+            </div>
+            <div class="col-sm-12 d-none d-sm-block d-md-none">
+                Reciclando educação®
+            </div>
+            <div class="col-sm-12 d-block d-sm-none">
+                Reciclando educação®
             </div>
         </div>
     </div>

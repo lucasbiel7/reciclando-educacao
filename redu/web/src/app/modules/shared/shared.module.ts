@@ -8,7 +8,7 @@ import { RodapeComponent } from './components/rodape/rodape.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {
     MatTabsModule, MatFormFieldModule, MatInputModule, MatSelectModule,
-    MatButtonModule, MatCardModule, MatStepperModule, MatExpansionModule, MatIconModule
+    MatButtonModule, MatCardModule, MatStepperModule, MatExpansionModule, MatIconModule, MatMenuModule, MatTooltipModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnderecoComponent } from './components/endereco/endereco.component';
@@ -49,6 +49,7 @@ import { UsuarioAutenticadoGuard } from './services/usuario-autenticado.guard';
         ReactiveFormsModule,
         MatExpansionModule,
         MatIconModule,
+        MatTooltipModule,
         // Componentes internos
         EnderecoComponent,
         MenuComponent,
@@ -62,6 +63,7 @@ import { UsuarioAutenticadoGuard } from './services/usuario-autenticado.guard';
         AngularFontAwesomeModule,
         MatTabsModule,
         BrowserAnimationsModule,
+        MatTooltipModule,
         MatFormFieldModule,
         MatInputModule,
         MatSelectModule,
@@ -69,6 +71,7 @@ import { UsuarioAutenticadoGuard } from './services/usuario-autenticado.guard';
         MatCardModule,
         MatIconModule,
         MatStepperModule,
+        MatMenuModule,
         FormsModule,
         ReactiveFormsModule,
         MatExpansionModule

@@ -1,18 +1,44 @@
-<nav class="navbar navbar-expand-lg fixed-top text-uppercase">
-
-    <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-    </button>
+<nav class="navbar fixed-top navbar-expand-lg text-uppercase">
     <div class="container">
-        <a class="navbar-brand" href="/inicio">
-            <img src="/assets/img/logo.png" class="logo" alt="">
-        </a>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger menu-item" href="inicio#Sobre">Sobre</a>
-                </li>
-            </ul>
+        <div class="text-left">
+            <button mat-icon-button *ngIf="segurancaService.logado" [matMenuTriggerFor]="menuOpcoes">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <a class="navbar-brand" href="/inicio" matTooltip="Reciclando educação">
+                <img src="/assets/img/logo.png" class="logo">
+            </a>
+        </div>
+        <div class="text-right">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger menu-item" href="inicio#Sobre" *ngIf="!segurancaService.logado">Sobre</a>
+            <div *ngIf="segurancaService.logado">
+                <button mat-icon-button>
+                    <mat-icon>search</mat-icon>
+                </button>
+                <button mat-icon-button [matMenuTriggerFor]="menuUsuario">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+            </div>
         </div>
     </div>
 </nav>
+<mat-menu #menuOpcoes="matMenu" [overlapTrigger]="false">
+    <button mat-menu-item>
+        <mat-icon>pan_tool</mat-icon>
+        Doar
+    </button>
+    <button mat-menu-item>
+        <mat-icon>build</mat-icon>
+        Colaborador
+    </button>
+</mat-menu>
+<mat-menu #menuUsuario="matMenu" [overlapTrigger]="false">
+    <button mat-menu-item>
+        <mat-icon>person</mat-icon>Perfil
+    </button>
+    <button mat-menu-item>
+        <mat-icon>settings</mat-icon>Configuração
+    </button>
+    <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Sair
+    </button>
+</mat-menu>
