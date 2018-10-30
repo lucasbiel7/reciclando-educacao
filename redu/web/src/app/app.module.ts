@@ -1,3 +1,4 @@
+import { PrincipalModule } from './modules/principal/principal.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -20,6 +21,7 @@ import { DoacaoModule } from './modules/doacao/doacao.module';
         CoreModule.forRoot(),
         // Modulos da aplicacao
         InicioModule,
+        PrincipalModule,
         DoacaoModule,
         // Ultimo import deve ser o routing
         AppRoutingModule
