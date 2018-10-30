@@ -43,7 +43,7 @@ export class FormularioDoadorComponent implements OnInit, OnChanges {
         this.estadosDoacao = [EstadoDoacaoEnum.NOVO, EstadoDoacaoEnum.USADO, EstadoDoacaoEnum.COM_DEFEITO];
         this.formulario = new FormGroup({
             caracteristica: new FormControl('', Validators.required),
-            quantidade: new FormControl('', Validators.required),
+            quantidade: new FormControl('', [Validators.required, Validators.max(100)]),
             estadoDoacao: new FormControl('', Validators.required)
         });
         this.formulario.addControl('tipoDoacao0', new FormControl('', Validators.required));
