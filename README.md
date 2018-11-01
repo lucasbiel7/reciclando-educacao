@@ -1,4 +1,4 @@
-<img src="https://github.com/lucasbiel7/reciclando-educacao/blob/master/IDENTIDADE R.E.D.U 1.png?raw=true" alt="Banana" width="400"/>
+<img src="https://github.com/lucasbiel7/reciclando-educacao/blob/master/IDENTIDADE R.E.D.U 1.png?raw=true" alt="Banana" width="390"/>
 <h1>Reciclando Educação</h1>
 <p>A R.E.D.U. é uma plataforma online gratuita que recebe doações de equipamentos informáticos (novos e usados), com intuito de ajudar 
 escolas que apresentam baixa infraestrura e índice escolar.</p>
