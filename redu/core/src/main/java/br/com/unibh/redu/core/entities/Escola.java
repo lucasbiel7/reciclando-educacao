@@ -28,6 +28,16 @@ public class Escola extends Usuario {
 	private String telefone;
 	@Column(name = "txt_diretor")
 	private String diretor;
+	@Column(name = "vl_pontuacao_infra")
+	public Long pontuacaoEstrutura;
+
+	public Long getPontuacaoEstrutura() {
+		return pontuacaoEstrutura;
+	}
+
+	public void setPontuacaoEstrutura(Long pontuacaoEstrutura) {
+		this.pontuacaoEstrutura = pontuacaoEstrutura;
+	}
 
 	public String getNomeEscola() {
 		return nomeEscola;
