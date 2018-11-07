@@ -10,6 +10,10 @@ package-lock.json
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 .sonarlint/*
+.recommenders
+
+
+
 # Package Files #
 *.jar
 *.war
