@@ -8,7 +8,7 @@ import { RodapeComponent } from './components/rodape/rodape.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {
     MatTabsModule, MatFormFieldModule, MatInputModule, MatSelectModule,
-    MatButtonModule, MatCardModule, MatStepperModule, MatExpansionModule, MatIconModule, MatMenuModule, MatTooltipModule
+    MatButtonModule, MatCardModule, MatStepperModule, MatExpansionModule, MatIconModule, MatMenuModule, MatTooltipModule, MatRadioModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnderecoComponent } from './components/endereco/endereco.component';
@@ -36,10 +36,10 @@ import { ColaboradorService } from './services/colaborador.service';
         RouterModule,
         HttpModule,
         HttpClientModule,
-        // Modulos de componentes externos
         AngularFontAwesomeModule,
-        MatTabsModule,
         BrowserAnimationsModule,
+        // Modulos de componentes externos
+        MatTabsModule,
         MatFormFieldModule,
         MatInputModule,
         MatSelectModule,
@@ -51,6 +51,8 @@ import { ColaboradorService } from './services/colaborador.service';
         MatExpansionModule,
         MatIconModule,
         MatTooltipModule,
+        MatRadioModule,
+        MatExpansionModule,
         // Componentes internos
         EnderecoComponent,
         MenuComponent,
@@ -62,8 +64,9 @@ import { ColaboradorService } from './services/colaborador.service';
     imports: [
         AngularFontAwesomeModule,
         AngularFontAwesomeModule,
-        MatTabsModule,
         BrowserAnimationsModule,
+        // Materials components
+        MatTabsModule,
         MatTooltipModule,
         MatFormFieldModule,
         MatInputModule,
@@ -72,7 +75,9 @@ import { ColaboradorService } from './services/colaborador.service';
         MatCardModule,
         MatIconModule,
         MatStepperModule,
+        MatRadioModule,
         MatMenuModule,
+        MatExpansionModule,
         FormsModule,
         ReactiveFormsModule,
         MatExpansionModule
