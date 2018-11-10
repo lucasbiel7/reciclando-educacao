@@ -36,6 +36,7 @@ import br.com.unibh.redu.core.util.StringUtil;
 @Stateless
 @TransactionManagement(TransactionManagementType.BEAN)
 public class EscolaBean implements EscolaService {
+
 	/**
 	 * Arquivo armazenado localmente por causa da quantidade de dados
 	 * 
