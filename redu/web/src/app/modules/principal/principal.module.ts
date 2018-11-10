@@ -5,6 +5,7 @@ import { PrincipalRoutingModule } from './principal-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AreaDoUsuarioComponent } from './components/area-do-usuario/area-do-usuario.component';
 import { SharedModule } from '../shared/shared.module';
+import { OpniaoComponent } from './components/opniao/opniao.component';
 
 @NgModule({
     imports: [
@@ -12,7 +13,7 @@ import { SharedModule } from '../shared/shared.module';
         PrincipalRoutingModule
     ],
     declarations: [
-        DashboardComponent, AreaDoUsuarioComponent
+        DashboardComponent, AreaDoUsuarioComponent, OpniaoComponent
     ]
 })
 export class PrincipalModule { }

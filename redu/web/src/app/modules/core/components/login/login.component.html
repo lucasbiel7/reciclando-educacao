@@ -20,7 +20,7 @@
                                         <mat-error *ngIf="formulario.get('email').hasError('required')">
                                             O preenchimento do e-mail é obrigatório!
                                         </mat-error>
-                                        <mat-error *ngIf="formulario.get('email').hasError('email')">
+                                        <mat-error *ngIf="formulario.get('email').hasError('email') && !formulario.get('email').hasError('required')">
                                             Esse E-mail utilizado é Inválido!
                                         </mat-error>
                                     </mat-form-field>
