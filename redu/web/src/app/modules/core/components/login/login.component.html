@@ -15,10 +15,13 @@
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 text-center">
                                     <mat-form-field class="w-100">
-                                        <input matInput type="text" placeholder="E-mail" [(ngModel)]="credencial.email"
+                                        <input matInput type="email" placeholder="E-mail" [(ngModel)]="credencial.email"
                                             formControlName="email">
                                         <mat-error *ngIf="formulario.get('email').hasError('required')">
                                             O preenchimento do e-mail é obrigatório!
+                                        </mat-error>
+                                        <mat-error *ngIf="formulario.get('email').hasError('email')">
+                                            Esse E-mail utilizado é Inválido!
                                         </mat-error>
                                     </mat-form-field>
                                 </div>
