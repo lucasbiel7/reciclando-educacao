@@ -8,12 +8,11 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <mat-form-field class="w-100">
                         <mat-select formControlName="tipoColaborador" placeholder="Tipo Colaborador">
-                            <mat-option value='1'>
-                                Entregador
+
+                            <mat-option *ngFor="let tipoColaborador of tiposDeColaborador" [value]="tipoColaborador">
+                                {{tipoColaborador.descricao}}
                             </mat-option>
-                            <mat-option value='2'>
-                                Manutenção
-                            </mat-option>
+
                         </mat-select>
                         <mat-error *ngIf="formulario.get('tipoColaborador').hasError('required')">
                             O preenchimento da tipo do colaborador é obrigatório!
@@ -25,29 +24,43 @@
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <mat-form-field class="w-100">
-                        <input matInput min="1" type="text" formControlName="nomeColaborador" placeholder="Colaborador" />
+                        <input matInput min="1" type="text" formControlName="nomeColaborador" placeholder="Colaborador"
+                            [(ngModel)]="colaborador.nome" />
                         <mat-error *ngIf="formulario.get('nomeColaborador').hasError('required')">
                             O preenchimento da colaborador é obrigatório!
                         </mat-error>
+                        <mat-hint align="end">{{colaborador.nome?colaborador.nome.length:0}} / 100</mat-hint>
                     </mat-form-field>
                 </div>
 
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <mat-form-field class="w-100">
-                        <input matInput min="1" type="text" formControlName="tipoFormacao" placeholder="Formação" />
+                        <mat-select formControlName="tipoFormacao" placeholder="Formação">
+
+                            <mat-option value="Ensino fundamental Completo">Ensino fundamental Completo</mat-option>
+                            <mat-option value="Ensino fundamental Incompleto">Ensino fundamental Incompleto</mat-option>
+                            <mat-option value="Ensino medio Completo">Ensino medio Completo</mat-option>
+                            <mat-option value="Ensino medio Incompleto">Ensino medio Incompleto</mat-option>
+                            <mat-option value="Ensino Superior Completo">Ensino Superior Completo</mat-option>
+                            <mat-option value="Ensino Superior Incompleto">Ensino Superior Incompleto</mat-option>
+                        </mat-select>
+
                         <mat-error *ngIf="formulario.get('tipoFormacao').hasError('required')">
                             O preenchimento do campo formação é obrigatório!
                         </mat-error>
+
                     </mat-form-field>
                 </div>
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <mat-form-field class="w-100">
-                        <input matInput min="1" type="text" formControlName="tipoExperiencia" placeholder="experiência" />
+                        <textarea matInput min="1" type="text" formControlName="tipoExperiencia" placeholder="experiência"
+                            [(ngModel)]="colaborador.experiencia"></textarea>
                         <mat-error *ngIf="formulario.get('tipoExperiencia').hasError('required')">
                             O preenchimento do campo experiência é obrigatório!
                         </mat-error>
+                        <mat-hint align="end">{{colaborador.experiencia?colaborador.experiencia.length:0}} / 500</mat-hint>
                     </mat-form-field>
                 </div>
 
@@ -56,6 +69,9 @@
                         Avançar
                         <fa name="arrow-circle-right"></fa>
                     </button>
+                </div>
+                <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12">
+                    <a [routerLink]="['/','login']">Já sou Colaborador!</a>
                 </div>
 
             </div>
