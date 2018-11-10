@@ -20,7 +20,8 @@ public class EscolaController {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response leituraDados() {
-		escolaService.carregarEscolas();
+		// Desativado porque já subiu as escolas para a base de dados
+//		escolaService.carregarEscolas();
 		return Response.ok().build();
 	}
 }

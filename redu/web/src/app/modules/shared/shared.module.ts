@@ -27,6 +27,7 @@ import { FormularioDoadorComponent } from './components/formulario-doador/formul
 import { HttpClientModule } from '@angular/common/http';
 import { CepDirective } from './directive/cep.directive';
 import { UsuarioAutenticadoGuard } from './services/usuario-autenticado.guard';
+import { ColaboradorService } from './services/colaborador.service';
 
 @NgModule({
     exports: [
@@ -94,6 +95,7 @@ export class SharedModule {
             ngModule: SharedModule,
             providers: [
                 CepService,
+                ColaboradorService,
                 UsuarioAutenticadoGuard,
                 UsuarioNaoAutenticadoGuard
             ]
