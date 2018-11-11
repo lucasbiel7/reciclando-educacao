@@ -17,11 +17,11 @@ nav{
 }
 ::ng-deep{
     .mat-menu-content{
-        background-color: $secundaria !important;
+        background-color: $aux4 !important;
         color: $aux1;
     }
     button.mat-menu-item{
-        background-color: $secundaria !important;
+        background-color: $aux4 !important;
         color: $aux1;
         mat-icon{
             color:$aux1 !important;
