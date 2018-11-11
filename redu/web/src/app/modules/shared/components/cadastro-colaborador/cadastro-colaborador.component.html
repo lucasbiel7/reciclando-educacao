@@ -25,7 +25,9 @@
                                             <mat-radio-button class="ml-2" *ngFor="let tp of tiposPessoas" [value]="tp">{{tp}}
                                             </mat-radio-button>
                                         </mat-radio-group>
-
+                                        <mat-error *ngIf="comoColaborar.get('tipoPessoa').hasError('required')">
+                                            E necessário selecionar seu tipo de usuário!
+                                        </mat-error>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -37,6 +39,9 @@
                                                     {{tipoColaborador.descricao}}
                                                 </mat-option>
                                             </mat-select>
+                                            <mat-error *ngIf="comoColaborar.get('tipoColaborador').hasError('required')">
+                                                O preenchimento do campo tipo de colaborador é obrigatório!
+                                            </mat-error>
                                         </mat-form-field>
                                     </div>
                                 </div>
@@ -71,58 +76,69 @@
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaFisica()">
                                         <mat-form-field class="w-100">
                                             <input type="text" matInput placeholder="CPF" formControlName="cpf"
-                                                [(ngModel)]="colaborador.cpf">
+                                                [(ngModel)]="colaborador.cpf" reduCpf>
                                             <mat-error *ngIf="formularioDadosPessoais.get('cpf').hasError('required')">
                                                 O preenchimento do campo cpf é obrigatório!
                                             </mat-error>
                                         </mat-form-field>
-
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
+                                        <mat-form-field class="w-100">
+                                            <input type="text" matInput placeholder="CNPJ" formControlName="cnpj"
+                                                [(ngModel)]="colaborador.cnpj" reduCnpj>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
+                                        <mat-form-field>
+                                            <input type="text" matInput [(ngModel)]="colaborador.razaoSocial"
+                                                placeholder="Razão social" formControlName="razaoSocial">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
+                                        <mat-form-field>
+                                            <input type="text" matInput [(ngModel)]="colaborador.nomeFantasia"
+                                                formControlName="nomeFantasia" placeholder="Nome Fantasia">
+                                        </mat-form-field>
                                     </div>
                                 </div>
                             </mat-step>
-                            <mat-step [completed]="false">
+                            <mat-step *ngIf="enderecoLoad" [completed]="enderecoComponente?.formulario?.valid">
                                 <ng-template matStepLabel>Endereço</ng-template>
-                                <redu-endereco></redu-endereco>
+                                <redu-endereco [(endereco)]="colaborador.endereco" #enderecoComponente></redu-endereco>
                             </mat-step>
-                            <mat-step [completed]="false">
+                            <mat-step [formGroup]="formularioAutenticacao" [completed]="false">
                                 <ng-template matStepLabel>Autenticação</ng-template>
-                                <form>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-4 col-sm-12 col-lg-4 col-xs-12">
-                                                <mat-form-field class="w-100">
-                                                    <input type="text" matInput placeholder="Usuário" maxlength="50"
-                                                        [(ngModel)]="colaborador.email">
-                                                    <mat-error *ngIf="formularioDadosPessoais.get('email').hasError('required')">
-                                                        O preenchimento do campo experiência é obrigatório!
-                                                    </mat-error>
-                                                    <mat-hint align="end">{{colaborador.email?colaborador.email.length:0}}
-                                                        / 50</mat-hint>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                            <mat-form-field class="w-100">
+                                                <input type="password" matInput placeholder="Senha" maxlength="50"
+                                                    [(ngModel)]="colaborador.senha" formControlName="senha" />
+                                                <mat-error *ngIf="formularioAutenticacao.get('senha').hasError('required')">
+                                                    O preenchimento do campo experiência é obrigatório!
+                                                </mat-error>
+                                                <mat-hint align="end">{{colaborador.senha?colaborador.senha.length:0}}
+                                                    / 50</mat-hint>
 
-                                                </mat-form-field>
-                                            </div>
+                                            </mat-form-field>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                                                <mat-form-field class="w-100">
-                                                    <input type="password" matInput placeholder="Senha" maxlength="50"
-                                                        [(ngModel)]="colaborador.senha">/>
-                                                    <mat-error *ngIf="formularioAutenticacao.get('senha').hasError('required')">
-                                                        O preenchimento do campo experiência é obrigatório!
-                                                    </mat-error>
-                                                    <mat-hint align="end">{{colaborador.senha?colaborador.senha.length:0}}
-                                                        / 50</mat-hint>
+                                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                            <mat-form-field class="w-100">
+                                                <input type="password" matInput placeholder="Confirmar senha"
+                                                    formControlName="confirmarSenha" reduConfirmarSenha='senha' />
+                                                <mat-error *ngIf="formularioAutenticacao.get('confirmarSenha').hasError('confirmPassword')">
+                                                    A confirmação da senha deve ser igual a senha digitada!
+                                                </mat-error>
+                                            </mat-form-field>
 
-                                                </mat-form-field>
-                                            </div>
-                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                                                <mat-form-field class="w-100">
-                                                    <input type="password" matInput placeholder="Confirmar senha" />
-                                                </mat-form-field>
-                                            </div>
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="row">
+                                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                            <button mat-raised-button type="submit" (click)="cadastrar()">Cadastrar-se</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </mat-step>
                         </mat-vertical-stepper>
                     </div>
