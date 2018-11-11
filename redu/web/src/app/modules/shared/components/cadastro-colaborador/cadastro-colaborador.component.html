@@ -86,18 +86,27 @@
                                         <mat-form-field class="w-100">
                                             <input type="text" matInput placeholder="CNPJ" formControlName="cnpj"
                                                 [(ngModel)]="pessoaJuridica.cnpj" reduCnpj>
+                                            <mat-error *ngIf="formularioDadosPessoais.get('cnpj').hasError('required')">
+                                                O preenchimento do campo cnpj é obrigatório!
+                                            </mat-error>
                                         </mat-form-field>
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
                                         <mat-form-field>
                                             <input type="text" matInput [(ngModel)]="pessoaJuridica.razaoSocial"
                                                 placeholder="Razão social" formControlName="razaoSocial">
+                                            <mat-error *ngIf="formularioDadosPessoais.get('razaoSocial').hasError('required')">
+                                                O preenchimento do campo Razão social é obrigatório!
+                                            </mat-error>
                                         </mat-form-field>
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
                                         <mat-form-field>
                                             <input type="text" matInput [(ngModel)]="pessoaJuridica.nomeFantasia"
                                                 formControlName="nomeFantasia" placeholder="Nome Fantasia">
+                                            <mat-error *ngIf="formularioDadosPessoais.get('nomeFantasia').hasError('required')">
+                                                O preenchimento do campo Nome Fantasia é obrigatório!
+                                            </mat-error>
                                         </mat-form-field>
                                     </div>
                                 </div>
