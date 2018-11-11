@@ -30,7 +30,13 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
 
     public colaborador: Colaborador;
 
+    get pessoaJuridica(): PessoaJuridica {
+        return this.colaborador as PessoaJuridica;
+    }
 
+    get pessoaFisica(): PessoaFisica {
+        return this.colaborador as PessoaFisica;
+    }
     /**
      *  Formularios
      */
@@ -39,7 +45,6 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
     public formularioAutenticacao: FormGroup;
 
     constructor(private colaboradorService: ColaboradorService, private cd: ChangeDetectorRef) {
-        this.colaborador = new Colaborador();
         this.comoColaborar = new FormGroup({
             tipoColaborador: new FormControl('', [Validators.required]),
             tipoPessoa: new FormControl('', Validators.required)
@@ -52,7 +57,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
             senha: new FormControl('', [Validators.required]),
             confirmarSenha: new FormControl('', [Validators.required])
         });
-        this.colaborador = new Colaborador();
+        this.colaborador = new PessoaJuridica();
     }
 
 
