@@ -55,7 +55,7 @@
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <mat-form-field class="w-100">
-                        <textarea matInput min="1" type="text" formControlName="tipoExperiencia" placeholder="experiência"
+                        <textarea matInput min="1" type="text" formControlName="tipoExperiencia" placeholder="Experiência"
                             [(ngModel)]="colaborador.experiencia"></textarea>
                         <mat-error *ngIf="formulario.get('tipoExperiencia').hasError('required')">
                             O preenchimento do campo experiência é obrigatório!
