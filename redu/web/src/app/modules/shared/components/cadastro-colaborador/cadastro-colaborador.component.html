@@ -29,8 +29,8 @@
                                 <div class="row">
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 mt-1">
                                         <mat-form-field>
-                                            <mat-select placeholder="Tipos de colaborador" formControlName="tipoColaborador"
-                                                [(value)]="colaborador.tipoColaborador">
+                                            <mat-select placeholder="Tipos de colaborador" [disabled]="!tipoPessoa"
+                                                formControlName="tipoColaborador" [(value)]="colaborador.tipoColaborador">
                                                 <mat-option *ngFor="let tipoColaborador of tiposDeColaborador" [value]="tipoColaborador">
                                                     {{tipoColaborador.descricao}}
                                                 </mat-option>
@@ -52,43 +52,70 @@
                                             <input type="text" matInput placeholder="E-mail" formControlName="email" />
                                         </mat-form-field>
                                     </div>
+                                </div>
+                                <!-- Essa parte alguns atributos estaram vermelhos por causa do polimorfismo
+                                    Ele acha que os objetos não possui os atributos porque são especificos de cada classe
+                                    porém pode se desconsiderar a marcação porque ela e feita pelo compilador antes de executar o
+                                    codigo
+                                -->
+                                <div class="row">
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaFisica()">
                                         <mat-form-field class="w-100">
                                             <input type="text" matInput placeholder="CPF" formControlName="cpf"
-                                                [(ngModel)]="colaborador.cpf">
+                                                [(ngModel)]="colaborador.cpf" reduCpf>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
+                                        <mat-form-field class="w-100">
+                                            <input type="text" matInput placeholder="CNPJ" formControlName="cnpj"
+                                                [(ngModel)]="colaborador.cnpj" reduCnpj>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
+                                        <mat-form-field>
+                                            <input type="text" matInput [(ngModel)]="colaborador.razaoSocial"
+                                                placeholder="Razão social" formControlName="razaoSocial">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
+                                        <mat-form-field>
+                                            <input type="text" matInput [(ngModel)]="colaborador.nomeFantasia"
+                                                formControlName="nomeFantasia" placeholder="Nome Fantasia">
                                         </mat-form-field>
                                     </div>
                                 </div>
                             </mat-step>
-                            <mat-step [completed]="false">
+                            <mat-step *ngIf="enderecoLoad" [completed]="enderecoComponente?.formulario?.valid">
                                 <ng-template matStepLabel>Endereço</ng-template>
-                                <redu-endereco></redu-endereco>
+                                <redu-endereco [(endereco)]="colaborador.endereco" #enderecoComponente></redu-endereco>
                             </mat-step>
-                            <mat-step [completed]="false">
+                            <mat-step [formGroup]="formularioAutenticacao" [completed]="false">
                                 <ng-template matStepLabel>Autenticação</ng-template>
-                                <form>
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-4 col-sm-12 col-lg-4 col-xs-12">
-                                                <mat-form-field class="w-100">
-                                                    <input type="text" matInput placeholder="Usuário" />
-                                                </mat-form-field>
-                                            </div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                            <mat-form-field class="w-100">
+                                                <input type="password" matInput placeholder="Senha" [(ngModel)]="colaborador.senha"
+                                                    formControlName="senha" />
+                                            </mat-form-field>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                                                <mat-form-field class="w-100">
-                                                    <input type="password" matInput placeholder="Senha" />
-                                                </mat-form-field>
-                                            </div>
-                                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                                                <mat-form-field class="w-100">
-                                                    <input type="password" matInput placeholder="Confirmar senha" />
-                                                </mat-form-field>
-                                            </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                            <mat-form-field class="w-100">
+                                                <input type="password" matInput placeholder="Confirmar senha"
+                                                    formControlName="confirmarSenha" reduConfirmarSenha='senha' />
+                                                <mat-error *ngIf="formularioAutenticacao.get('confirmarSenha').hasError('confirmPassword')">
+                                                    A confirmação da senha deve ser igual a senha digitada!
+                                                </mat-error>
+                                            </mat-form-field>
+
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="row">
+                                        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                            <button mat-raised-button type="submit" (click)="cadastrar()">Cadastrar-se</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </mat-step>
                         </mat-vertical-stepper>
                     </div>

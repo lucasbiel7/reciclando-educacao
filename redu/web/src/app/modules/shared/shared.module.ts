@@ -28,6 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CepDirective } from './directive/cep.directive';
 import { UsuarioAutenticadoGuard } from './services/usuario-autenticado.guard';
 import { ColaboradorService } from './services/colaborador.service';
+import { CpfDirective } from './directive/cpf.directive';
+import { CnpjDirective } from './directive/cnpj.directive';
+import { ConfirmarSenhaDirective } from './directive/confirmar-senha.directive';
 
 @NgModule({
     exports: [
@@ -91,7 +94,10 @@ import { ColaboradorService } from './services/colaborador.service';
         FormularioDoadorComponent,
         // Diretivas
         CepDirective,
-        MensagemComponent
+        MensagemComponent,
+        CpfDirective,
+        CnpjDirective,
+        ConfirmarSenhaDirective
     ]
 })
 export class SharedModule {
