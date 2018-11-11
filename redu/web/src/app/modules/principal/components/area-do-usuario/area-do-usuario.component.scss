@@ -1,0 +1,30 @@
+@import "src/assets/scss/variables";
+
+section.area-do-usuario{
+    min-height:15vh;
+
+
+    background-color: $primaria;
+
+}
+.card {
+    max-width: 400px;
+    min-height: 400px;
+  }
+
+  .header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    margin: auto;
+    width: 12rem;
+    height: 12rem;
+  }
+  h2{
+      font-weight: bold;
+      color: $secundaria;
+  }
+  p{
+      font-weight: bold;
+      font-size: 1rem;
+      font-style: italic;
+  }
