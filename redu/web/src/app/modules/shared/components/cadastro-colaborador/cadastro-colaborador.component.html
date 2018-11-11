@@ -76,7 +76,7 @@
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaFisica()">
                                         <mat-form-field class="w-100">
                                             <input type="text" matInput placeholder="CPF" formControlName="cpf"
-                                                [(ngModel)]="colaborador.cpf" reduCpf>
+                                                [(ngModel)]="pessoaFisica.cpf" reduCpf>
                                             <mat-error *ngIf="formularioDadosPessoais.get('cpf').hasError('required')">
                                                 O preenchimento do campo cpf é obrigatório!
                                             </mat-error>
@@ -85,7 +85,7 @@
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
                                         <mat-form-field class="w-100">
                                             <input type="text" matInput placeholder="CNPJ" formControlName="cnpj"
-                                                [(ngModel)]="colaborador.cnpj" reduCnpj>
+                                                [(ngModel)]="pessoaJuridica.cnpj" reduCnpj>
                                             <mat-error *ngIf="formularioDadosPessoais.get('cnpj').hasError('required')">
                                                 O preenchimento do campo cnpj é obrigatório!
                                             </mat-error>
@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
                                         <mat-form-field>
-                                            <input type="text" matInput [(ngModel)]="colaborador.razaoSocial"
+                                            <input type="text" matInput [(ngModel)]="pessoaJuridica.razaoSocial"
                                                 placeholder="Razão social" formControlName="razaoSocial">
                                             <mat-error *ngIf="formularioDadosPessoais.get('razaoSocial').hasError('required')">
                                                 O preenchimento do campo Razão social é obrigatório!
@@ -102,7 +102,7 @@
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12" *ngIf="isPessoaJuridica()">
                                         <mat-form-field>
-                                            <input type="text" matInput [(ngModel)]="colaborador.nomeFantasia"
+                                            <input type="text" matInput [(ngModel)]="pessoaJuridica.nomeFantasia"
                                                 formControlName="nomeFantasia" placeholder="Nome Fantasia">
                                             <mat-error *ngIf="formularioDadosPessoais.get('nomeFantasia').hasError('required')">
                                                 O preenchimento do campo Nome Fantasia é obrigatório!
