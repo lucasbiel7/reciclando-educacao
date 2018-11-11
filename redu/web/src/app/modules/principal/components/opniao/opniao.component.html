@@ -1,3 +1,64 @@
-<p>
-  opniao works!
-</p>
+<section class="deixar-opniao ">
+    <mat-card>
+        <mat-card-title>
+            Fale Conosco:
+        </mat-card-title>
+
+        <div class="container-fluid">
+            <form [formGroup]="formulario">
+                <div class="row">
+
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <mat-form-field class="w-100">
+                            <input matInput min="1" type="text" formControlName="nomeColaborador" maxlength="100"
+                                placeholder="Nome:" [(ngModel)]="colaborador.nome" />
+                            <mat-error *ngIf="formulario.get('nomeColaborador').hasError('required')">
+                                O preenchimento do nome é obrigatório!
+                            </mat-error>
+                            <mat-hint align="end">{{colaborador.nome?colaborador.nome.length:0}} / 100</mat-hint>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 text-center">
+                        <mat-form-field class="w-100">
+                            <input matInput type="email" formControlName="email" placeholder="E-mail" [(ngModel)]="credencial.email"
+                                formControlName="email">
+                            <mat-error *ngIf="formulario.get('email').hasError('required')">
+                                O preenchimento do e-mail é obrigatório!
+                            </mat-error>
+                            <mat-error *ngIf="formulario.get('email').hasError('email') && !formulario.get('email').hasError('required')">
+                                Esse E-mail utilizado é Inválido!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <mat-form-field class="w-100">
+                            <textarea matInput min="1" type="text" formControlName="DeixesuaOpniao" maxlength="500"
+                                placeholder="Opniao" [(ngModel)]="colaborador.experiencia"></textarea>
+                            <mat-error *ngIf="formulario.get('DeixesuaOpniao').hasError('required')">
+                                O preenchimento do campo opnião é obrigatório!
+                            </mat-error>
+                            <mat-hint align="end">{{colaborador.opniao?colaborador.opniao.length:0}} / 500</mat-hint>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 justify-content-center text-center pb-4">
+                        <button mat-raised-button type="submit" (click)="registraropniao()">
+                            Enviar Opnião
+                            <fa name="arrow-circle-right"></fa>
+                        </button>
+                    </div>
+
+                    <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12">
+                        <a [routerLink]="['/','login']">Voltar para o seu Perfil!</a>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+
+    </mat-card>
+</section>

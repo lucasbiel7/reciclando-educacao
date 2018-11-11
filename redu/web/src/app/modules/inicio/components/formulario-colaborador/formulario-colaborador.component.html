@@ -24,8 +24,8 @@
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <mat-form-field class="w-100">
-                        <input matInput min="1" type="text" formControlName="nomeColaborador" placeholder="Colaborador"
-                            [(ngModel)]="colaborador.nome" />
+                        <input matInput min="1" type="text" formControlName="nomeColaborador" maxlength="100"
+                            placeholder="Colaborador" [(ngModel)]="colaborador.nome" />
                         <mat-error *ngIf="formulario.get('nomeColaborador').hasError('required')">
                             O preenchimento da colaborador é obrigatório!
                         </mat-error>
@@ -55,8 +55,8 @@
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <mat-form-field class="w-100">
-                        <textarea matInput min="1" type="text" formControlName="tipoExperiencia" placeholder="Experiência"
-                            [(ngModel)]="colaborador.experiencia"></textarea>
+                        <textarea matInput min="1" type="text" formControlName="tipoExperiencia" maxlength="500"
+                            placeholder="Experiência" [(ngModel)]="colaborador.experiencia"></textarea>
                         <mat-error *ngIf="formulario.get('tipoExperiencia').hasError('required')">
                             O preenchimento do campo experiência é obrigatório!
                         </mat-error>

@@ -52,6 +52,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
             senha: new FormControl('', [Validators.required]),
             confirmarSenha: new FormControl('', [Validators.required])
         });
+        this.colaborador = new Colaborador();
     }
 
 
