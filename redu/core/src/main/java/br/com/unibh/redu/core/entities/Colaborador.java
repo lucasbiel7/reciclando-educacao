@@ -35,6 +35,19 @@ public class Colaborador extends Usuario {
 	@JoinColumn(name = "id_tipo_colaborador", referencedColumnName = "id_tipo_colaborador")
 	private TipoColaborador tipoColaborador;
 
+	public Colaborador() {
+
+	}
+
+	public Colaborador(Usuario usuario) {
+		setId(usuario.getId());
+		setNome(usuario.getNome());
+		setSenha(usuario.getSenha());
+		setEmail(usuario.getEmail());
+		setImagem(usuario.getImagem());
+		setEndereco(usuario.getEndereco());
+	}
+
 	public String getFormacao() {
 		return formacao;
 	}

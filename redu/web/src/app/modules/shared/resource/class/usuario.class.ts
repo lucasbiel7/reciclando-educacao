@@ -7,5 +7,6 @@ export class Usuario {
     public email: string;
     public senha: string;
     public endereco: Endereco;
+    public imagem: string;
 
 }

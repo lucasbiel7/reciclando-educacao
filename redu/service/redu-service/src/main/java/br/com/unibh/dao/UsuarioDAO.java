@@ -1,5 +1,7 @@
 package br.com.unibh.dao;
 
+import java.util.List;
+
 import javax.enterprise.context.Dependent;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -18,6 +20,14 @@ public class UsuarioDAO extends BaseDAO {
 		query.where(builder.equal(root.get("email"), credencial.getEmail()),
 				builder.equal(root.get("senha"), credencial.getSenha()));
 		return entityManager.createQuery(query).getSingleResult();
+	}
+
+	public List<Usuario> buscarPorEmail(String email) {
+		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Usuario> query = builder.createQuery(Usuario.class);
+		Root<Usuario> root = query.from(Usuario.class);
+		query.where(builder.equal(root.get("email"), email));
+		return entityManager.createQuery(query).getResultList();
 	}
 
 }

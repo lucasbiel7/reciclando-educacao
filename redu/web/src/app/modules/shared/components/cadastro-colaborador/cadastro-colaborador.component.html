@@ -110,6 +110,20 @@
                                         </mat-form-field>
                                     </div>
                                 </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 justify-content-center text-center">
+                                        <img mat-card-image *ngIf="this.colaborador.imagem" [src]="this.colaborador.imagem"
+                                            class="imagem-perfil">
+                                        <input type="file" #imageInput accept="image/*" (click)="imageInput.value = null;"
+                                            (change)="onSelecionarFoto($event)" style="display: none" />
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 text-center">
+                                        <button mat-raised-button (click)="imageInput.click()">Selecionar
+                                            Foto</button>
+                                    </div>
+                                </div>
                             </mat-step>
                             <mat-step *ngIf="enderecoLoad" [completed]="enderecoComponente?.formulario?.valid">
                                 <ng-template matStepLabel>Endereço</ng-template>

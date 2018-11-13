@@ -1,0 +1,12 @@
+section.cadastro-colaborador{
+
+    img{
+        &.imagem-perfil{
+            max-width: 5rem;
+            margin-top: 0 !important;
+            margin: auto;
+            border-radius: 2.5rem;
+            justify-content: center;
+        }
+    }
+}

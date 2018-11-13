@@ -35,7 +35,18 @@ public class PessoaJuridica extends Colaborador {
 
 	@Lob
 	@Column(name = "banner")
-	private byte[] banner;
+	private String banner;
+
+	public PessoaJuridica() {
+		super();
+	}
+
+	public PessoaJuridica(Colaborador entity) {
+		super(entity);
+		setFormacao(entity.getFormacao());
+		setExperiencia(entity.getExperiencia());
+		setTipoColaborador(entity.getTipoColaborador());
+	}
 
 	public String getRazaoSocial() {
 		return razaoSocial;
@@ -61,11 +72,11 @@ public class PessoaJuridica extends Colaborador {
 		this.tamanho = tamanho;
 	}
 
-	public byte[] getBanner() {
+	public String getBanner() {
 		return banner;
 	}
 
-	public void setBanner(byte[] banner) {
+	public void setBanner(String banner) {
 		this.banner = banner;
 	}
 
