@@ -23,7 +23,7 @@ const routes: Routes = [
                 component: OpniaoComponent
             },
             {
-                path: 'perguntas-frquentes',
+                path: 'perguntas-frequentes',
                 component: PerguntasFrequentesComponent
             }
         ]
