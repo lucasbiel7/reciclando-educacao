@@ -7,6 +7,7 @@ import { AreaDoUsuarioComponent } from './components/area-do-usuario/area-do-usu
 import { SharedModule } from '../shared/shared.module';
 import { OpniaoComponent } from './components/opniao/opniao.component';
 import { PerguntasFrequentesComponent } from './components/perguntas-frequentes/perguntas-frequentes.component';
+import { AjudaComponent } from './components/ajuda/ajuda.component';
 
 @NgModule({
     imports: [
@@ -14,7 +15,7 @@ import { PerguntasFrequentesComponent } from './components/perguntas-frequentes/
         PrincipalRoutingModule
     ],
     declarations: [
-        DashboardComponent, AreaDoUsuarioComponent, OpniaoComponent, PerguntasFrequentesComponent
+        DashboardComponent, AreaDoUsuarioComponent, OpniaoComponent, PerguntasFrequentesComponent, AjudaComponent
     ]
 })
 export class PrincipalModule { }

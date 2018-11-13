@@ -5,6 +5,7 @@ import { AreaDoUsuarioComponent } from './components/area-do-usuario/area-do-usu
 import { UsuarioAutenticadoGuard } from '../shared/services/usuario-autenticado.guard';
 import { OpniaoComponent } from './components/opniao/opniao.component';
 import { PerguntasFrequentesComponent } from './components/perguntas-frequentes/perguntas-frequentes.component';
+import { AjudaComponent } from './components/ajuda/ajuda.component';
 
 const routes: Routes = [
     {
@@ -25,6 +26,10 @@ const routes: Routes = [
             {
                 path: 'perguntas-frequentes',
                 component: PerguntasFrequentesComponent
+            },
+            {
+                path: 'ajuda',
+                component: AjudaComponent
             }
         ]
     }
