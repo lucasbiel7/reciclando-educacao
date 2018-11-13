@@ -14,37 +14,44 @@
         </div>
     </div>
 
-    <div class="row mt-4">
-        <div class="col-md-4 col-lg-4 col-sm-8 col-xs-12">
+    <div class="row mt-4 mt-4">
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 painel-acoes">
             <mat-accordion>
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
                         <mat-panel-title>
-                            MAIS
+                            Mais Opções
                         </mat-panel-title>
                     </mat-expansion-panel-header>
-
                     <mat-action-row>
-                        <a href="#">Lista de Escolas
-                            <mat-icon>chevron_right</mat-icon></a>
+                        <a href="#">
+                            Lista de Escolas
+                            <mat-icon>chevron_right</mat-icon>
+                        </a>
                     </mat-action-row>
                     <mat-action-row>
-                        <a href="#">Deixe sua opinião
-                            <mat-icon>chevron_right</mat-icon></a>
+                        <a [routerLink]="['opniao']">
+                            Deixe sua opinião
+                            <mat-icon>chevron_right</mat-icon>
+                        </a>
                     </mat-action-row>
                     <mat-action-row>
-                        <a href="#">Ajuda
-                            <mat-icon>chevron_right</mat-icon></a>
+                        <a [routerLink]="['ajuda']">
+                            Ajuda
+                            <mat-icon>chevron_right</mat-icon>
+                        </a>
                     </mat-action-row>
                     <mat-action-row>
-                        <a href="#">Perguntas frequentes
-                            <mat-icon>chevron_right</mat-icon></a>
+                        <a [routerLink]="['perguntas-frquentes']">
+                            Perguntas frequentes
+                            <mat-icon>chevron_right</mat-icon>
+                        </a>
                     </mat-action-row>
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
-        <div class="col-md-4 col-lg-4 col-sm-8 col-xs-12"></div>
-        <div class="col-md-4 col-lg-4 col-sm-8 col-xs-12">
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12"></div>
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 escolas-contempladas">
             <mat-accordion>
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
@@ -69,10 +76,5 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
-
     </div>
-
-
-
-
 </section>
