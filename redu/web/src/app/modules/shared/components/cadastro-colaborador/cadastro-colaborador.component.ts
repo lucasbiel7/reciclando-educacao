@@ -3,12 +3,12 @@ import { MatStepper, MatSnackBar } from '@angular/material';
 import { ColaboradorService } from '../../services/colaborador.service';
 import { TipoColaborador } from '../../resource/class/tipo-colaborador.class';
 import { TipoPessoaEnum } from '../../resource/enum/tipo-pessoa.enum';
-import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Colaborador } from '../../resource/class/colaborador.class';
 import { PessoaJuridica } from '../../resource/class/pessoa-juridica.class';
 import { PessoaFisica } from '../../resource/class/pessoa-fisica.class';
 import { EnderecoComponent } from '../endereco/endereco.component';
-import { Endereco } from '../../resource/class/endereco.class';
+import { TamanhoEnum } from '../../resource/enum/tamanho.enum';
 
 @Component({
     selector: 'redu-cadastro-colaborador',
@@ -28,7 +28,8 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
     public enderecoLoad: boolean;
     @ViewChild('enderecoComponente')
     public enderecoComponente: EnderecoComponent;
-
+    tamanhos: TamanhoEnum[];
+    TamanhoEnum = TamanhoEnum;
     public colaborador: Colaborador;
 
     get pessoaJuridica(): PessoaJuridica {
@@ -48,6 +49,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
     constructor(private colaboradorService: ColaboradorService,
         private cd: ChangeDetectorRef,
         private snakBar: MatSnackBar) {
+
         this.formularioComoColaborar = new FormGroup({
             tipoColaborador: new FormControl('', [Validators.required]),
             tipoPessoa: new FormControl('', Validators.required)
@@ -70,7 +72,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
         this.colaboradorService.pegarTiposColaboradores().subscribe(tiposColaborador => {
             this.tiposDeColaborador = tiposColaborador;
         });
-
+        this.tamanhos = TamanhoEnum.values();
     }
 
     ngAfterViewInit(): void {
@@ -108,6 +110,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
             this.formularioDadosPessoais.addControl('cnpj', new FormControl('', Validators.required));
             this.formularioDadosPessoais.addControl('razaoSocial', new FormControl('', Validators.required));
             this.formularioDadosPessoais.addControl('nomeFantasia', new FormControl('', Validators.required));
+            this.formularioDadosPessoais.addControl('tamanho', new FormControl('', Validators.required));
         }
 
         this.removerValidacoesDadosPessoais();
@@ -151,6 +154,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
                 this.formularioAutenticacao.reset();
                 this.formularioDadosPessoais.reset();
                 this.formularioComoColaborar.reset();
+                this.enderecoComponente.formulario.reset();
                 this.stepper.selectedIndex = 0;
                 this.cd.markForCheck();
             }, error => {

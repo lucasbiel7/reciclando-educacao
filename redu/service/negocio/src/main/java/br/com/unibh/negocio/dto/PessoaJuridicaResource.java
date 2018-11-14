@@ -14,6 +14,8 @@ public class PessoaJuridicaResource extends ColaboradorResource {
 
 	private String banner;
 
+	private String cnpj;
+
 	public PessoaJuridicaResource() {
 		super();
 	}
@@ -55,6 +57,14 @@ public class PessoaJuridicaResource extends ColaboradorResource {
 
 	public void setBanner(String banner) {
 		this.banner = banner;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
 }
