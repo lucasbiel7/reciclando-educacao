@@ -37,7 +37,7 @@ public class BaseDAO {
 		return entityManager.createQuery(query).getResultList();
 	}
 
-	public <T extends BaseEntity<?>> T pegarPorId(Class<T> clazz, Serializable id) {
+	protected <T extends BaseEntity<?>> T pegarPorId(Class<T> clazz, Serializable id) {
 		return entityManager.find(clazz, id);
 	}
 

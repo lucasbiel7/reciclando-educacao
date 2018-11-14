@@ -12,15 +12,19 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.SecurityContext;
 
 import br.com.unibh.negocio.dto.Credencial;
 import br.com.unibh.negocio.dto.UsuarioResource;
 import br.com.unibh.negocio.exceptions.AutenticacaoException;
 import br.com.unibh.negocio.service.SegurancaService;
+import br.com.unibh.rest.config.SecurityConstant;
+import br.com.unibh.rest.filtros.ReduPrincipal;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -54,7 +58,7 @@ public class SegurancaController {
 			Calendar calendar = Calendar.getInstance();
 			calendar.add(Calendar.HOUR_OF_DAY, 1);
 			String token = Jwts.builder().setSubject("users/authentication").setExpiration(calendar.getTime())
-					.setClaims(dados).signWith(SignatureAlgorithm.HS256, "redu-web".getBytes("UTF-8")).compact();
+					.setClaims(dados).signWith(SignatureAlgorithm.HS256, SecurityConstant.KEY).compact();
 			return Response.ok().header(HttpHeaders.AUTHORIZATION, token).build();
 		} catch (AutenticacaoException e) {
 			return Response.status(Status.FORBIDDEN).entity(e.getMessage()).build();
@@ -70,7 +74,13 @@ public class SegurancaController {
 	@GET
 	@Path("usuario")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response usuarioLogado() {
-		return Response.ok().build();
+	public Response usuarioLogado(@Context SecurityContext securityContext) {
+		if (securityContext.getUserPrincipal() instanceof ReduPrincipal) {
+			ReduPrincipal usuarioPrincipal = (ReduPrincipal) securityContext.getUserPrincipal();
+			UsuarioResource usuario = segurancaService.buscarUsuario(usuarioPrincipal.getUsuarioResource().getId());
+			return Response.ok(usuario).build();
+		} else {
+			return Response.status(Status.FORBIDDEN).build();
+		}
 	}
 }

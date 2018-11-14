@@ -30,4 +30,8 @@ public class UsuarioDAO extends BaseDAO {
 		return entityManager.createQuery(query).getResultList();
 	}
 
+	public Usuario buscarPorId(Long id) {
+		return pegarPorId(Usuario.class, id);
+	}
+
 }
