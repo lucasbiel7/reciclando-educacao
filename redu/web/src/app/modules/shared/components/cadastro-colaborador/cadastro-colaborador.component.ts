@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
-import { MatStepper } from '@angular/material';
+import { MatStepper, MatSnackBar } from '@angular/material';
 import { ColaboradorService } from '../../services/colaborador.service';
 import { TipoColaborador } from '../../resource/class/tipo-colaborador.class';
 import { TipoPessoaEnum } from '../../resource/enum/tipo-pessoa.enum';
@@ -8,6 +8,7 @@ import { Colaborador } from '../../resource/class/colaborador.class';
 import { PessoaJuridica } from '../../resource/class/pessoa-juridica.class';
 import { PessoaFisica } from '../../resource/class/pessoa-fisica.class';
 import { EnderecoComponent } from '../endereco/endereco.component';
+import { Endereco } from '../../resource/class/endereco.class';
 
 @Component({
     selector: 'redu-cadastro-colaborador',
@@ -40,12 +41,14 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
     /**
      *  Formularios
      */
-    public comoColaborar: FormGroup;
+    public formularioComoColaborar: FormGroup;
     public formularioDadosPessoais: FormGroup;
     public formularioAutenticacao: FormGroup;
 
-    constructor(private colaboradorService: ColaboradorService, private cd: ChangeDetectorRef) {
-        this.comoColaborar = new FormGroup({
+    constructor(private colaboradorService: ColaboradorService,
+        private cd: ChangeDetectorRef,
+        private snakBar: MatSnackBar) {
+        this.formularioComoColaborar = new FormGroup({
             tipoColaborador: new FormControl('', [Validators.required]),
             tipoPessoa: new FormControl('', Validators.required)
         });
@@ -67,6 +70,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
         this.colaboradorService.pegarTiposColaboradores().subscribe(tiposColaborador => {
             this.tiposDeColaborador = tiposColaborador;
         });
+
     }
 
     ngAfterViewInit(): void {
@@ -74,6 +78,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
             this.enderecoLoad = true;
             this.cd.detectChanges();
         }, 500);
+
     }
 
     isPessoaFisica() {
@@ -94,7 +99,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
      * Eventos
      */
     onTipoPessoaChange() {
-        this.comoColaborar.setControl('tipoColaborador', new FormControl('', Validators.required));
+        this.formularioComoColaborar.setControl('tipoColaborador', new FormControl('', Validators.required));
         if (this.tipoPessoa === TipoPessoaEnum.FISICA) {
             this.colaborador = new PessoaFisica();
             this.formularioDadosPessoais.addControl('cpf', new FormControl('', Validators.required));
@@ -140,7 +145,16 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
     cadastrar() {
         if (this.formularioAutenticacao.valid) {
             this.colaboradorService.cadastrarColaborador(this.colaborador).subscribe(result => {
-
+                this.snakBar.open('Colaborador cadastrado com sucesso!', null, { duration: 5000, panelClass: 'snack-sucess' });
+                this.colaborador = new Colaborador();
+                this.currentStep = 0;
+                this.formularioAutenticacao.reset();
+                this.formularioDadosPessoais.reset();
+                this.formularioComoColaborar.reset();
+                this.stepper.selectedIndex = 0;
+                this.cd.markForCheck();
+            }, error => {
+                this.snakBar.open(error, null, { duration: 5000, panelClass: 'snack-error' });
             });
         }
     }

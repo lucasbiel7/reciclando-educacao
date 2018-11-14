@@ -9,4 +9,7 @@ export class Usuario {
     public endereco: Endereco;
     public imagem: string;
 
+    public constructor() {
+        this.endereco = new Endereco();
+    }
 }

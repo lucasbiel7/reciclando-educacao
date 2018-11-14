@@ -1,5 +1,6 @@
 package br.com.unibh.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.inject.Model;
@@ -35,4 +36,9 @@ public class BaseDAO {
 		Root<T> root = query.from(clazz);
 		return entityManager.createQuery(query).getResultList();
 	}
+
+	public <T extends BaseEntity<?>> T pegarPorId(Class<T> clazz, Serializable id) {
+		return entityManager.find(clazz, id);
+	}
+
 }

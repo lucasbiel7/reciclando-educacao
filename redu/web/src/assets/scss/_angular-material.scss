@@ -14,7 +14,7 @@ button.mat-raised-button{
     src: url('/assets/fonts/material/material-font.woff2') format('woff2');
   }
 
-  .material-icons {
+.material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -28,4 +28,14 @@ button.mat-raised-button{
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-  }
+}
+
+.snack-sucess{
+    background-color: $sucess;
+    color:white;
+}
+
+.snack-error{
+    background-color: $error;
+    color:white;
+}

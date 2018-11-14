@@ -5,6 +5,7 @@ import { TipoColaborador } from '../resource/class/tipo-colaborador.class';
 import { environment } from '../../../../environments/environment';
 import { Colaborador } from '../resource/class/colaborador.class';
 import { PessoaFisica } from '../resource/class/pessoa-fisica.class';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 @Injectable()
 export class ColaboradorService {
@@ -21,11 +22,13 @@ export class ColaboradorService {
 
     /**
      * Função criada para conseguir criar um colaborador
+     *  Caso por algum motivo o backend retorne erro e lançada para camada de frontend
      *
      * @param colaborador
      */
     public cadastrarColaborador(colaborador: Colaborador): Observable<any> {
-        return this.http.post(`${this.URL}/cadastrar-${colaborador instanceof PessoaFisica ? 'fisica' : 'juridica'}`, colaborador);
+        return this.http.post(`${this.URL}/cadastrar-${colaborador instanceof PessoaFisica ? 'fisica' : 'juridica'}`, colaborador).
+            catch(response => new ErrorObservable(response.error));
     }
 
 
