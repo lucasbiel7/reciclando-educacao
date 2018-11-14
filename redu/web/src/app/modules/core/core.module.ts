@@ -10,11 +10,12 @@ import { SegurancaInterceptor } from './services/seguranca.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
+
 @NgModule({
     imports: [
         SharedModule.forRoot(),
         CoreRoutingModule,
-        FormsModule
+        FormsModule,
     ],
     declarations: [
         PaginaNaoEncontradaComponent,

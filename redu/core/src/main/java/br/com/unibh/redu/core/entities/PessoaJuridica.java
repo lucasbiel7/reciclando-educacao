@@ -30,8 +30,11 @@ public class PessoaJuridica extends Colaborador {
 	@Column(name = "tx_nome_fantasia", nullable = false)
 	private String nomeFantasia;
 
-	@Column(name = "vl_tamanho", nullable = false)
+	@Column(name = "vl_tamanho", nullable = true)
 	private Tamanho tamanho;
+
+	@Column(name = "tx_cnpj", nullable = false)
+	private String cnpj;
 
 	@Lob
 	@Column(name = "banner")
@@ -78,6 +81,14 @@ public class PessoaJuridica extends Colaborador {
 
 	public void setBanner(String banner) {
 		this.banner = banner;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
 }

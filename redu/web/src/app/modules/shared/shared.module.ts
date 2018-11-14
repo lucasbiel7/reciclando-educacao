@@ -8,7 +8,8 @@ import { RodapeComponent } from './components/rodape/rodape.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {
     MatTabsModule, MatFormFieldModule, MatInputModule, MatSelectModule,
-    MatButtonModule, MatCardModule, MatStepperModule, MatExpansionModule, MatIconModule, MatMenuModule, MatTooltipModule, MatRadioModule
+    MatButtonModule, MatCardModule, MatStepperModule, MatExpansionModule, MatIconModule,
+    MatMenuModule, MatTooltipModule, MatRadioModule, MatSnackBarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnderecoComponent } from './components/endereco/endereco.component';
@@ -19,6 +20,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/observable/timer';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/switchMap';
 import { CadastroColaboradorComponent } from './components/cadastro-colaborador/cadastro-colaborador.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -56,6 +58,7 @@ import { ConfirmarSenhaDirective } from './directive/confirmar-senha.directive';
         MatTooltipModule,
         MatRadioModule,
         MatExpansionModule,
+        MatSnackBarModule,
         // Componentes internos
         EnderecoComponent,
         MenuComponent,
@@ -83,7 +86,8 @@ import { ConfirmarSenhaDirective } from './directive/confirmar-senha.directive';
         MatExpansionModule,
         FormsModule,
         ReactiveFormsModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatSnackBarModule
     ],
     declarations: [
         // Componentes generalizados

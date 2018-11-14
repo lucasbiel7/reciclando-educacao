@@ -12,4 +12,6 @@ public interface SegurancaService {
 	public static final String LOOKUP = "ejb:/redu-service/SegurancaBean!br.com.unibh.negocio.service.SegurancaService";
 
 	public UsuarioResource login(Credencial credencial) throws AutenticacaoException;
+
+	public UsuarioResource buscarUsuario(Long id);
 }

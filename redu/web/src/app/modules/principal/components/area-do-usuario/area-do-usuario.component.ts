@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SegurancaService } from '../../../core/services/seguranca.service';
 
 @Component({
     selector: 'redu-area-do-usuario',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AreaDoUsuarioComponent implements OnInit {
 
-    constructor() { }
+    constructor(public segurancaService: SegurancaService) { }
 
     ngOnInit() {
+
     }
 
 }

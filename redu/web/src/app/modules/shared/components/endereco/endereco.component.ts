@@ -53,7 +53,12 @@ export class EnderecoComponent implements OnInit {
     public carregarEndereco(): void {
         if (this.endereco.cep && this.endereco.cep.length === 10) {
             this.cepService.consultarCEP(this.endereco.cep).subscribe(endereco => {
-                this.endereco = endereco;
+                this.endereco.cep = endereco.cep;
+                this.endereco.bairro = endereco.bairro;
+                this.endereco.logradouro = endereco.logradouro;
+                this.endereco.municipio = endereco.municipio;
+                this.endereco.uf = endereco.uf;
+                this.change.emit(endereco);
             });
         }
     }

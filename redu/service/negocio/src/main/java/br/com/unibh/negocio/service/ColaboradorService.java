@@ -22,4 +22,11 @@ public interface ColaboradorService {
 
 	void cadastrar(ColaboradorResource colaboradorResource) throws EmailExistenteException;
 
+	/**
+	 * Método para excluir usuário
+	 * 
+	 * @param usuario
+	 */
+	void excluir(Long usuario);
+
 }

@@ -1,0 +1,29 @@
+@import "src/assets/scss/variables";
+
+section.ajuda{
+    min-height: 75vh;
+
+   background-color: rgba($color: $primaria ,$alpha:0.5);
+    background-position: center;
+
+    margin-top: 4.5rem;
+    article{
+        margin-left: 35vh;
+        margin-right: 35vh;
+        min-height: 75vh;
+        text-align: justify;
+        div{
+            margin: 0 4rem;
+        }
+        background-color: rgba($color: $primaria ,$alpha:0.5);
+        h1{
+            font-weight:bold;
+            color: white;
+        }
+    }
+    div{
+        font-size: 1.4rem;
+        color: white;
+    }
+
+}

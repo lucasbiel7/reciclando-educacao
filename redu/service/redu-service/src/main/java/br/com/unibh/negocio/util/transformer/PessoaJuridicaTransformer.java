@@ -4,6 +4,7 @@ import br.com.unibh.negocio.dto.PessoaJuridicaResource;
 import br.com.unibh.negocio.util.BaseTransformer;
 import br.com.unibh.redu.core.entities.PessoaJuridica;
 import br.com.unibh.redu.core.enums.Tamanho;
+import br.com.unibh.redu.core.util.StringUtil;
 
 public class PessoaJuridicaTransformer implements BaseTransformer<PessoaJuridica, PessoaJuridicaResource> {
 
@@ -30,7 +31,10 @@ public class PessoaJuridicaTransformer implements BaseTransformer<PessoaJuridica
 		r.setBanner(e.getBanner());
 		r.setRazaoSocial(e.getRazaoSocial());
 		r.setNomeFantasia(e.getNomeFantasia());
-		r.setTamanho(e.getTamanho().name());
+		if (e.getTamanho() != null) {
+			r.setTamanho(e.getTamanho().name());
+		}
+		r.setCnpj(e.getCnpj());
 		return r;
 	}
 
@@ -43,7 +47,10 @@ public class PessoaJuridicaTransformer implements BaseTransformer<PessoaJuridica
 		e.setBanner(r.getBanner());
 		e.setRazaoSocial(r.getRazaoSocial());
 		e.setNomeFantasia(r.getNomeFantasia());
-		e.setTamanho(Tamanho.valueOf(r.getTamanho()));
+		if (!StringUtil.isEmpty(r.getTamanho())) {
+			e.setTamanho(Tamanho.valueOf(r.getTamanho()));
+		}
+		e.setCnpj(r.getCnpj());
 		return e;
 	}
 
