@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -43,9 +44,12 @@ public class Usuario extends BaseEntity<Long> {
 	@Column(name = "tx_senha", nullable = true)
 	private String senha;
 
-	@OneToOne(optional = true, cascade = CascadeType.ALL)
+	@OneToOne(optional = true, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "id_endereco", nullable = true)
 	private Endereco endereco;
+
+	@Lob
+	private String imagem;
 
 	@Override
 	public Long getId() {
@@ -87,6 +91,14 @@ public class Usuario extends BaseEntity<Long> {
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
 
 }

@@ -25,4 +25,23 @@ public class PessoaFisica extends Colaborador {
 	@Column(name = "tx_cpf")
 	private String cpf;
 
+	public PessoaFisica() {
+		super();
+	}
+
+	public PessoaFisica(Colaborador colaborador) {
+		super(colaborador);
+		setFormacao(colaborador.getFormacao());
+		setExperiencia(colaborador.getExperiencia());
+		setTipoColaborador(colaborador.getTipoColaborador());
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
 }

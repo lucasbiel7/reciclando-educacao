@@ -30,7 +30,13 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
 
     public colaborador: Colaborador;
 
+    get pessoaJuridica(): PessoaJuridica {
+        return this.colaborador as PessoaJuridica;
+    }
 
+    get pessoaFisica(): PessoaFisica {
+        return this.colaborador as PessoaFisica;
+    }
     /**
      *  Formularios
      */
@@ -39,7 +45,6 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
     public formularioAutenticacao: FormGroup;
 
     constructor(private colaboradorService: ColaboradorService, private cd: ChangeDetectorRef) {
-        this.colaborador = new Colaborador();
         this.comoColaborar = new FormGroup({
             tipoColaborador: new FormControl('', [Validators.required]),
             tipoPessoa: new FormControl('', Validators.required)
@@ -52,6 +57,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
             senha: new FormControl('', [Validators.required]),
             confirmarSenha: new FormControl('', [Validators.required])
         });
+        this.colaborador = new Colaborador();
     }
 
 
@@ -102,6 +108,24 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
         this.removerValidacoesDadosPessoais();
     }
 
+    /**
+     *
+     * Método para recuperar
+     * foto selecionada
+     *
+     */
+    onSelecionarFoto(event) {
+        const arquivos = event.target.files;
+        if (arquivos.length > 0) {
+            const file: File = arquivos[0];
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                this.colaborador.imagem = reader.result as string;
+            };
+        }
+    }
+
     removerValidacoesDadosPessoais() {
         if (this.isPessoaJuridica()) {
             this.formularioDadosPessoais.removeControl('cpf');
@@ -115,7 +139,9 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
 
     cadastrar() {
         if (this.formularioAutenticacao.valid) {
-            console.log('cadastrar');
+            this.colaboradorService.cadastrarColaborador(this.colaborador).subscribe(result => {
+
+            });
         }
     }
 

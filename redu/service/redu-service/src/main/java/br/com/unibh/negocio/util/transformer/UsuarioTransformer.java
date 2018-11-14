@@ -3,6 +3,7 @@ package br.com.unibh.negocio.util.transformer;
 import br.com.unibh.negocio.dto.UsuarioResource;
 import br.com.unibh.negocio.util.BaseTransformer;
 import br.com.unibh.redu.core.entities.Usuario;
+import br.com.unibh.redu.core.util.Encriptacao;
 
 public class UsuarioTransformer implements BaseTransformer<Usuario, UsuarioResource> {
 
@@ -29,6 +30,8 @@ public class UsuarioTransformer implements BaseTransformer<Usuario, UsuarioResou
 		r.setNome(e.getNome());
 		r.setSenha(e.getSenha());
 		r.setEmail(e.getEmail());
+		r.setImagem(e.getImagem());
+		r.setEndereco(EnderecoTransformer.getInstance().toResource(e.getEndereco()));
 		return r;
 	}
 
@@ -40,8 +43,10 @@ public class UsuarioTransformer implements BaseTransformer<Usuario, UsuarioResou
 		Usuario e = new Usuario();
 		e.setId(r.getId());
 		e.setNome(r.getNome());
-		e.setSenha(r.getSenha());
+		e.setSenha(Encriptacao.getInstance().criptar(r.getSenha()));
 		e.setEmail(r.getEmail());
+		e.setImagem(r.getImagem());
+		e.setEndereco(EnderecoTransformer.getInstance().toEntity(r.getEndereco()));
 		return e;
 	}
 

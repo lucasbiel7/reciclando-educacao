@@ -17,6 +17,10 @@ public class UsuarioResource extends BaseResponse {
 
 	private String senha;
 
+	private String imagem;
+
+	private EnderecoResource endereco;
+
 	public Long getId() {
 		return id;
 	}
@@ -47,6 +51,22 @@ public class UsuarioResource extends BaseResponse {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+
+	public EnderecoResource getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(EnderecoResource endereco) {
+		this.endereco = endereco;
 	}
 
 }
