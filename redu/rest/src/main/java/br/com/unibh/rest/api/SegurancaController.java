@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -49,6 +50,7 @@ public class SegurancaController {
 			dados.put("nome", usuarioResource.getNome());
 			dados.put("email", usuarioResource.getEmail());
 			dados.put("id", usuarioResource.getId());
+			dados.put("endereco", usuarioResource.getEndereco());
 			Calendar calendar = Calendar.getInstance();
 			calendar.add(Calendar.HOUR_OF_DAY, 1);
 			String token = Jwts.builder().setSubject("users/authentication").setExpiration(calendar.getTime())
@@ -57,5 +59,18 @@ public class SegurancaController {
 		} catch (AutenticacaoException e) {
 			return Response.status(Status.FORBIDDEN).entity(e.getMessage()).build();
 		}
+	}
+
+	/**
+	 * 
+	 * Criar metodo para recuperar dados do usuário
+	 * 
+	 * @return
+	 */
+	@GET
+	@Path("usuario")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response usuarioLogado() {
+		return Response.ok().build();
 	}
 }
