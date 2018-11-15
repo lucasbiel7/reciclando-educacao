@@ -12,12 +12,3 @@ para doação, se apresente em qual serviço você se encaixa para nos ajudar ta
   <li>Incentiva a o interesse dos alunos nas atividades escolares</li>
   <li>Aos professores a remoção de uma sobrecarga da jornada de trabalho</li>
 </ul>
-<h2>Contribuintes</h2>
-<ul>
-  <li>Lucas Gabriel - https://github.com/lucasbiel7</li>
-  <li>Diego Soares Santos - https://github.com/protoman555</li>
-  <li>Paulo Henrique - https://github.com/phenrique17</li>
-  <li>Nicolas Bagetto - https://github.com/Bagetto01</li>
-  <li>Rafael Moreira - https://github.com/MRsarael</li>
-  <li>Vinicius Menezes Lopes - https://github.com/ViniciusMenezesLopes</li>
-</ul>
