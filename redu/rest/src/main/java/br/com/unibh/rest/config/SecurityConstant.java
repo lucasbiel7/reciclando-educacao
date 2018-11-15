@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 
 public abstract class SecurityConstant {
 
+	public static final int TIME_EXPIRATION = 10;
 	public static byte[] KEY;
 
 	static {

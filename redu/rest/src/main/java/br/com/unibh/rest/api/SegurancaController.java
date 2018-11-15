@@ -56,7 +56,7 @@ public class SegurancaController {
 			dados.put("id", usuarioResource.getId());
 			dados.put("endereco", usuarioResource.getEndereco());
 			Calendar calendar = Calendar.getInstance();
-			calendar.add(Calendar.HOUR_OF_DAY, 1);
+			calendar.add(Calendar.MINUTE, SecurityConstant.TIME_EXPIRATION);
 			String token = Jwts.builder().setSubject("users/authentication").setExpiration(calendar.getTime())
 					.setClaims(dados).signWith(SignatureAlgorithm.HS256, SecurityConstant.KEY).compact();
 			return Response.ok().header(HttpHeaders.AUTHORIZATION, token).build();

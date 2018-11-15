@@ -2,9 +2,12 @@ package br.com.unibh.rest.filtros;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.util.Calendar;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
+import javax.ws.rs.container.ContainerResponseContext;
+import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.container.PreMatching;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.SecurityContext;
@@ -14,10 +17,11 @@ import br.com.unibh.negocio.dto.UsuarioResource;
 import br.com.unibh.rest.config.SecurityConstant;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 @Provider
 @PreMatching
-public class SegurancaFilter implements ContainerRequestFilter {
+public class SegurancaFilter implements ContainerRequestFilter, ContainerResponseFilter {
 
 	private UsuarioResource usuarioResource;
 
@@ -59,6 +63,24 @@ public class SegurancaFilter implements ContainerRequestFilter {
 				return null;
 			}
 		});
+	}
+
+	/**
+	 * Renovando a data de expiração do token
+	 */
+	@Override
+	public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
+			throws IOException {
+		String token = requestContext.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+		if (token != null) {
+			Claims campos = Jwts.parser().setSigningKey(SecurityConstant.KEY)
+					.parseClaimsJws(token.replaceAll("Bearer", "").trim()).getBody();
+			Calendar calendar = Calendar.getInstance();
+			calendar.add(Calendar.HOUR_OF_DAY, SecurityConstant.TIME_EXPIRATION);
+			token = Jwts.builder().setSubject("users/authentication").setExpiration(calendar.getTime())
+					.setClaims(campos).signWith(SignatureAlgorithm.HS256, SecurityConstant.KEY).compact();
+			responseContext.getHeaders().add(HttpHeaders.AUTHORIZATION, token);
+		}
 	}
 
 }

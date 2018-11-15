@@ -65,7 +65,7 @@ public class ColaboradorBean implements ColaboradorService {
 
 	@Override
 	public void excluir(Long usuario) {
-		Colaborador colaborador = colaboradorDAO.pegarPorId(Colaborador.class, usuario);
+		Colaborador colaborador = colaboradorDAO.pegarPorId(usuario);
 		colaboradorDAO.excluir(colaborador);
 	}
 
