@@ -6,6 +6,7 @@ import { UsuarioAutenticadoGuard } from '../shared/services/usuario-autenticado.
 import { OpniaoComponent } from './components/opniao/opniao.component';
 import { PerguntasFrequentesComponent } from './components/perguntas-frequentes/perguntas-frequentes.component';
 import { AjudaComponent } from './components/ajuda/ajuda.component';
+import { ListaEscolaComponent } from './components/lista-escola/lista-escola.component';
 
 const routes: Routes = [
     {
@@ -30,6 +31,10 @@ const routes: Routes = [
             {
                 path: 'ajuda',
                 component: AjudaComponent
+            },
+            {
+                path: 'lista-escola',
+                component: ListaEscolaComponent
             }
         ]
     }

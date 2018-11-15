@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { OpniaoComponent } from './components/opniao/opniao.component';
 import { PerguntasFrequentesComponent } from './components/perguntas-frequentes/perguntas-frequentes.component';
 import { AjudaComponent } from './components/ajuda/ajuda.component';
+import { ListaEscolaComponent } from './components/lista-escola/lista-escola.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,7 @@ import { AjudaComponent } from './components/ajuda/ajuda.component';
         PrincipalRoutingModule
     ],
     declarations: [
-        DashboardComponent, AreaDoUsuarioComponent, OpniaoComponent, PerguntasFrequentesComponent, AjudaComponent
+        DashboardComponent, AreaDoUsuarioComponent, OpniaoComponent, PerguntasFrequentesComponent, AjudaComponent, ListaEscolaComponent
     ]
 })
 export class PrincipalModule { }
