@@ -1,0 +1,19 @@
+@import "src/assets/scss/variables";
+@import "src/assets/scss/fonts";
+
+section.perguntas-frequentes{
+    min-height:75vh;
+    padding-bottom:4rem;
+    padding-top:10rem;
+
+
+}
+
+h1{
+    font-weight: bold;
+    color: $aux1;
+}
+panel-title{
+    font-size: 1.4rem;
+}
+
