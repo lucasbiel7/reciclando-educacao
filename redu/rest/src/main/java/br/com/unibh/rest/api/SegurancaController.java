@@ -57,8 +57,9 @@ public class SegurancaController {
 			dados.put("endereco", usuarioResource.getEndereco());
 			Calendar calendar = Calendar.getInstance();
 			calendar.add(Calendar.MINUTE, SecurityConstant.TIME_EXPIRATION);
-			String token = Jwts.builder().setSubject("users/authentication").setExpiration(calendar.getTime())
-					.setClaims(dados).signWith(SignatureAlgorithm.HS256, SecurityConstant.KEY).compact();
+			String token = Jwts.builder().setClaims(dados).addClaims(Jwts.claims().setExpiration(calendar.getTime()))
+					.addClaims(Jwts.claims().setSubject("users/authentication"))
+					.signWith(SignatureAlgorithm.HS512, SecurityConstant.KEY).compact();
 			return Response.ok().header(HttpHeaders.AUTHORIZATION, token).build();
 		} catch (AutenticacaoException e) {
 			return Response.status(Status.FORBIDDEN).entity(e.getMessage()).build();

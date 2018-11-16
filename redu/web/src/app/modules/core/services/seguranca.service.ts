@@ -32,7 +32,6 @@ export class SegurancaService {
             }
             if (!this._usuario) {
                 if (!this.loadUser) {
-                    console.log(this.token);
                     this.loadUser = true;
                     this.buscarUsuario().subscribe(usuario => {
                         this._usuario = usuario;

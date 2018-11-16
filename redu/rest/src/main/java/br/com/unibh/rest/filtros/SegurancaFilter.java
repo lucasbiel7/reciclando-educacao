@@ -76,9 +76,10 @@ public class SegurancaFilter implements ContainerRequestFilter, ContainerRespons
 			Claims campos = Jwts.parser().setSigningKey(SecurityConstant.KEY)
 					.parseClaimsJws(token.replaceAll("Bearer", "").trim()).getBody();
 			Calendar calendar = Calendar.getInstance();
-			calendar.add(Calendar.HOUR_OF_DAY, SecurityConstant.TIME_EXPIRATION);
-			token = Jwts.builder().setSubject("users/authentication").setExpiration(calendar.getTime())
-					.setClaims(campos).signWith(SignatureAlgorithm.HS256, SecurityConstant.KEY).compact();
+			calendar.add(Calendar.MINUTE, SecurityConstant.TIME_EXPIRATION);
+			token = Jwts.builder().setClaims(campos).addClaims(Jwts.claims().setExpiration(calendar.getTime()))
+					.addClaims(Jwts.claims().setSubject("users/authentication"))
+					.signWith(SignatureAlgorithm.HS512, SecurityConstant.KEY).compact();
 			responseContext.getHeaders().add(HttpHeaders.AUTHORIZATION, token);
 		}
 	}
