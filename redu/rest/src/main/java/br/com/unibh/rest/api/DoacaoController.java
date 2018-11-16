@@ -19,6 +19,7 @@ public class DoacaoController {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response cadastrarDoacao(DoacaoResource doacao) {
-		return Response.status(Status.OK).build();
+
+		return Response.status(Status.OK).entity(doacao).build();
 	}
 }
