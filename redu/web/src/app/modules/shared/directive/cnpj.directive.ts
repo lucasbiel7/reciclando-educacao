@@ -1,4 +1,4 @@
-import { Directive, HostListener } from '@angular/core';
+import { Directive, HostListener, ElementRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 @Directive({
@@ -14,11 +14,14 @@ export class CnpjDirective implements ControlValueAccessor {
     onTouched: any;
     onChange: any;
 
-    constructor() {
+    constructor(private el: ElementRef) {
 
     }
 
-    writeValue(obj: any): void {
+    writeValue(value: any): void {
+        if (value) {
+            this.el.nativeElement.value = this.formatar(value);
+        }
     }
 
     registerOnChange(fn: any): void {
@@ -35,6 +38,12 @@ export class CnpjDirective implements ControlValueAccessor {
             this.onChange(valor);
             return;
         }
+        valor = this.formatar(valor);
+        this.onChange(valor);
+        $event.target.value = valor;
+    }
+
+    private formatar(valor) {
         if (valor.length > 18) {
             valor = valor.substr(0, 18);
         }
@@ -43,8 +52,8 @@ export class CnpjDirective implements ControlValueAccessor {
         valor = valor.replace(/([0-9]{2}[.]{1}[0-9]{3})([0-9]*)/g, '$1.$2');
         valor = valor.replace(/([0-9]{2}[.]{1}[0-9]{3}[.]{1}[0-9]{3})([0-9]*)/g, '$1/$2');
         valor = valor.replace(/([0-9]{2}[.]{1}[0-9]{3}[.]{1}[0-9]{3}[/]{1}[0-9]{4})([0-9]*)/g, '$1-$2');
-        this.onChange(valor);
-        $event.target.value = valor;
+        return valor;
+
     }
 
     @HostListener('blur', ['$event'])

@@ -19,6 +19,13 @@ export class MenuComponent implements OnInit {
 
     public logout() {
         this.segurancaService.logaout();
-        this.router.navigate(['inicio']);
+    }
+
+    onDoar() {
+        this.router.navigate(['doacao']);
+    }
+
+    onColaborar() {
+        this.router.navigate(['colaborar']);
     }
 }

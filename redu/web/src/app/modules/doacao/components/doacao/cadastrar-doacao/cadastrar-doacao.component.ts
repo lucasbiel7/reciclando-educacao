@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Doacao } from '../../../../shared/resource/class/doacao.class';
 import { FormularioDoadorComponent } from '../../../../shared/components/formulario-doador/formulario-doador.component';
 import { DoacaoService } from '../../../../core/services/doacao.service';
+import { SegurancaService } from '../../../../core/services/seguranca.service';
+import { Endereco } from '../../../../shared/resource/class/endereco.class';
 
 @Component({
     selector: 'redu-cadastrar-doacao',
@@ -18,7 +20,7 @@ export class CadastrarDoacaoComponent implements OnInit {
     public doacao: Doacao;
     public formulario: FormGroup;
 
-    constructor(private doacaoService: DoacaoService) {
+    constructor(private doacaoService: DoacaoService, private segurancaService: SegurancaService) {
 
     }
 
@@ -27,12 +29,18 @@ export class CadastrarDoacaoComponent implements OnInit {
             this.doacao = this.doacaoService.doacao;
         } else {
             this.doacao = new Doacao();
+            this.doacao.endereco = new Endereco();
         }
         this.formulario = new FormGroup({
         });
     }
 
+    public atualizarEndereco(event) {
+        console.log(this.doacao);
+    }
+
     public utilizarMeuEndereco() {
-        console.log('Não implementado');
+        this.doacao.endereco = this.segurancaService.usuario.endereco;
+        this.doacao.endereco.id = null;
     }
 }

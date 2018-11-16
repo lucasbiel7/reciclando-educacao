@@ -17,7 +17,7 @@
                         Onde está a doação?
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <redu-endereco [endereco]="doacao.endereco"></redu-endereco>
+                <redu-endereco [endereco]="doacao.endereco" (change)="atualizarEndereco($event)"></redu-endereco>
                 <button type="button" mat-raised-button (click)="utilizarMeuEndereco()">Utilizar o meu endereço!</button>
             </mat-expansion-panel>
         </mat-accordion>

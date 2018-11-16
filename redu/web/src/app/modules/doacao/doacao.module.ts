@@ -4,6 +4,7 @@ import { DoacaoRoutingModule } from './doacao-routing.module';
 import { CadastrarDoacaoComponent } from './components/doacao/cadastrar-doacao/cadastrar-doacao.component';
 import { DoacaoComponent } from './components/doacao/doacao.component';
 import { SharedModule } from '../shared/shared.module';
+import { ApresentacaoComponent } from './components/doacao/apresentacao/apresentacao.component';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import { SharedModule } from '../shared/shared.module';
     ],
     declarations: [
         CadastrarDoacaoComponent,
-        DoacaoComponent
+        DoacaoComponent,
+        ApresentacaoComponent
     ],
     providers: []
 })

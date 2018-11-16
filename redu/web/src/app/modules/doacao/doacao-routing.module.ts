@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CadastrarDoacaoComponent } from './components/doacao/cadastrar-doacao/cadastrar-doacao.component';
 import { DoacaoComponent } from './components/doacao/doacao.component';
 import { UsuarioAutenticadoGuard } from '../shared/services/usuario-autenticado.guard';
-import { UsuarioNaoAutenticadoGuard } from '../shared/services/usuario-nao-autenticado.guard';
+import { ApresentacaoComponent } from './components/doacao/apresentacao/apresentacao.component';
 
 const routes: Routes = [
     {
@@ -12,6 +12,10 @@ const routes: Routes = [
         canActivate: [UsuarioAutenticadoGuard],
         canActivateChild: [UsuarioAutenticadoGuard],
         children: [
+            {
+                path: '',
+                component: ApresentacaoComponent
+            },
             {
                 path: 'cadastrar',
                 component: CadastrarDoacaoComponent

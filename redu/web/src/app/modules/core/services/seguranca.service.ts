@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../../shared/resource/class/usuario.class';
 import { JwtHelper } from 'angular2-jwt';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 @Injectable()
 export class SegurancaService {
 
@@ -13,7 +14,7 @@ export class SegurancaService {
     private _usuario: Usuario;
     private loadUser: boolean;
 
-    constructor(private injector: Injector, ) {
+    constructor(private injector: Injector, private router: Router) {
         this.api = 'seguranca';
 
     }
@@ -63,6 +64,8 @@ export class SegurancaService {
     }
 
     public logaout(): void {
+        this._usuario = null;
         localStorage.removeItem(environment.userToken);
+        this.router.navigate(['login']);
     }
 }

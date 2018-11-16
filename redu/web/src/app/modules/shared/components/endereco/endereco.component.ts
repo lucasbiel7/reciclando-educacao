@@ -21,13 +21,11 @@ export class EnderecoComponent implements OnInit {
     }
     set endereco(val) {
         this._endereco = val;
-        if (this._endereco == null) {
-            this._endereco = new Endereco();
-        }
+        // if (this._endereco == null) {
+        //     this._endereco = new Endereco();
+        // }
         this.change.emit(this._endereco);
     }
-
-    cep: string;
 
     constructor(private cepService: CepService) {
         this.change = new EventEmitter();

@@ -1,5 +1,6 @@
-import { Directive, HostListener } from '@angular/core';
+import { Directive, HostListener, ElementRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { isFunction } from 'util';
 
 @Directive({
     selector: '[reduCep]',
@@ -19,11 +20,14 @@ export class CepDirective implements ControlValueAccessor {
     onTouched: any;
     onChange: any;
 
-    constructor() {
+    constructor(private el: ElementRef) {
 
     }
 
-    writeValue(obj: any): void {
+    writeValue(value: any): void {
+        if (value) {
+            this.el.nativeElement.value = this.formatar(value);
+        }
     }
 
     registerOnChange(fn: any): void {
@@ -40,14 +44,19 @@ export class CepDirective implements ControlValueAccessor {
             this.onChange(valor);
             return;
         }
+        valor = this.formatar(valor);
+        this.onChange(valor);
+        $event.target.value = valor;
+    }
+
+    private formatar(valor) {
         if (valor.length > 10) {
             valor = valor.substr(0, 10);
         }
         valor = valor.replace('.', '').replace('-', '').replace(/[^0-9]/, '');
         valor = valor.replace(/([0-9]{2})([0-9]*)/g, '$1.$2');
         valor = valor.replace(/([0-9]{2}[.]{1}[0-9]{3})([0-9]*)/g, '$1-$2');
-        this.onChange(valor);
-        $event.target.value = valor;
+        return valor;
     }
 
     @HostListener('blur', ['$event'])

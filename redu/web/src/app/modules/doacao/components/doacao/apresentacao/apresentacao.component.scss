@@ -1,0 +1,21 @@
+@import "src/assets/scss/variables";
+
+
+section.apresentacao{
+    width: 100%;
+    background-image: url('/assets/img/doacao.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 60vh;
+    @media(min-width: 768px){
+        background-position-y: -8rem;
+    }
+
+    .conteudo{
+        background-color: rgba($color: $primaria, $alpha: 0.2)
+    }
+}
+
+
+
+

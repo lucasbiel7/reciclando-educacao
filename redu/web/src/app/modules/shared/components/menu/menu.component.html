@@ -22,7 +22,7 @@
     </div>
 </nav>
 <mat-menu #menuOpcoes="matMenu" [overlapTrigger]="false">
-    <button mat-menu-item>
+    <button mat-menu-item (click)="onDoar()">
         <mat-icon>pan_tool</mat-icon>
         Doar
     </button>
