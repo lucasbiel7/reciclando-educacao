@@ -1,5 +1,8 @@
 package br.com.unibh.negocio.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ColaboradorResource extends UsuarioResource {
 
 	/**

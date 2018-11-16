@@ -16,7 +16,6 @@ export class SegurancaService {
 
     constructor(private injector: Injector, private router: Router) {
         this.api = 'seguranca';
-
     }
 
     get http() {
@@ -59,7 +58,7 @@ export class SegurancaService {
         return localStorage.getItem(environment.userToken);
     }
 
-    public get logado() {
+    public get logado(): boolean {
         return this.token != null;
     }
 

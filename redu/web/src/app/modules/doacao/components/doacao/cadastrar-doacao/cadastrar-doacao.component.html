@@ -1,25 +1,31 @@
 <section class="cadastrar-doacao">
-    <form [formGroup]="formulario">
-        <mat-accordion>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Dados da doação
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="container-fluid">
-                    <redu-formulario-doador [(doacao)]="doacao" #formularioDoacao></redu-formulario-doador>
-                </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Onde está a doação?
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <redu-endereco [endereco]="doacao.endereco" (change)="atualizarEndereco($event)"></redu-endereco>
-                <button type="button" mat-raised-button (click)="utilizarMeuEndereco()">Utilizar o meu endereço!</button>
-            </mat-expansion-panel>
-        </mat-accordion>
-    </form>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Dados da doação
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="container-fluid">
+                <redu-formulario-doador [(doacao)]="doacao" #formularioDoacao></redu-formulario-doador>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Onde está a doação?
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <redu-endereco [endereco]="doacao.endereco" #enderecoComponent></redu-endereco>
+            <button type="button" mat-raised-button (click)="utilizarMeuEndereco()">Utilizar o meu endereço!</button>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <div class="row justify-content-center mt-4 mb-2">
+        <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4 text-right">
+            <button type="reset" mat-raised-button (click)="limparFormularios()">Limpar</button>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4 text-left">
+            <button mat-raised-button type="submit" (click)="cadastrarDoacao()">Enviar doação</button>
+        </div>
+    </div>
 </section>
