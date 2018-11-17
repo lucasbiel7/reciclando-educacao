@@ -46,20 +46,23 @@ export class CadastrarDoacaoComponent implements OnInit {
 
 
     public utilizarMeuEndereco() {
-        this.doacao.endereco = this.segurancaService.usuario.endereco;
+        this.doacao.endereco = Object.assign({}, this.segurancaService.usuario.endereco);
         this.doacao.endereco.id = null;
     }
 
     public cadastrarDoacao() {
         if (this.formularioDoador.formulario.valid && this.enderecoComponent.formulario.valid) {
-            this.doacao.colaborador = Object.assign(new Colaborador(), this.segurancaService.usuario as Colaborador);
-
+            this.doacao.colaborador = this.segurancaService.usuario as Colaborador;
             this.doacaoService.cadastrarDoacao(this.doacao).subscribe(doacao => {
                 this.snakBar.open('A doação de número ' + doacao.map(d => d.id).join(',') + ' foi registrada com sucesso',
                     null, { duration: 5000, panelClass: 'snack-sucess' });
+                this.limparFormularios();
             }, error => {
                 console.log(error);
             });
+        } else {
+            this.snakBar.open('É necessário preencher todos os campos obrigatórios!',
+                null, { duration: 5000, panelClass: 'snack-error' });
         }
     }
 

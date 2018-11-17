@@ -19,9 +19,7 @@ export class CnpjDirective implements ControlValueAccessor {
     }
 
     writeValue(value: any): void {
-        if (value) {
-            this.el.nativeElement.value = this.formatar(value);
-        }
+        this.el.nativeElement.value = this.formatar(value);
     }
 
     registerOnChange(fn: any): void {
@@ -44,6 +42,9 @@ export class CnpjDirective implements ControlValueAccessor {
     }
 
     private formatar(valor) {
+        if (!valor) {
+            return null;
+        }
         if (valor.length > 18) {
             valor = valor.substr(0, 18);
         }
