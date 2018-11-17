@@ -149,13 +149,10 @@ public class EscolaBean implements EscolaService {
 								try {
 									userTransaction.rollback();
 								} catch (IllegalStateException e1) {
-									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								} catch (SecurityException e1) {
-									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								} catch (SystemException e1) {
-									// TODO Auto-generated catch block
 									e1.printStackTrace();
 								}
 							}
@@ -168,7 +165,6 @@ public class EscolaBean implements EscolaService {
 			}
 			LOGGER.log(Level.INFO, "Finalizando a importação das escolas");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

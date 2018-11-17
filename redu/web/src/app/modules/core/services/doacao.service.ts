@@ -14,8 +14,8 @@ export class DoacaoService {
         this.url = environment.backend + 'doacao';
     }
 
-    public cadastrarDoacao(doacao: Doacao): Observable<Doacao> {
-        return this.httpCliente.post(this.url, doacao).map(response => response as Doacao);
+    public cadastrarDoacao(doacao: Doacao): Observable<Doacao[]> {
+        return this.httpCliente.post(this.url, doacao).map(response => response as Doacao[]);
     }
 
 }

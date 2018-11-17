@@ -1,5 +1,7 @@
 package br.com.unibh.negocio.service;
 
+import java.util.List;
+
 import javax.ejb.Remote;
 
 import br.com.unibh.negocio.dto.DoacaoResource;
@@ -9,5 +11,11 @@ public interface DoacaoService {
 
 	public static final String LOOKUP = "ejb:/redu-service/DoacaoBean!br.com.unibh.negocio.service.DoacaoService";
 
-	public DoacaoResource cadastrarDoacao(DoacaoResource doacaoResource);
+	/**
+	 * Retorna lista de doações realizadas
+	 * 
+	 * @param doacaoResource
+	 * @return
+	 */
+	public List<DoacaoResource> cadastrarDoacao(DoacaoResource doacaoResource);
 }

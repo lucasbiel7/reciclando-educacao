@@ -8,7 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
 import br.com.unibh.redu.core.entities.BaseEntity;
 
@@ -23,6 +22,10 @@ public class BaseDAO {
 	}
 
 	public <T extends BaseEntity<?>> T salvar(T t) {
+		if (t.getId() == null) {
+			entityManager.persist(t);
+			return t;
+		}
 		return entityManager.merge(t);
 	}
 
@@ -33,7 +36,7 @@ public class BaseDAO {
 	public <T extends BaseEntity<?>> List<T> buscarTodos(Class<T> clazz) {
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<T> query = builder.createQuery(clazz);
-		Root<T> root = query.from(clazz);
+		query.from(clazz);
 		return entityManager.createQuery(query).getResultList();
 	}
 

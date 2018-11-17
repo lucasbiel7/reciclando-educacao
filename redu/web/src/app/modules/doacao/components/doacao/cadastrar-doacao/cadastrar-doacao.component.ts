@@ -55,7 +55,7 @@ export class CadastrarDoacaoComponent implements OnInit {
             this.doacao.colaborador = Object.assign(new Colaborador(), this.segurancaService.usuario as Colaborador);
 
             this.doacaoService.cadastrarDoacao(this.doacao).subscribe(doacao => {
-                this.snakBar.open('A doação de número ' + doacao.id + ' foi registrada com sucesso',
+                this.snakBar.open('A doação de número ' + doacao.map(d => d.id).join(',') + ' foi registrada com sucesso',
                     null, { duration: 5000, panelClass: 'snack-sucess' });
             }, error => {
                 console.log(error);
