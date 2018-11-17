@@ -4,7 +4,7 @@
 section.perguntas-frequentes{
     min-height:75vh;
     padding-bottom:4rem;
-    padding-top:10rem;
+    padding-top:5rem;
 
 
 }
@@ -12,12 +12,11 @@ section.perguntas-frequentes{
 h1{
     font-weight: bold;
     color: $aux1;
+    text-align: center;
+
 }
 mat-accordion{
     font-size: 1.4rem;
     margin-top: 20rem;
 }
-h1{
-    text-align: center;
-    margin: auto;
-}
+
