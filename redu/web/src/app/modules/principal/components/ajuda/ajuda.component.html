@@ -1,37 +1,43 @@
 <redu-menu></redu-menu>
-<section class="ajuda">
-
-    <article class="text-center h-100">
-        <h1>Ajuda</h1>
-        <div>
+<section class="ajuda container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-sm-10 col-lg-10 col-xs-10 mt-4">
             <mat-card>
-                Na R.E.D.U. e bem simples começar a colaborar basta se cadastrar preenchendo o formulário na pagina
-                inicial, depois de cadastrado você pode
-                colaborar da maneira que puder, podendo fazer doações e até podendo ajudar trabalhando com a nossa
-                equipe.<br><br>
-                No nosso Dashboard podemos acompanhar o numero de doações e colaborações feitas pelo usuário, e
-                também
-                temos o nosso banco de dados de escolas podendo ser acessado em lista de escolas, e também temos o
-                Rank
-                das escolas contempladas.<br><br>
-                E você ainda pode deixar sua opinião para nos ajudar a esta sempre evoluindo, para nos ajudar basta ir
-                no seu Dashboard, e ir em Deixe sua opinião
-                onde só será necessário preencher os campos para nos ajudar a melhorar sempre.
+                <mat-card-header class="justify-content-center">
+                    <mat-card-title>
+                        <h1>Ajuda</h1>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <article class="text-center">
+                        Na R.E.D.U. e bem simples começar a colaborar basta se cadastrar preenchendo o formulário na
+                        pagina
+                        inicial, depois de cadastrado você pode
+                        colaborar da maneira que puder, podendo fazer doações e até podendo ajudar trabalhando com a
+                        nossa
+                        equipe.<br><br>
+                        No nosso Dashboard podemos acompanhar o numero de doações e colaborações feitas pelo usuário, e
+                        também
+                        temos o nosso banco de dados de escolas podendo ser acessado em lista de escolas, e também
+                        temos o
+                        Rank
+                        das escolas contempladas.<br><br>
+                        E você ainda pode deixar sua opinião para nos ajudar a esta sempre evoluindo, para nos ajudar
+                        basta
+                        ir
+                        no seu Dashboard, e ir em Deixe sua opinião
+                        onde só será necessário preencher os campos para nos ajudar a melhorar sempre.
 
-                <br><br><br><br><br>
-                Contamos com seu apoio para o futuro de nossas crianças.
+                        <br><br><br><br><br>
+                        Contamos com seu apoio para o futuro de nossas crianças.
+                    </article>
+                </mat-card-content>
             </mat-card>
         </div>
-        <div>
-
+    </div>
+    <div class="row mt-4 mb-4">
+        <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12 text-center">
+            <button mat-raised-button color="primary" [routerLink]="['/','login']">VOLTAR</button>
         </div>
-
-
-        <div class="button-row mt-4 mt-4">
-            <div class="col-sm-12 col-xs-12 col-lg-12 col-md-12">
-                <button mat-raised-button color="primary" [routerLink]="['/','login']">VOLTAR</button>
-            </div>
-        </div>
-    </article>
-
+    </div>
 </section>
