@@ -35,9 +35,6 @@ public class Doacao extends BaseEntity<Long> {
 	@Column(name = "id_doacao")
 	private Long id;
 
-	@Column(name = "vl_quantidade")
-	private Integer quantidade;
-
 	@Column(name = "tx_caracteristica")
 	private String caracteristica;
 
@@ -75,14 +72,6 @@ public class Doacao extends BaseEntity<Long> {
 	@Override
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Integer getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
 	}
 
 	public String getCaracteristica() {

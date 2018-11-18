@@ -1,29 +1,22 @@
 @import "src/assets/scss/variables";
+@import "src/assets/scss/fonts";
 
 section.ajuda{
     min-height: 75vh;
-
+    margin-top: 11vh;
+    text-align: justify;
    background-color: rgba($color: $primaria ,$alpha:0.5);
     background-position: center;
-
-    margin-top: 4.5rem;
-    article{
-        margin-left: 35vh;
-        margin-right: 35vh;
-        min-height: 75vh;
-        text-align: justify;
-        div{
-            margin: 0 4rem;
-        }
-        background-color: rgba($color: $primaria ,$alpha:0.5);
-        h1{
-            font-weight:bold;
-            color: white;
-        }
+    h1{
+        font-weight:bold;
+        color: $aux1;
     }
+
+}
+article{
+    min-height: 75vh;
+    text-align: justify;
     div{
-        font-size: 1.4rem;
-        color: white;
+        margin: 0 4rem;
     }
-
 }

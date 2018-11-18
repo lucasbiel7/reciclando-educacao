@@ -42,13 +42,11 @@ public class SegurancaFilter implements ContainerRequestFilter, ContainerRespons
 
 			@Override
 			public boolean isUserInRole(String role) {
-				// TODO Auto-generated method stub
 				return false;
 			}
 
 			@Override
 			public boolean isSecure() {
-				// TODO Auto-generated method stub
 				return false;
 			}
 
@@ -59,7 +57,6 @@ public class SegurancaFilter implements ContainerRequestFilter, ContainerRespons
 
 			@Override
 			public String getAuthenticationScheme() {
-				// TODO Auto-generated method stub
 				return null;
 			}
 		});

@@ -25,9 +25,7 @@ export class CepDirective implements ControlValueAccessor {
     }
 
     writeValue(value: any): void {
-        if (value) {
-            this.el.nativeElement.value = this.formatar(value);
-        }
+        this.el.nativeElement.value = this.formatar(value);
     }
 
     registerOnChange(fn: any): void {
@@ -50,6 +48,9 @@ export class CepDirective implements ControlValueAccessor {
     }
 
     private formatar(valor) {
+        if (!valor) {
+            return null;
+        }
         if (valor.length > 10) {
             valor = valor.substr(0, 10);
         }

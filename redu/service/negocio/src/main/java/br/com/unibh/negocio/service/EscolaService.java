@@ -1,23 +1,33 @@
 package br.com.unibh.negocio.service;
 
+import java.util.List;
+
 import javax.ejb.Remote;
+
+import br.com.unibh.negocio.dto.EscolaResource;
 
 /**
  * 
- * @author Lucas Gabriel
+ * @author lucas
  *
  */
 @Remote
 public interface EscolaService {
-
 	public static final String LOOKUP = "ejb:/redu-service/EscolaBean!br.com.unibh.negocio.service.EscolaService";
 
 	/**
-	 * Método criado para realizar a leitura do arquivo CSV e carregar as escolas
-	 * utilizando conhecimento dos dados do infodados para recuperar informações
-	 * importantes sobre as escolas
+	 * Método criado para buscar todas as escolas da aplicação
 	 * 
 	 * 
+	 * @return
 	 */
-	public void carregarEscolas();
+	public List<EscolaResource> buscarTodos();
+
+	/**
+	 * Filtra as escolas por nome
+	 * 
+	 * @param nome
+	 * @return
+	 */
+	public List<EscolaResource> buscarPorNome(String nome);
 }

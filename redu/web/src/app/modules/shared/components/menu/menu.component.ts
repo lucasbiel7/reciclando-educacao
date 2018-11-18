@@ -14,6 +14,9 @@ export class MenuComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (this.segurancaService.logado) {
+            console.log(this.segurancaService.usuario.nome);
+        }
 
     }
 

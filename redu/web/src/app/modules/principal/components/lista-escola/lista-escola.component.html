@@ -1,3 +1,34 @@
-<p>
-  lista-escola works!
-</p>
+<section class="lista">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 mt-4 mb-4">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            <h4>Lista de Escolas</h4>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-form-field style="width: 100%">
+                            <input type="text" matInput placeholder="Filtrar por nome" (change)="filtro()" [(ngModel)]="termo">
+                        </mat-form-field>
+                        <mat-table [dataSource]="escolasView">
+                            <ng-container matColumnDef="nome">
+                                <mat-header-cell *matHeaderCellDef>Nome </mat-header-cell>
+                                <mat-cell *matCellDef="let linha">{{linha.nomeEscola}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="pontuacao">
+                                <mat-header-cell *matHeaderCellDef>Pontuação da infraestrutura</mat-header-cell>
+                                <mat-cell *matCellDef="let linha">{{linha.pontuacaoEstrutura}}</mat-cell>
+                            </ng-container>
+                            <mat-header-row *matHeaderRowDef="['nome','pontuacao']"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: ['nome','pontuacao'];"></mat-row>
+                        </mat-table>
+                        <mat-paginator (page)="atualizarEscolas($event)" [length]="escolas?.length" [pageSizeOptions]="[5, 10, 20]"
+                            showFirstLastButtons></mat-paginator>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>

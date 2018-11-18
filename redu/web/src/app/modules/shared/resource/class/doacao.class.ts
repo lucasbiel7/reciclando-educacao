@@ -13,4 +13,8 @@ export class Doacao {
     public revisado: boolean;
     public alocado: boolean;
     public endereco: Endereco;
+
+    constructor() {
+        this.endereco = new Endereco();
+    }
 }

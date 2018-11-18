@@ -31,6 +31,14 @@ public class Escola extends Usuario {
 	@Column(name = "vl_pontuacao_infra")
 	public Long pontuacaoEstrutura;
 
+	public Escola() {
+		super();
+	}
+
+	public Escola(Usuario usuario) {
+		super(usuario);
+	}
+
 	public Long getPontuacaoEstrutura() {
 		return pontuacaoEstrutura;
 	}

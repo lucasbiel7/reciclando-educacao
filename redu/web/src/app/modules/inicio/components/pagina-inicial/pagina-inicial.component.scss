@@ -3,13 +3,12 @@
 section.pagina-inicial{
     background-color: $secundaria-aux;
     background-image: url('/assets/img/fundo-principal.jpg');
-    background-size: cover;
+
     background-position: center;
     background-position-y: 4rem;
     background-repeat:no-repeat;
-
+    background-size:contain;
     padding-top: 6rem;
-
 
     .principal{
         margin: 0 2em;

@@ -51,6 +51,19 @@ public class Usuario extends BaseEntity<Long> {
 	@Lob
 	private String imagem;
 
+	public Usuario() {
+		super();
+	}
+
+	public Usuario(Usuario usuario) {
+		this.id = usuario.getId();
+		this.nome = usuario.getNome();
+		this.senha = usuario.getSenha();
+		this.email = usuario.getEmail();
+		this.imagem = usuario.getImagem();
+		this.endereco = usuario.getEndereco();
+	}
+
 	@Override
 	public Long getId() {
 		return id;
