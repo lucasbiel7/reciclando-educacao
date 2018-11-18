@@ -40,12 +40,7 @@ public class Colaborador extends Usuario {
 	}
 
 	public Colaborador(Usuario usuario) {
-		setId(usuario.getId());
-		setNome(usuario.getNome());
-		setSenha(usuario.getSenha());
-		setEmail(usuario.getEmail());
-		setImagem(usuario.getImagem());
-		setEndereco(usuario.getEndereco());
+		super(usuario);
 	}
 
 	public String getFormacao() {

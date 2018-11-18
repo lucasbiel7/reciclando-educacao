@@ -21,6 +21,19 @@ public class UsuarioResource extends BaseResponse {
 
 	private EnderecoResource endereco;
 
+	public UsuarioResource() {
+		super();
+	}
+
+	public UsuarioResource(UsuarioResource resource) {
+		this.id = resource.getId();
+		this.nome = resource.getNome();
+		this.senha = resource.getSenha();
+		this.email = resource.getEmail();
+		this.imagem = resource.getImagem();
+		this.endereco = resource.getEndereco();
+	}
+
 	public Long getId() {
 		return id;
 	}

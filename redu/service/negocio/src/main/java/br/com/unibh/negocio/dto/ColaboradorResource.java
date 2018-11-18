@@ -21,12 +21,7 @@ public class ColaboradorResource extends UsuarioResource {
 	}
 
 	public ColaboradorResource(UsuarioResource r) {
-		setId(r.getId());
-		setNome(r.getNome());
-		setSenha(r.getSenha());
-		setEmail(r.getEmail());
-		setImagem(r.getImagem());
-		setEndereco(r.getEndereco());
+		super(r);
 	}
 
 	public String getFormacao() {

@@ -9,6 +9,7 @@ import { OpniaoComponent } from './components/opniao/opniao.component';
 import { PerguntasFrequentesComponent } from './components/perguntas-frequentes/perguntas-frequentes.component';
 import { AjudaComponent } from './components/ajuda/ajuda.component';
 import { ListaEscolaComponent } from './components/lista-escola/lista-escola.component';
+import { EscolaService } from './services/escola.service';
 
 @NgModule({
     imports: [
@@ -16,7 +17,15 @@ import { ListaEscolaComponent } from './components/lista-escola/lista-escola.com
         PrincipalRoutingModule
     ],
     declarations: [
-        DashboardComponent, AreaDoUsuarioComponent, OpniaoComponent, PerguntasFrequentesComponent, AjudaComponent, ListaEscolaComponent
+        DashboardComponent,
+        AreaDoUsuarioComponent,
+        OpniaoComponent,
+        PerguntasFrequentesComponent,
+        AjudaComponent,
+        ListaEscolaComponent
+    ],
+    providers: [
+        EscolaService
     ]
 })
 export class PrincipalModule { }
