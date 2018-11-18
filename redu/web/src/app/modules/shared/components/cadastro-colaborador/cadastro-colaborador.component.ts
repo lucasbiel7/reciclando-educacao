@@ -59,7 +59,7 @@ export class CadastroColaboradorComponent implements OnInit, AfterViewInit {
             email: new FormControl('', [Validators.required, Validators.email])
         });
         this.formularioAutenticacao = new FormGroup({
-            senha: new FormControl('', [Validators.required]),
+            senha: new FormControl('', [Validators.required, Validators.minLength(8)]),
             confirmarSenha: new FormControl('', [Validators.required])
         });
         this.colaborador = new Colaborador();
