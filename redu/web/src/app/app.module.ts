@@ -1,6 +1,6 @@
 import { PrincipalModule } from './modules/principal/principal.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
@@ -26,7 +26,9 @@ import { DoacaoModule } from './modules/doacao/doacao.module';
         // Ultimo import deve ser o routing
         AppRoutingModule
     ],
-    providers: [],
+    providers: [
+        { provide: LOCALE_ID, useValue: 'pt-BR' }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

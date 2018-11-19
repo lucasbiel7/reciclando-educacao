@@ -9,8 +9,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {
     MatTabsModule, MatFormFieldModule, MatInputModule, MatSelectModule,
     MatButtonModule, MatCardModule, MatStepperModule, MatExpansionModule, MatIconModule,
-    MatMenuModule, MatTooltipModule, MatRadioModule, MatSnackBarModule, MatTableModule, MatPaginatorModule, MatProgressBarModule
+    MatMenuModule, MatTooltipModule, MatRadioModule, MatSnackBarModule, MatTableModule,
+    MatPaginatorModule, MatProgressBarModule, MatPaginatorIntl
 } from '@angular/material';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnderecoComponent } from './components/endereco/endereco.component';
 import { HttpModule } from '@angular/http';
@@ -33,6 +35,7 @@ import { ColaboradorService } from './services/colaborador.service';
 import { CpfDirective } from './directive/cpf.directive';
 import { CnpjDirective } from './directive/cnpj.directive';
 import { ConfirmarSenhaDirective } from './directive/confirmar-senha.directive';
+import { TraducaoPaginacao } from './resource/intl/traducao-paginacao.class';
 
 @NgModule({
     exports: [
@@ -118,7 +121,11 @@ export class SharedModule {
                 CepService,
                 ColaboradorService,
                 UsuarioAutenticadoGuard,
-                UsuarioNaoAutenticadoGuard
+                UsuarioNaoAutenticadoGuard,
+                {
+                    provide: MatPaginatorIntl,
+                    useClass: TraducaoPaginacao
+                }
             ]
         };
     }
