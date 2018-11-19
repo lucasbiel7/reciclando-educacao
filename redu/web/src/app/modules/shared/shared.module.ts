@@ -9,7 +9,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {
     MatTabsModule, MatFormFieldModule, MatInputModule, MatSelectModule,
     MatButtonModule, MatCardModule, MatStepperModule, MatExpansionModule, MatIconModule,
-    MatMenuModule, MatTooltipModule, MatRadioModule, MatSnackBarModule, MatTableModule, MatPaginatorModule
+    MatMenuModule, MatTooltipModule, MatRadioModule, MatSnackBarModule, MatTableModule, MatPaginatorModule, MatProgressBarModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EnderecoComponent } from './components/endereco/endereco.component';
@@ -61,6 +61,7 @@ import { ConfirmarSenhaDirective } from './directive/confirmar-senha.directive';
         MatSnackBarModule,
         MatTableModule,
         MatPaginatorModule,
+        MatProgressBarModule,
         // Componentes internos
         EnderecoComponent,
         MenuComponent,
@@ -88,6 +89,7 @@ import { ConfirmarSenhaDirective } from './directive/confirmar-senha.directive';
         MatExpansionModule,
         MatTableModule,
         MatPaginatorModule,
+        MatProgressBarModule,
         FormsModule,
         ReactiveFormsModule,
         MatExpansionModule,

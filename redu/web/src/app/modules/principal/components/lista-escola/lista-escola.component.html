@@ -24,6 +24,7 @@
                             <mat-header-row *matHeaderRowDef="['nome','pontuacao']"></mat-header-row>
                             <mat-row *matRowDef="let row; columns: ['nome','pontuacao'];"></mat-row>
                         </mat-table>
+                        <mat-progress-bar [color]="'primary'" [mode]="'indeterminate'" *ngIf="loading"></mat-progress-bar>
                         <mat-paginator (page)="atualizarEscolas($event)" [length]="escolas?.length" [pageSizeOptions]="[5, 10, 20]"
                             showFirstLastButtons></mat-paginator>
                     </mat-card-content>

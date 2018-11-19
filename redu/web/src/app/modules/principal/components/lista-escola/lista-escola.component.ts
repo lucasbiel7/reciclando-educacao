@@ -14,12 +14,16 @@ export class ListaEscolaComponent implements OnInit {
     public escolasView: Escola[];
     public termo: string;
     public ultimoEvento: PageEvent;
+    public loading: boolean;
+
     constructor(private escolaService: EscolaService) {
     }
 
     ngOnInit() {
+        this.loading = true;
         this.escolaService.buscarEscolas().subscribe(escolas => {
             this.escolas = escolas;
+            this.loading = false;
             this.atualizarEscolas({
                 pageSize: 5,
                 length: this.escolas.length,
@@ -41,8 +45,11 @@ export class ListaEscolaComponent implements OnInit {
     }
 
     public filtro() {
+        this.escolasView = [];
+        this.loading = true;
         this.escolaService.buscarEscolas(this.termo).subscribe(escolas => {
             this.escolas = escolas;
+            this.loading = false;
             this.atualizarEscolas({
                 pageSize: this.ultimoEvento ? this.ultimoEvento.pageSize : 5,
                 length: this.escolas.length,
