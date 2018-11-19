@@ -54,7 +54,7 @@ export class CepDirective implements ControlValueAccessor {
         if (valor.length > 10) {
             valor = valor.substr(0, 10);
         }
-        valor = valor.replace('.', '').replace('-', '').replace(/[^0-9]/, '');
+        valor = valor.replace('.', '').replace('-', '').replace(/[^0-9]{1,}/g, '');
         valor = valor.replace(/([0-9]{2})([0-9]*)/g, '$1.$2');
         valor = valor.replace(/([0-9]{2}[.]{1}[0-9]{3})([0-9]*)/g, '$1-$2');
         return valor;

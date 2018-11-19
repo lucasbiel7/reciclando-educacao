@@ -48,7 +48,7 @@ export class CpfDirective implements ControlValueAccessor {
         if (valor.length > 14) {
             valor = valor.substr(0, 14);
         }
-        valor = valor.replace('.', '').replace('-', '').replace(/[^0-9]/, '');
+        valor = valor.replace('.', '').replace('-', '').replace(/[^0-9]{1,}/g, '');
         valor = valor.replace(/([0-9]{3})([0-9]*)/g, '$1.$2');
         valor = valor.replace(/([0-9]{3}[.]{1}[0-9]{3})([0-9]*)/g, '$1.$2');
         valor = valor.replace(/([0-9]{3}[.]{1}[0-9]{3}[.]{1}[0-9]{3})([0-9]*)/g, '$1-$2');

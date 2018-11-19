@@ -48,7 +48,7 @@ export class CnpjDirective implements ControlValueAccessor {
         if (valor.length > 18) {
             valor = valor.substr(0, 18);
         }
-        valor = valor.replace('.', '').replace('-', '').replace(/[^0-9]/, '').replace(/[/]{1}/, '');
+        valor = valor.replace('.', '').replace('-', '').replace(/[^0-9]{1,}/g, '').replace(/[/]{1}/, '');
         valor = valor.replace(/([0-9]{2})([0-9]*)/g, '$1.$2');
         valor = valor.replace(/([0-9]{2}[.]{1}[0-9]{3})([0-9]*)/g, '$1.$2');
         valor = valor.replace(/([0-9]{2}[.]{1}[0-9]{3}[.]{1}[0-9]{3})([0-9]*)/g, '$1/$2');
