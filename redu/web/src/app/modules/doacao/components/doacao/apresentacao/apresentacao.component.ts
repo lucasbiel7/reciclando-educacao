@@ -18,7 +18,7 @@ export class ApresentacaoComponent implements OnInit {
     }
 
     onVisualizarDacoes() {
-
+        this.router.navigate(['doacao', 'visualizar']);
     }
 
 }

@@ -78,10 +78,11 @@ public class SegurancaController {
 	public Response usuarioLogado(@Context SecurityContext securityContext) {
 		if (securityContext.getUserPrincipal() instanceof ReduPrincipal) {
 			ReduPrincipal usuarioPrincipal = (ReduPrincipal) securityContext.getUserPrincipal();
-			UsuarioResource usuario = segurancaService.buscarUsuario(usuarioPrincipal.getUsuarioResource().getId());
-			return Response.ok(usuario).build();
-		} else {
-			return Response.status(Status.FORBIDDEN).build();
+			if (usuarioPrincipal.getUsuarioResource() != null) {
+				UsuarioResource usuario = segurancaService.buscarUsuario(usuarioPrincipal.getUsuarioResource().getId());
+				return Response.ok(usuario).build();
+			}
 		}
+		return Response.status(Status.FORBIDDEN).build();
 	}
 }

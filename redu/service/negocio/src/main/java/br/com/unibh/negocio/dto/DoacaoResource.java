@@ -18,6 +18,7 @@ public class DoacaoResource extends BaseResponse {
 	public boolean alocado;
 	private EnderecoResource endereco;
 	private LoteResource lote;
+	private boolean coletado;
 
 	public Long getId() {
 		return id;
@@ -97,6 +98,14 @@ public class DoacaoResource extends BaseResponse {
 
 	public void setLote(LoteResource lote) {
 		this.lote = lote;
+	}
+
+	public boolean isColetado() {
+		return coletado;
+	}
+
+	public void setColetado(boolean coletado) {
+		this.coletado = coletado;
 	}
 
 }

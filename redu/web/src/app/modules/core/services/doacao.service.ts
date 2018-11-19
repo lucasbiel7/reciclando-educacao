@@ -7,6 +7,7 @@ import { environment } from '../../../../environments/environment';
 @Injectable()
 export class DoacaoService {
 
+
     public doacao: Doacao;
     public url: string;
 
@@ -15,7 +16,13 @@ export class DoacaoService {
     }
 
     public cadastrarDoacao(doacao: Doacao): Observable<Doacao[]> {
-        return this.httpCliente.post(this.url, doacao).map(response => response as Doacao[]);
+        return this.httpCliente.post(this.url, doacao)
+            .map(response => response as Doacao[]);
+    }
+
+    buscarPorColaborador(id: number): Observable<Doacao[]> {
+        return this.httpCliente.get(this.url + '/buscar-por-colaborador/' + id)
+            .map(response => response as Doacao[]);
     }
 
 }

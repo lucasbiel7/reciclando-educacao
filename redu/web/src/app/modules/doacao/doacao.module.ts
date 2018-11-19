@@ -5,6 +5,7 @@ import { CadastrarDoacaoComponent } from './components/doacao/cadastrar-doacao/c
 import { DoacaoComponent } from './components/doacao/doacao.component';
 import { SharedModule } from '../shared/shared.module';
 import { ApresentacaoComponent } from './components/doacao/apresentacao/apresentacao.component';
+import { VisualizarDoacaoComponent } from './components/doacao/visualizar-doacao/visualizar-doacao.component';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import { ApresentacaoComponent } from './components/doacao/apresentacao/apresent
     declarations: [
         CadastrarDoacaoComponent,
         DoacaoComponent,
-        ApresentacaoComponent
+        ApresentacaoComponent,
+        VisualizarDoacaoComponent
     ],
     providers: []
 })

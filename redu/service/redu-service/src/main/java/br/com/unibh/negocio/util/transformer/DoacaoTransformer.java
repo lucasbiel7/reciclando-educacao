@@ -36,6 +36,7 @@ public class DoacaoTransformer implements BaseTransformer<Doacao, DoacaoResource
 		r.setLote(LoteTransformer.getInstance().toResource(e.getLote()));
 		r.setRevisado(e.isRevisado());
 		r.setTipoDoacao(TipoDoacaoTransformer.getInstance().toResource(e.getTipoDoacao()));
+		r.setColetado(e.isColetado());
 		return r;
 	}
 
@@ -54,6 +55,7 @@ public class DoacaoTransformer implements BaseTransformer<Doacao, DoacaoResource
 		e.setLote(LoteTransformer.getInstance().toEntity(r.getLote()));
 		e.setRevisado(r.isRevisado());
 		e.setTipoDoacao(TipoDoacaoTransformer.getInstance().toEntity(r.getTipoDoacao()));
+		e.setColetado(r.isColetado());
 		return e;
 	}
 

@@ -4,6 +4,8 @@ import { CadastrarDoacaoComponent } from './components/doacao/cadastrar-doacao/c
 import { DoacaoComponent } from './components/doacao/doacao.component';
 import { UsuarioAutenticadoGuard } from '../shared/services/usuario-autenticado.guard';
 import { ApresentacaoComponent } from './components/doacao/apresentacao/apresentacao.component';
+import { VisualizarDoacaoComponent } from './components/doacao/visualizar-doacao/visualizar-doacao.component';
+
 
 const routes: Routes = [
     {
@@ -19,6 +21,10 @@ const routes: Routes = [
             {
                 path: 'cadastrar',
                 component: CadastrarDoacaoComponent
+            },
+            {
+                path: 'visualizar',
+                component: VisualizarDoacaoComponent
             }
         ]
     }

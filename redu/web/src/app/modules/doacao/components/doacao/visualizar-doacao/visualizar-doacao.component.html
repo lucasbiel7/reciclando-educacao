@@ -1,0 +1,45 @@
+<section class="visualizar-doacao">
+    <div class="container-fluid py-3">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-sm-10 col-xs-10 col-lg-10">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>
+                            <h3>Doações realizadas por {{segurancaService.usuario.nome}}</h3>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <mat-table [dataSource]="doacoesView">
+                            <ng-container matColumnDef="id">
+                                <mat-header-cell *matHeaderCellDef>N°</mat-header-cell>
+                                <mat-cell *matCellDef="let doacao">{{doacao.id}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="tipo">
+                                <mat-header-cell *matHeaderCellDef>Tipo de doação</mat-header-cell>
+                                <mat-cell *matCellDef="let doacao">{{doacao.tipoDoacao.descricao}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="estado">
+                                <mat-header-cell *matHeaderCellDef>Estado da doação</mat-header-cell>
+                                <mat-cell *matCellDef="let doacao">{{doacao.estadoDoacao}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="revisado">
+                                <mat-header-cell *matHeaderCellDef>Já foi<br />
+                                    revisado?</mat-header-cell>
+                                <mat-cell *matCellDef="let doacao">{{doacao.revisado?'Sim':'Não'}}</mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="coletado">
+                                <mat-header-cell *matHeaderCellDef>Já foi<br />
+                                    coletado?</mat-header-cell>
+                                <mat-cell *matCellDef="let doacao">{{doacao.coletado?'Sim':'Não'}}</mat-cell>
+                            </ng-container>
+                            <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
+                        </mat-table>
+                        <mat-paginator (page)="atualizarDoacoes($event)" [length]="doacoes?.length" [pageSizeOptions]="[5, 10, 20]"
+                            showFirstLastButtons></mat-paginator>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>

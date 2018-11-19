@@ -14,6 +14,10 @@ section.area-do-usuario{
             margin: auto;
             width: 12rem;
             height: 12rem;
+            @media (max-width:989px ) {
+                width: 11rem;
+                height: 11rem;
+            }
         }
 
         p{

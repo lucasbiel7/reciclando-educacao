@@ -18,4 +18,12 @@ public interface DoacaoService {
 	 * @return
 	 */
 	public List<DoacaoResource> cadastrarDoacao(DoacaoResource doacaoResource);
+
+	/**
+	 * Retorna a lista de doações por colaborador
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public List<DoacaoResource> buscarPorColaborador(Long id);
 }

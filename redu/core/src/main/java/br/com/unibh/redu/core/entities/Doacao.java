@@ -64,6 +64,9 @@ public class Doacao extends BaseEntity<Long> {
 	@JoinColumn(name = "id_lote", referencedColumnName = "id_lote")
 	private Lote lote;
 
+	@Column(name = "vl_coletado", nullable = false)
+	private boolean coletado;
+
 	@Override
 	public Long getId() {
 		return id;
@@ -136,6 +139,14 @@ public class Doacao extends BaseEntity<Long> {
 
 	public void setLote(Lote lote) {
 		this.lote = lote;
+	}
+
+	public boolean isColetado() {
+		return coletado;
+	}
+
+	public void setColetado(boolean coletado) {
+		this.coletado = coletado;
 	}
 
 }

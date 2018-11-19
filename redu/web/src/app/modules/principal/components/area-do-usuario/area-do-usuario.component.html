@@ -1,21 +1,5 @@
 <section class="area-do-usuario container mt-5">
-
     <div class="row mt-5 justify-content-center">
-        <div class="col-md-6 col-lg-4 col-sm-8 col-xs-12">
-            <mat-card class="card">
-                <mat-card-header>
-                    <img mat-card-avatar class="header-image" [src]="segurancaService.usuario.imagem" *ngIf="segurancaService.usuario.imagem">
-                </mat-card-header>
-                <mat-card-content class="text-center mt-4">
-                    <h2>{{this.segurancaService.usuario?.nome}}</h2>
-                    <p>{{this.segurancaService.usuario?.endereco?.municipio}},
-                        {{this.segurancaService.usuario?.endereco?.uf}}</p>
-                </mat-card-content>
-            </mat-card>
-        </div>
-    </div>
-
-    <div class="row mt-4 mt-4">
         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 painel-acoes">
             <mat-accordion>
                 <mat-expansion-panel>
@@ -51,7 +35,18 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
-        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12"></div>
+        <div class="col-md-4 col-lg-4 col-sm-8 col-xs-12">
+            <mat-card class="card">
+                <mat-card-header>
+                    <img mat-card-avatar class="header-image" [src]="segurancaService.usuario.imagem" *ngIf="segurancaService.usuario && segurancaService.usuario.imagem">
+                </mat-card-header>
+                <mat-card-content class="text-center mt-4">
+                    <h2>{{this.segurancaService.usuario?.nome}}</h2>
+                    <p>{{this.segurancaService.usuario?.endereco?.municipio}},
+                        {{this.segurancaService.usuario?.endereco?.uf}}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
         <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 escolas-contempladas">
             <mat-accordion>
                 <mat-expansion-panel>
@@ -76,7 +71,6 @@
             </mat-accordion>
         </div>
     </div>
-
     <div class="row mt-4 mt-4">
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
             <mat-card>
