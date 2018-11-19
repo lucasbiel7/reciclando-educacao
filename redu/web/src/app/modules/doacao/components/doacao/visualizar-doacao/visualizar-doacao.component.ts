@@ -3,6 +3,7 @@ import { Doacao } from '../../../../shared/resource/class/doacao.class';
 import { DoacaoService } from '../../../../core/services/doacao.service';
 import { SegurancaService } from '../../../../core/services/seguranca.service';
 import { PageEvent } from '@angular/material';
+import { EstadoDoacaoEnum } from '../../../../shared/resource/enum/estado-doacao.enum';
 
 @Component({
     selector: 'redu-visualizar-doacao',
@@ -14,6 +15,7 @@ export class VisualizarDoacaoComponent implements OnInit {
     public doacoes: Doacao[];
     public doacoesView: Doacao[];
     public colunas: string[];
+    EstadoDoacaoEnum = EstadoDoacaoEnum;
 
     constructor(private doacaoService: DoacaoService,
         public segurancaService: SegurancaService) {

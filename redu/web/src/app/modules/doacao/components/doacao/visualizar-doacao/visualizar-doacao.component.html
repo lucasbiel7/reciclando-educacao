@@ -20,7 +20,7 @@
                             </ng-container>
                             <ng-container matColumnDef="estado">
                                 <mat-header-cell *matHeaderCellDef>Estado da doação</mat-header-cell>
-                                <mat-cell *matCellDef="let doacao">{{doacao.estadoDoacao}}</mat-cell>
+                                <mat-cell *matCellDef="let doacao">{{EstadoDoacaoEnum.valueOf(doacao.estadoDoacao)}}</mat-cell>
                             </ng-container>
                             <ng-container matColumnDef="revisado">
                                 <mat-header-cell *matHeaderCellDef>Já foi<br />
