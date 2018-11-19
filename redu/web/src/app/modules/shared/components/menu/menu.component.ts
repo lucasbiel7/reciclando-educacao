@@ -51,4 +51,8 @@ export class MenuComponent implements OnInit {
     onConfiguracao() {
         this.router.navigate(['dashboard', 'configuracao']);
     }
+
+    onLogo() {
+        this.router.navigate(this.segurancaService.logado ? ['/dashboard'] : ['/inicio']);
+    }
 }

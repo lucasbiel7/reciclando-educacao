@@ -4,7 +4,7 @@
             <button mat-icon-button *ngIf="segurancaService.logado" [matMenuTriggerFor]="menuOpcoes">
                 <mat-icon>menu</mat-icon>
             </button>
-            <a class="navbar-brand" [href]="segurancaService.logado?'/dashboard':'/inicio'" matTooltip="Reciclando educação">
+            <a class="navbar-brand" (click)="onLogo()" matTooltip="Reciclando educação">
                 <img src="/assets/img/logo.png" class="logo">
             </a>
         </div>
