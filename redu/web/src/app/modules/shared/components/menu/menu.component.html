@@ -22,20 +22,32 @@
     </div>
 </nav>
 <mat-menu #menuOpcoes="matMenu" [overlapTrigger]="false">
-    <button mat-menu-item (click)="onDoar()">
-        <mat-icon>pan_tool</mat-icon>
-        Doar
+    <button mat-menu-item (click)="onDoar()" *ngIf="permissao()">
+        <mat-icon>card_giftcard</mat-icon>
+        Fazer uma doação
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item *ngIf="permissao('manutenção')">
         <mat-icon>build</mat-icon>
-        Colaborador
+        Manutenção
+    </button>
+    <button mat-menu-item *ngIf="permissao('distribuidor')">
+        <mat-icon>commute</mat-icon>
+        Distribuição
+    </button>
+    <button mat-menu-item *ngIf="permissao('validador')">
+        <mat-icon>playlist_add_check</mat-icon>
+        Validar equipamentos
+    </button>
+    <button mat-menu-item *ngIf="permissao('montador')">
+        <mat-icon>next_week</mat-icon>
+        Próxima montagem
     </button>
 </mat-menu>
 <mat-menu #menuUsuario="matMenu" [overlapTrigger]="false">
     <button mat-menu-item>
         <mat-icon>person</mat-icon>Perfil
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="onConfiguracao()" *ngIf="segurancaService.usuario?.administrador">
         <mat-icon>settings</mat-icon>Configuração
     </button>
     <button mat-menu-item (click)="logout()">

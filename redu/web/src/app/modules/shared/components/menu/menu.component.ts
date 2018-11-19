@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SegurancaService } from '../../../core/services/seguranca.service';
 import { Router } from '@angular/router';
+import { Colaborador } from '../../resource/class/colaborador.class';
 
 @Component({
     selector: 'redu-menu',
@@ -15,9 +16,24 @@ export class MenuComponent implements OnInit {
 
     ngOnInit() {
         if (this.segurancaService.logado) {
-            console.log(this.segurancaService.usuario.nome);
+            this.segurancaService.usuarioAtualizado.subscribe(() => {
+
+            });
         }
 
+    }
+
+    permissao(perfil?: string) {
+        if (this.segurancaService.logado) {
+            if ((this.segurancaService.usuario as Colaborador).tipoColaborador) {
+                if (perfil) {
+                    return (this.segurancaService.usuario as Colaborador).tipoColaborador.descricao.toLocaleLowerCase() === perfil
+                        || this.segurancaService.usuario.administrador;
+                }
+                return true;
+            }
+        }
+        return false;
     }
 
     public logout() {
@@ -30,5 +46,9 @@ export class MenuComponent implements OnInit {
 
     onColaborar() {
         this.router.navigate(['colaborar']);
+    }
+
+    onConfiguracao() {
+        this.router.navigate(['dashboard', 'configuracao']);
     }
 }

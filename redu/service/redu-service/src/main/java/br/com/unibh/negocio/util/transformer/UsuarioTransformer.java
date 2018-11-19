@@ -32,6 +32,7 @@ public class UsuarioTransformer implements BaseTransformer<Usuario, UsuarioResou
 		r.setEmail(e.getEmail());
 		r.setImagem(e.getImagem());
 		r.setEndereco(EnderecoTransformer.getInstance().toResource(e.getEndereco()));
+		r.setAdministrador(e.isAdministrador());
 		return r;
 	}
 
@@ -47,6 +48,7 @@ public class UsuarioTransformer implements BaseTransformer<Usuario, UsuarioResou
 		e.setEmail(r.getEmail());
 		e.setImagem(r.getImagem());
 		e.setEndereco(EnderecoTransformer.getInstance().toEntity(r.getEndereco()));
+		e.setAdministrador(r.isAdministrador());
 		return e;
 	}
 

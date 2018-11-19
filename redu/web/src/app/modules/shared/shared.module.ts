@@ -10,7 +10,7 @@ import {
     MatTabsModule, MatFormFieldModule, MatInputModule, MatSelectModule,
     MatButtonModule, MatCardModule, MatStepperModule, MatExpansionModule, MatIconModule,
     MatMenuModule, MatTooltipModule, MatRadioModule, MatSnackBarModule, MatTableModule,
-    MatPaginatorModule, MatProgressBarModule, MatPaginatorIntl
+    MatPaginatorModule, MatProgressBarModule, MatPaginatorIntl, MatDividerModule
 } from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -65,6 +65,7 @@ import { TraducaoPaginacao } from './resource/intl/traducao-paginacao.class';
         MatTableModule,
         MatPaginatorModule,
         MatProgressBarModule,
+        MatDividerModule,
         // Componentes internos
         EnderecoComponent,
         MenuComponent,
@@ -93,6 +94,7 @@ import { TraducaoPaginacao } from './resource/intl/traducao-paginacao.class';
         MatTableModule,
         MatPaginatorModule,
         MatProgressBarModule,
+        MatDividerModule,
         FormsModule,
         ReactiveFormsModule,
         MatExpansionModule,

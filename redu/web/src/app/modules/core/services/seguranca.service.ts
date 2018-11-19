@@ -6,9 +6,10 @@ import { Usuario } from '../../shared/resource/class/usuario.class';
 import { JwtHelper } from 'angular2-jwt';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class SegurancaService {
-
+    public usuarioAtualizado: Subject<void>;
     private api: string;
     public lastRoute: string;
     private _usuario: Usuario;
@@ -18,6 +19,7 @@ export class SegurancaService {
     constructor(private injector: Injector, private router: Router) {
         this.api = 'seguranca';
         this.jwtHelper = new JwtHelper();
+        this.usuarioAtualizado = new Subject();
     }
 
     get http() {
@@ -36,6 +38,7 @@ export class SegurancaService {
                     this.loadUser = true;
                     this.buscarUsuario().subscribe(usuario => {
                         this._usuario = usuario;
+                        this.usuarioAtualizado.next(undefined);
                         this.loadUser = false;
                     });
                 }
@@ -48,13 +51,15 @@ export class SegurancaService {
     }
 
     public get tempoRestante(): string {
-        const end = this.jwtHelper.getTokenExpirationDate(this.token).getTime();
-        const now = new Date().getTime();
-        const diff = end - now;
-        const minutos = Math.floor(diff / (60 * 1000));
-        const segundos = Math.floor((diff % (60 * 1000)) / 1000);
-        const tempoRestante = minutos + ':' + segundos;
-        return tempoRestante;
+        if (this.logado) {
+            const end = this.jwtHelper.getTokenExpirationDate(this.token).getTime();
+            const now = new Date().getTime();
+            const diff = end - now;
+            const minutos = Math.floor(diff / (60 * 1000));
+            const segundos = Math.floor((diff % (60 * 1000)) / 1000);
+            const tempoRestante = minutos + ':' + segundos;
+            return tempoRestante;
+        }
     }
 
     public buscarUsuario(): Observable<Usuario> {
@@ -76,6 +81,7 @@ export class SegurancaService {
     public logaout(): void {
         this._usuario = null;
         localStorage.removeItem(environment.userToken);
+        this.usuarioAtualizado.next(undefined);
         this.router.navigate(['login']);
     }
 }

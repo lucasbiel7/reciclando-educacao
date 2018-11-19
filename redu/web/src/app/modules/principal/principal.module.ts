@@ -10,6 +10,7 @@ import { PerguntasFrequentesComponent } from './components/perguntas-frequentes/
 import { AjudaComponent } from './components/ajuda/ajuda.component';
 import { ListaEscolaComponent } from './components/lista-escola/lista-escola.component';
 import { EscolaService } from './services/escola.service';
+import { ConfiguracaoComponent } from './components/configuracao/configuracao.component';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import { EscolaService } from './services/escola.service';
         OpniaoComponent,
         PerguntasFrequentesComponent,
         AjudaComponent,
-        ListaEscolaComponent
+        ListaEscolaComponent,
+        ConfiguracaoComponent
     ],
     providers: [
         EscolaService

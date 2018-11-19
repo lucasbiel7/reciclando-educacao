@@ -7,6 +7,7 @@ import { OpniaoComponent } from './components/opniao/opniao.component';
 import { PerguntasFrequentesComponent } from './components/perguntas-frequentes/perguntas-frequentes.component';
 import { AjudaComponent } from './components/ajuda/ajuda.component';
 import { ListaEscolaComponent } from './components/lista-escola/lista-escola.component';
+import { ConfiguracaoComponent } from './components/configuracao/configuracao.component';
 
 const routes: Routes = [
     {
@@ -35,6 +36,10 @@ const routes: Routes = [
             {
                 path: 'lista-escola',
                 component: ListaEscolaComponent
+            },
+            {
+                path: 'configuracao',
+                component: ConfiguracaoComponent
             }
         ]
     }

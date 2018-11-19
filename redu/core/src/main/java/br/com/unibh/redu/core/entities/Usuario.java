@@ -51,6 +51,9 @@ public class Usuario extends BaseEntity<Long> {
 	@Lob
 	private String imagem;
 
+	@Column(name = "vl_administrador", nullable = false)
+	private boolean administrador;
+
 	public Usuario() {
 		super();
 	}
@@ -62,6 +65,7 @@ public class Usuario extends BaseEntity<Long> {
 		this.email = usuario.getEmail();
 		this.imagem = usuario.getImagem();
 		this.endereco = usuario.getEndereco();
+		this.administrador = usuario.isAdministrador();
 	}
 
 	@Override
@@ -112,6 +116,14 @@ public class Usuario extends BaseEntity<Long> {
 
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+
+	public boolean isAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(boolean administrador) {
+		this.administrador = administrador;
 	}
 
 }

@@ -8,6 +8,7 @@ export class Usuario {
     public senha: string;
     public endereco: Endereco;
     public imagem: string;
+    public administrador: boolean;
 
     public constructor() {
         this.endereco = new Endereco();

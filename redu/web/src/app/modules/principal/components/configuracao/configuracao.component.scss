@@ -1,0 +1,9 @@
+@import "src/assets/scss/variables";
+
+section.configuracao{
+    .botao-configuracao{
+        min-height: 5rem;
+        font-size: 1.5rem;
+        background-color:$secundaria;
+    }
+}

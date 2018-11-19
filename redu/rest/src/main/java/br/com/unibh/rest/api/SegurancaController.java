@@ -83,6 +83,7 @@ public class SegurancaController {
 				return Response.ok(usuario).build();
 			}
 		}
+
 		return Response.status(Status.FORBIDDEN).build();
 	}
 }

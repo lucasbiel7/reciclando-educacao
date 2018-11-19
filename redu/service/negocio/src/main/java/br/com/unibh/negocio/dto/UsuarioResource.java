@@ -20,6 +20,7 @@ public class UsuarioResource extends BaseResponse {
 	private String imagem;
 
 	private EnderecoResource endereco;
+	private boolean administrador;
 
 	public UsuarioResource() {
 		super();
@@ -32,6 +33,7 @@ public class UsuarioResource extends BaseResponse {
 		this.email = resource.getEmail();
 		this.imagem = resource.getImagem();
 		this.endereco = resource.getEndereco();
+		this.administrador = resource.isAdministrador();
 	}
 
 	public Long getId() {
@@ -80,6 +82,14 @@ public class UsuarioResource extends BaseResponse {
 
 	public void setEndereco(EnderecoResource endereco) {
 		this.endereco = endereco;
+	}
+
+	public boolean isAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(boolean administrador) {
+		this.administrador = administrador;
 	}
 
 }
