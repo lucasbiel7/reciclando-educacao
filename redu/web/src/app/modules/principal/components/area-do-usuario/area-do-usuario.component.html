@@ -1,6 +1,6 @@
 <section class="area-do-usuario container mt-5">
     <div class="row mt-5 justify-content-center">
-        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 painel-acoes align-self-end">
+        <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 painel-acoes align-self-end order-md-first">
             <mat-accordion>
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
@@ -35,7 +35,7 @@
                 </mat-expansion-panel>
             </mat-accordion>
         </div>
-        <div class="col-md-4 col-lg-4 col-sm-8 col-xs-12">
+        <div class="col-md-4 col-lg-4 col-sm-8 col-xs-12 order-sm-first order-xs-first">
             <mat-card class="card">
                 <mat-card-header>
                     <img mat-card-avatar class="header-image" [src]="segurancaService.usuario.imagem" *ngIf="segurancaService.usuario && segurancaService.usuario.imagem">
@@ -44,6 +44,7 @@
                     <h2>{{this.segurancaService.usuario?.nome}}</h2>
                     <p>{{this.segurancaService.usuario?.endereco?.municipio}},
                         {{this.segurancaService.usuario?.endereco?.uf}}</p>
+                    <span>Sessão expira em: {{restante}}</span>
                 </mat-card-content>
             </mat-card>
         </div>
@@ -78,13 +79,13 @@
                     <h2 class="example-h2">Histórico</h2>
                     <mat-tab-group class="tab-group">
                         <mat-tab label="Doações Realizadas">
-                            <div class="tab-content">
-                                217
+                            <div class="tab-content py-4">
+                                <h3>{{quantidadeDoacoes + (quantidadeDoacoes>1?' doações':' doação')}}</h3>
                             </div>
                         </mat-tab>
                         <mat-tab label="Colaborações Feitas">
-                            <div class="tab-content">
-                                2714
+                            <div class="tab-content py-4">
+                                <h3>2714 colaborações</h3>
                             </div>
                         </mat-tab>
                     </mat-tab-group>

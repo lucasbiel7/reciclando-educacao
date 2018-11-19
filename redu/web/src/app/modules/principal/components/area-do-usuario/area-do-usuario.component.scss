@@ -32,6 +32,10 @@ section.area-do-usuario{
             @extend .fonte-titulo;
         }
 
+        span{
+            font-size: 0.8rem;
+            font-weight: normal;
+        }
     }
     .painel-acoes{
         a{

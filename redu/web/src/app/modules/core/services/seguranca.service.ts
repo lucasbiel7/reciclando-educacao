@@ -13,9 +13,11 @@ export class SegurancaService {
     public lastRoute: string;
     private _usuario: Usuario;
     private loadUser: boolean;
+    private jwtHelper: JwtHelper;
 
     constructor(private injector: Injector, private router: Router) {
         this.api = 'seguranca';
+        this.jwtHelper = new JwtHelper();
     }
 
     get http() {
@@ -24,9 +26,8 @@ export class SegurancaService {
 
     get usuario(): Usuario {
         if (this.logado) {
-            const jwtHelper: JwtHelper = new JwtHelper();
-            const token = jwtHelper.decodeToken(this.token);
-            const isExpired = jwtHelper.isTokenExpired(this.token);
+            const token = this.jwtHelper.decodeToken(this.token);
+            const isExpired = this.jwtHelper.isTokenExpired(this.token);
             if (isExpired) {
                 this.logaout();
             }
@@ -44,6 +45,16 @@ export class SegurancaService {
             return this._usuario;
         }
         return null;
+    }
+
+    public get tempoRestante(): string {
+        const end = this.jwtHelper.getTokenExpirationDate(this.token).getTime();
+        const now = new Date().getTime();
+        const diff = end - now;
+        const minutos = Math.floor(diff / (60 * 1000));
+        const segundos = Math.floor((diff % (60 * 1000)) / 1000);
+        const tempoRestante = minutos + ':' + segundos;
+        return tempoRestante;
     }
 
     public buscarUsuario(): Observable<Usuario> {

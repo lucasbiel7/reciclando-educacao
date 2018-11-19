@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SegurancaService } from '../../../core/services/seguranca.service';
+import { DoacaoService } from '../../../core/services/doacao.service';
 
 @Component({
     selector: 'redu-area-do-usuario',
@@ -8,18 +9,20 @@ import { SegurancaService } from '../../../core/services/seguranca.service';
 })
 export class AreaDoUsuarioComponent implements OnInit {
 
-    constructor(public segurancaService: SegurancaService) { }
+    public quantidadeDoacoes: number;
+    public restante: string;
+
+    constructor(public segurancaService: SegurancaService,
+        private doacaoService: DoacaoService) { }
 
     ngOnInit() {
-
+        this.doacaoService.buscarPorColaborador(this.segurancaService.usuario.id).subscribe(doacoes => {
+            this.quantidadeDoacoes = doacoes.length;
+        });
+        setInterval(() => {
+            this.restante = this.segurancaService.tempoRestante;
+        }, 1000);
     }
 
 }
-export class AreaDoUsuario {
-    tiles = [
-        { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
-        { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
-        { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-        { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
-    ];
-}
+

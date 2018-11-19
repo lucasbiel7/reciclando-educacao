@@ -27,7 +27,6 @@ import { DoacaoModule } from './modules/doacao/doacao.module';
         AppRoutingModule
     ],
     providers: [
-        { provide: LOCALE_ID, useValue: 'pt-BR' }
     ],
     bootstrap: [AppComponent]
 })
